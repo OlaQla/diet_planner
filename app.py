@@ -61,5 +61,29 @@ def delete_ingredient(ingredient_id):
     mongo.db.ingredients.remove({'_id': ObjectId(ingredient_id)})
     return redirect(url_for('get_ingredients'))
 
+@app.route('/edit_ingredient/<ingredient_id>')
+def edit_ingredient(ingredient_id):
+    return render_template('edit_ingredient.html',
+    ingredient=mongo.db.ingredients.find_one({'_id': ObjectId(ingredient_id)}))
+
+@app.route('/update_ingredient/<ingredient_id>', methods=['POST'])
+def update_ingredient(ingredient_id):
+    mongo.db.ingredients.update(
+        {'_id': ObjectId(ingredient_id)},
+        {'name': request.form.get('new_name'),
+         'unit': request.form.get('new_unit')})
+    return redirect(url_for('get_ingredients'))
+
+@app.route('/add_ingredient')
+def add_ingredient():
+    return render_template('add_ingredient.html')
+
+@app.route('/insert_ingredient', methods=['POST'])
+def insert_ingredient():
+    ingredient_insert = {'name': request.form.get('new_ingredient'),
+                         'unit': request.form.get('new_ingredient_unit')}
+    mongo.db.ingredients.insert_one(ingredient_insert)
+    return redirect(url_for('get_ingrediends'))
+
 if __name__ == '__main__':
     app.run(host="localhost", port="5000", debug=True)

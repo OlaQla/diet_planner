@@ -11,7 +11,7 @@
                     <strong class="h4">{{ingredient.name}}</strong>
                 </div>
                 <div class="col-lg-4">
-                    <a href="#" class="btn btn-primary" role="button" aria-pressed="true">Edit</a>
+                    <a href="{{url_for('edit_ingredient', ingredient_id=ingredient._id)}}" class="btn btn-primary" role="button" aria-pressed="true">Edit</a>
                     <a href="{{url_for('delete_ingredient', ingredient_id=ingredient._id)}}"
                         class="btn btn-danger " role="button" aria-pressed="true">Delete</a>
                     </div>
@@ -21,6 +21,6 @@
     {% endfor %}
 </ul>
 
-<a href="#" class="btn btn-info bottom-buttons" >Add ingredient    <i class="fa fa-plus"></i></a>
+<a href="{{url_for('add_ingredient')}}" class="btn btn-info bottom-buttons" >Add ingredient    <i class="fa fa-plus"></i></a>
 
 {% endblock %}}

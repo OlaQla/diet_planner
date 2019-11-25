@@ -14,10 +14,15 @@ mongo = PyMongo(app)
 def diet_planner():
     return "Hello, World"
 
-@app.route('/categories')
-def categories():
+@app.route('/get_categories')
+def get_categories():
     all_categories = mongo.db.categories.find()
     return render_template ('categories_list.html', categories = all_categories)
+
+@app.route('/delete_category/<category_id>')
+def delete_category(category_id):
+    mongo.db.categories.remove({'_id': ObjectId(category_id)})
+    return redirect(url_for('get_categories'))
     
 
 if __name__ == '__main__':

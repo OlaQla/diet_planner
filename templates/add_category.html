@@ -1,0 +1,14 @@
+{% extends 'base.html'%} {% block content %}
+
+<h2>Add Category</h2>
+
+<form action="{{ url_for('insert_category')}}" method="POST" class="col-12">
+    <div class="form-group list-group list-group-flush">
+        <label>Category name</label>
+        <input class="form-control list-group-item" type="text" name="new_category" placeholder="New category">
+    </div>
+    <button type="submit" class="btn btn-info">Add category       <i class="fa fa-check "></i></button>
+    <a href="{{url_for('get_categories')}}" class="btn btn-secondary">Cancel <i class="fa fa-trash"></i></a>
+</form>
+
+{% endblock %}

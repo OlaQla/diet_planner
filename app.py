@@ -20,7 +20,7 @@ def diet_planner():
 @app.route('/get_categories')
 def get_categories():
     all_categories = mongo.db.categories.find()
-    return render_template ('categories_list.html', categories = all_categories)
+    return render_template ('get_categories.html', categories = all_categories)
 
 @app.route('/delete_category/<category_id>')
 def delete_category(category_id):
@@ -48,6 +48,18 @@ def insert_category():
     category_insert = {'name': request.form.get('new_category')}
     mongo.db.categories.insert_one(category_insert)
     return redirect(url_for('get_categories'))
+
+""" CRUD Ingredients section """
+
+@app.route('/get_ingredients')
+def get_ingredients():
+    all_ingredients = mongo.db.ingredients.find()
+    return render_template ('get_ingredients.html', ingredients = all_ingredients)
+
+@app.route('/delete_ingredient/<ingredient_id>')
+def delete_ingredient(ingredient_id):
+    mongo.db.ingredients.remove({'_id': ObjectId(ingredient_id)})
+    return redirect(url_for('get_ingredients'))
 
 if __name__ == '__main__':
     app.run(host="localhost", port="5000", debug=True)

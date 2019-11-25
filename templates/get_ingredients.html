@@ -1,0 +1,26 @@
+{% extends 'base.html'%} {% block content %}
+
+<h2>Ingredients</h2>
+
+<ul class=" list-group list-group-flush col-sm-12 col-md-8 col-lg-12">
+    {% for ingredient in ingredients %}
+    <li class="row">
+        <div class="list-group-item container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <strong class="h4">{{ingredient.name}}</strong>
+                </div>
+                <div class="col-lg-4">
+                    <a href="#" class="btn btn-primary" role="button" aria-pressed="true">Edit</a>
+                    <a href="{{url_for('delete_ingredient', ingredient_id=ingredient._id)}}"
+                        class="btn btn-danger " role="button" aria-pressed="true">Delete</a>
+                    </div>
+            </div>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+
+<a href="#" class="btn btn-info bottom-buttons" >Add ingredient    <i class="fa fa-plus"></i></a>
+
+{% endblock %}}

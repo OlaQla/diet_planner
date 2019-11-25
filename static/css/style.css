@@ -1,5 +1,13 @@
-body{
-    background-color:#fafafa;
+
+h2{
+    margin-top: 20px;
+    margin-bottom: 50px;
 }
 
+.bottom-buttons{
+    margin-top: 20px;
+}
 
+.container{
+    width: 90%;
+}

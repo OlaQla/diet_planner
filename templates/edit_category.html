@@ -8,8 +8,12 @@
         <input class="form-control list-group-item" type="text" name = "new_name"
             placeholder="{{category.name}}">
     </div>
-    <button type="submit" class="btn btn-info">Save <i class="fa fa-check "></i></button>
-    <a href ="{{url_for('get_categories')}}" class="btn btn-secondary">Cancel <i class="fa fa-trash"></i></a>
+    <button type="submit" class="btn btn-info bottom-buttons">Save <i class="fa fa-check "></i></button>
+    <a href ="{{url_for('get_categories')}}" class="btn btn-secondary bottom-buttons">Cancel <i class="fa fa-trash"></i></a>
 </form>
+
+{% endblock %}
+
+{% block style %}
 
 {% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html'%} {% block content %}
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Your Recipes!</h1>
+        <p class="lead">choose your recipe</p>
+        <a href="{{url_for('add_recipe')}}" class="btn btn-info bottom-buttons">
+            Add recipe
+            <i class="fa fa-plus"></i>
+        </a>
+    </div>
+</div>
+
+{% for recipe in recipes %}
+<div class="card-group">
+    <div class="card">
+        <img src="{{url_for('static', filename=recipe.image)}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{recipe.title}}</h5>
+            <div class='container'>
+                <div class='row'>
+                    <div class='col-4'><strong>Category: </strong> {{recipe.category}}</div>
+                    <div class='col-4'><strong>Time: </strong>
+                        {{recipe.prepare_time_hours}}:{{recipe.prepare_time_minutes}}</div>
+                    <div class='col-4'><strong>Servings: </strong> {{recipe.servings}}</div>
+                </div>
+            </div>
+            <a href="{{url_for('view_recipe', recipe_id=recipe._id)}}" class="btn btn-primary bottom-buttons">
+                Get the recipe
+                <i class="fa fa-angle-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+{%endfor%}
+
+{% endblock %}

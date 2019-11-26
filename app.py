@@ -85,5 +85,23 @@ def insert_ingredient():
     mongo.db.ingredients.insert_one(ingredient_insert)
     return redirect(url_for('get_ingrediends'))
 
+""" CRUD Recipe section """
+
+@app.route('/get_recipes')
+def get_recipes():
+    all_recipes = mongo.db.recipies.find()
+    return render_template ('get_recipes.html', recipes = all_recipes)
+             
+@app.route('/add_recipe')
+def add_recipe():
+    return render_template('add_recipe.html')
+
+@app.route('/view_recipe/<recipe_id>')
+def view_recipe(recipe_id):
+    return render_template('view_recipe.html',
+    recipe=mongo.db.recipies.find_one({'_id': ObjectId(recipe_id)}))
+    
+
+
 if __name__ == '__main__':
     app.run(host="localhost", port="5000", debug=True)

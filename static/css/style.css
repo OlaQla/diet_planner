@@ -11,3 +11,7 @@ h2{
 .container{
     width: 90%;
 }
+
+.card_group{
+    border-radius:5px;
+}

@@ -1,0 +1,37 @@
+{% extends 'base.html'%} {% block content %}
+
+<div class="card-group">
+    <div class="card">
+        <img src="{{url_for('static', filename=recipe.image)}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{recipe.title}}</h5>
+            <div class='container'>
+                <div class="col-12">
+                    <div class='row'>
+                        <div class='col-4'><strong>Category: </strong> {{recipe.category}}</div>
+                        <div class='col-4'><strong>Time: </strong>
+                            {{recipe.prepare_time_hours}}:{{recipe.prepare_time_minutes}}</div>
+                        <div class='col-4'><strong>Servings: </strong> {{recipe.servings}}</div>
+                    </div>
+                    <div class='col-12'>
+                        <h4><i class="fa fa-apple-alt"></i> Ingredients: </h4>
+                        <ul>
+                            {% for ingredient in recipe.ingredients %}
+                            <li>
+                                <div>{{ingredient.name}}</div>
+                                <div>{{ingredient.unit}}</div>
+                                <div>{{ingredient.amount}}</div>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        <h4><i class="fas fa-book-open"></i> Recipe: </h4>
+                        <div>{{recipe.recipe}}</div>
+                    </div>
+                </div>
+            </div>
+            <a href ="{{url_for('get_recipes')}}" class="btn btn-secondary bottom-buttons">Go back to all recipes </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

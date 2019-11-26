@@ -94,14 +94,23 @@ def get_recipes():
              
 @app.route('/add_recipe')
 def add_recipe():
-    return render_template('add_recipe.html')
+    all_categories = mongo.db.categories.find()
+    return render_template('add_recipe.html', categories = all_categories)
+
+@app.route('/insert_recipe', methods=['POST'])
+def insert_recipe():
+    mongo.db.recipies.insert_one(request.json)
+    return ('', 200)
 
 @app.route('/view_recipe/<recipe_id>')
 def view_recipe(recipe_id):
     return render_template('view_recipe.html',
     recipe=mongo.db.recipies.find_one({'_id': ObjectId(recipe_id)}))
-    
 
+@app.route('/delete_recipe/<recipe_id>')
+def delete_recipe(recipe_id):
+    mongo.db.recipies.remove({'_id': ObjectId(recipe_id)})
+    return redirect(url_for('get_recipes'))
 
 if __name__ == '__main__':
     app.run(host="localhost", port="5000", debug=True)

@@ -1,1 +1,112 @@
-<div>test</div>
+{% extends 'base.html'%} {% block content %}
+
+<h2>Add recipe</h2>
+
+<form action="" method="POST" class="col-12">
+    <div class="form-group list-group list-group-flush">
+        <label>Title</label>
+        <input class="form-control list-group-item" type="text" name="new_title" placeholder="new title">
+    </div>
+    <div class="form-group list-group list-group-flush">
+            <label>Image</label>
+            <input class="form-control list-group-item" type="text" name="new_image" placeholder="image">
+        </div>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Write your recipe</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" name="new_recipe" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">How meny servings?</label>
+        <select class="form-control" id="exampleFormControlSelect1" name="new_servings">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Category</label>
+        <select class="form-control" id="exampleFormControlSelect1" name="category">
+            {% for cat in categories %}
+            <option value="{{cat.name}}">{{cat.name}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Preper time: minutes</label>
+        <select class="form-control" id="exampleFormControlSelect1" name="new_minutes">
+            <option>5</option>
+            <option>10</option>
+            <option>15</option>
+            <option>20</option>
+            <option>25</option>
+            <option>30</option>
+            <option>35</option>
+            <option>40</option>
+            <option>45</option>
+            <option>50</option>
+            <option>55</option>
+
+        </select>
+    </div>
+    <div class="form-group">
+            <label for="exampleFormControlSelect1">Preper time: hours</label>
+            <select class="form-control" id="exampleFormControlSelect1" name="new_hours">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+            </select>
+    </div>
+
+
+    <button type="button" class="btn btn-info bottom-buttons" id="submit_button">Save recipe <i class="fa fa-check "></i></button>
+    <a href="{{url_for('get_recipes')}}" class="btn btn-secondary bottom-buttons" id="cancel_button">Cancel <i class="fa fa-trash"></i></a>
+</form>
+
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+$(document).ready(function(){
+
+    $("#submit_button").click(function(){
+        const data = {
+            title: $("form").find("input[name=new_title]").val(),
+            recipe: $("form").find("textarea[name=new_recipe]").val(), 
+            image: $("form").find("input[name=new_image]").val(),
+            servings: $("form").find("select[name=new_servings]").val(),
+            category: $("form").find("select[name=category]").val(),
+            prepare_time_minutes: $("form").find("select[name=new_minutes]").val(),
+            prepare_time_hours: $("form").find("select[name=new_hours]").val(),
+            ingredients: []
+        }
+        
+        $.ajax({
+            url: "{{ url_for('insert_recipe')}}",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(data),
+            success: function(){
+                window.location.href = "{{url_for('get_recipes')}}"
+            }
+        });
+
+        
+    })
+
+})
+</script>
+
+
+{% endblock %}

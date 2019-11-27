@@ -104,11 +104,16 @@
 <script type="text/javascript">
     $(document).ready(function () {
 
+        $(document).on("click", ".delete_ingredient", function(){
+            $(this).parents("li").eq(0).remove()
+        })
+
+
         $("#add_ingredient").click(function () {
             const ingredient_name = $("#search_ingredient").val();
             const ingredient_unit = $("#search_unit").val();
 
-            $("form").find("#ingredients_list").append(`<li><div><div>${ingredient_name}</div><div>${ingredient_unit}</div><div><input class=\"form-control form-control-sm\" type=\"text\" placeholder=\"amount\"></div></div></li>`)
+            $("form").find("#ingredients_list").append(`<li><div><div>${ingredient_name}</div><div>${ingredient_unit}</div><div><input class=\"form-control form-control-sm\" type=\"text\" placeholder=\"amount\"></div><div><button type="button" class="delete_ingredient">Delete</button></div></div></li>`)
         })
 
         $("#submit_button").click(function () {

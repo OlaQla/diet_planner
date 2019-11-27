@@ -8,11 +8,13 @@ h2 {
 }
 
 .container {
-  width: 95%;
+  width: 100%;
 }
 
 .card_group {
   display: flex;
+  padding-left: 0;
+  padding-right: 0;
 }
 .card {
   border-radius: 8px;

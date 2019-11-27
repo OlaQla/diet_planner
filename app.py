@@ -95,7 +95,9 @@ def get_recipes():
 @app.route('/add_recipe')
 def add_recipe():
     all_categories = mongo.db.categories.find()
-    return render_template('add_recipe.html', categories = all_categories)
+    all_ingredients = mongo.db.ingredients.find()
+    all_units = mongo.db.units.find()
+    return render_template('add_recipe.html', categories = all_categories, ingredients = all_ingredients, units = all_units)
 
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():

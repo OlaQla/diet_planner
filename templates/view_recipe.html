@@ -1,45 +1,48 @@
 {% extends 'base.html'%} {% block content %}
 <div class="container col-12 col-md-10 col-lg-8 offset -md-2 offset-lg-2 ">
-<div class="card-group ">
-    <div class="card row">
-        <img src="{{url_for('static', filename=recipe.image)}}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h3 class="card-title">{{recipe.title}}</h3>
-            <hr>
-            <div class='container nopadding'>
-                <div class="container-fluid col-12">
-                    <div class='row'>
-                        <div class='col-4'><strong>Category: </strong> {{recipe.category}}</div>
-                        <div class='col-4'><strong>Time: </strong>
-                            {{recipe.prepare_time_hours}}:{{recipe.prepare_time_minutes}}</div>
-                        <div class='col-4'><strong>Servings: </strong> {{recipe.servings}}</div>
-                    </div>
+    <div class="card-group ">
+        <div class="card row">
+            <img src="{{url_for('static', filename=recipe.image)}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h3 class="card-title">{{recipe.title}}</h3>
+                <hr>
+                <div class='container nopadding'>
+                    <div class="container-fluid col-12">
+                        <div class='row'>
+                            <div class='col-4'><strong>Category: </strong> {{recipe.category}}</div>
+                            <div class='col-4'><strong>Time: </strong>
+                                {{recipe.prepare_time_hours}}:{{recipe.prepare_time_minutes}}</div>
+                            <div class='col-4'><strong>Servings: </strong> {{recipe.servings}}</div>
+                        </div>
 
-                    <hr>
-                    <div class='col-12'>
-                        <h4><i class="fa fa-apple-alt"></i> Ingredients: </h4>
-                        <ul>
-                            {% for ingredient in recipe.ingredients %}
-                            <li>
-                                <div>{{ingredient.name}}</div>
-                                <div>{{ingredient.unit}}</div>
-                                <div>{{ingredient.amount}}</div>
-                            </li>
-                            {% endfor %}
-                        </ul>
-                        <h4><i class="fas fa-book-open"></i> Directions: </h4>
-                        <div>{{recipe.recipe}}</div>
+                        <hr>
+                        <div class='col-12'>
+                            <h4><i class="fa fa-apple-alt"></i> Ingredients: </h4>
+                            <ul>
+                                {% for ingredient in recipe.ingredients %}
+                                <li>
+                                    <div>{{ingredient.name}}</div>
+                                    <div>{{ingredient.unit}}</div>
+                                    <div>{{ingredient.amount}}</div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                            <h4><i class="fas fa-book-open"></i> Directions: </h4>
+                            <div>{{recipe.recipe}}</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <hr>
-            <a href="{{url_for('get_recipes')}}" class="btn btn-secondary bottom-buttons">Go back to all recipes
-            </a>
-            <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="btn btn-danger bottom-buttons"
-                role="button" aria-pressed="true">Delete</a>
+                <hr>
+                <a href="{{url_for('get_recipes')}}" class="btn btn-secondary bottom-buttons">Go back to all recipes
+                </a>
+                <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn btn-primary bottom-buttons"
+                    role="button" aria-pressed="true">Edit</a>
+                <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="btn btn-danger bottom-buttons"
+                    role="button" aria-pressed="true">Delete</a>
+                
 
+            </div>
         </div>
     </div>
-</div>
 </div>
 {% endblock %}

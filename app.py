@@ -64,7 +64,7 @@ def delete_ingredient(ingredient_id):
 @app.route('/edit_ingredient/<ingredient_id>')
 def edit_ingredient(ingredient_id):
     return render_template('edit_ingredient.html',
-    ingredient=mongo.db.ingredients.find_one({'_id': ObjectId(ingredient_id)}))
+        ingredient=mongo.db.ingredients.find_one({'_id': ObjectId(ingredient_id)}))
 
 @app.route('/update_ingredient/<ingredient_id>', methods=['POST'])
 def update_ingredient(ingredient_id):
@@ -104,6 +104,7 @@ def insert_recipe():
     mongo.db.recipies.insert_one(request.json)
     return ('', 200)
 
+
 @app.route('/view_recipe/<recipe_id>')
 def view_recipe(recipe_id):
     return render_template('view_recipe.html',
@@ -113,6 +114,20 @@ def view_recipe(recipe_id):
 def delete_recipe(recipe_id):
     mongo.db.recipies.remove({'_id': ObjectId(recipe_id)})
     return redirect(url_for('get_recipes'))
+
+@app.route('/edit_recipe/<recipe_id>')
+def edit_recipe(recipe_id):
+    all_categories = mongo.db.categories.find()
+    all_ingredients = mongo.db.ingredients.find()
+    all_units = mongo.db.units.find()
+    return render_template('add_recipe.html', categories = all_categories, ingredients = all_ingredients, units = all_units, existing_recipe=mongo.db.recipies.find_one({'_id': ObjectId(recipe_id)}))
+
+@app.route('/update_recipe/<recipe_id>', methods=['POST'])
+def update_recipe(recipe_id):
+    mongo.db.recipies.update(
+        {'_id': ObjectId(recipe_id)}, request.json)
+    return ('', 200)
+
 
 if __name__ == '__main__':
     app.run(host="localhost", port="5000", debug=True)

@@ -1,7 +1,7 @@
 {% extends 'base.html'%} {% block content %}
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 class="display-4">Your Recipes</h1>
+        <h1 class="display-4"><strong> Your Recipes</strong></h1>
         <p class="lead">delicious recipes for happier living!</p>
         <a href="{{url_for('add_recipe')}}" class="btn btn-info bottom-buttons">
             Add recipe
@@ -9,29 +9,31 @@
         </a>
     </div>
 </div>
-
-{% for recipe in recipes %}
-<div class="card-group">
-    <div class="card">
-        <img src="{{url_for('static', filename=recipe.image)}}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">{{recipe.title}}</h5>
-            <div class='container'>
-                <div class='row'>
-                    <div class='col-4'><strong>Category: </strong> {{recipe.category}}</div>
-                    <div class='col-4'><strong>Time: </strong>
-                        {{recipe.prepare_time_hours}}:{{recipe.prepare_time_minutes}}</div>
-                    <div class='col-4'><strong>Servings: </strong> {{recipe.servings}}</div>
+<div class="row">
+    {% for recipe in recipes %}
+    <div class="card-group col-sm-12 col-md-6 col-lg-4">
+        <div class="card mt-3">
+            <img src="{{url_for('static', filename=recipe.image)}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{recipe.title}}</h5>
+                <hr>
+                <div class='container nopadding col-12'>
+                    <div class='row '>
+                        <small class ="col-4" class='col-4'><strong><i class="fa fa-align-center"></i>  Category: </strong> {{recipe.category}}</small>
+                        <small class='col-4'><strong><i class="fa fa-clock"></i>  Prep time: </strong>
+                            {{recipe.prepare_time_hours}}:{{recipe.prepare_time_minutes}}</small>
+                        <small class='col-4'><strong><i class="fa fa-utensils"></i>  Servings: </strong> {{recipe.servings}}</small>
+                    </div>
                 </div>
+                <hr>
+                <a href="{{url_for('view_recipe', recipe_id=recipe._id)}}" class="btn btn-warning bottom-buttons">
+                    Get the recipe
+                    <i class="fa fa-angle-right"></i>
+                </a>
             </div>
-            <a href="{{url_for('view_recipe', recipe_id=recipe._id)}}" class="btn btn-primary bottom-buttons">
-                Get the recipe
-                <i class="fa fa-angle-right"></i>
-            </a>
         </div>
     </div>
+
+    {%endfor%}
 </div>
-
-{%endfor%}
-
 {% endblock %}

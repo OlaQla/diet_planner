@@ -1,17 +1,45 @@
-
-h2{
-    margin-top: 20px;
-    margin-bottom: 50px;
+h2 {
+  margin-top: 20px;
+  margin-bottom: 50px;
 }
 
-.bottom-buttons{
-    margin-top: 20px;
+.bottom-buttons {
+  margin-top: 20px;
 }
 
-.container{
-    width: 90%;
+.container {
+  width: 95%;
 }
 
-.card_group{
-    border-radius:5px;
+.card_group {
+  display: flex;
 }
+.card {
+  border-radius: 8px;
+}
+
+.jumbotron {
+  background-image: url(../images/jumbo2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.display-4{
+    color: #fafafa;
+}
+.lead{
+    color:#fafafa;
+}
+
+.btn-warning{
+    background-color:rgb(251,203,123, 0.9);
+    border:none;
+}
+.btn-warning:hover{
+    background-color: rgb(251,203,123,1);
+}
+
+.nopadding {
+    padding: 0 !important;
+    margin: 0 !important;
+ }

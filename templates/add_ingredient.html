@@ -7,12 +7,9 @@
         <label>Ingredient name</label>
         <input class="form-control list-group-item" type="text" name="new_ingredient" placeholder="New ingredient">
     </div>
-    <div class="form-group list-group list-group-flush">
-        <label>Ingredient unit</label>
-        <input class="form-control list-group-item" type="text" name="new_ingredient_unit" placeholder="New unit">
-    </div>
-    <button type="submit" class="btn btn-info bottom-buttons">Add ingredient       <i class="fa fa-check "></i></button>
-    <a href="{{url_for('get_ingredients')}}" class="btn btn-secondary bottom-buttons">Cancel <i class="fa fa-trash"></i></a>
+    <button type="submit" class="btn btn-info bottom-buttons">Add ingredient <i class="fa fa-check "></i></button>
+    <a href="{{url_for('get_ingredients')}}" class="btn btn-secondary bottom-buttons">Cancel <i
+            class="fa fa-trash"></i></a>
 </form>
 
 {% endblock %}

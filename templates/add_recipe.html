@@ -126,7 +126,7 @@
         $("form").find("select[name=category]").val("{{existing_recipe.category}}");
         $("form").find("select[name=new_minutes]").val("{{existing_recipe.prepare_time_minutes}}");
         $("form").find("select[name=new_hours]").val("{{existing_recipe.prepare_time_hours}}");
-        
+
         const ingredients = {{ existing_recipe.ingredients | tojson }};
         
         ingredients.forEach(function(i) {

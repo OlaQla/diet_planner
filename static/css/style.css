@@ -1,6 +1,32 @@
+body {
+  background-color: #f6f0e8;
+}
 h2 {
   margin-top: 20px;
   margin-bottom: 50px;
+}
+
+h2,
+h3,
+h4,
+h5 {
+  font-family: "asap condensed", sans-serif !important;
+  font-weight: 700;
+}
+h4,
+h3 {
+  color:black;
+}
+.bigger {
+  font-family: "asap condensed", sans-serif !important;
+  font-size: 20px;
+}
+
+small {
+  color: #6ab187;
+}
+.green {
+  color: #6ab187;
 }
 
 .bottom-buttons {
@@ -11,14 +37,29 @@ h2 {
   width: 100%;
 }
 
-.card_group {
+.card-group {
   display: flex;
-  padding-left: 0;
-  padding-right: 0;
+  transition: all 0.5s ease;
+  transform: scale(1);
 }
+.card-group:hover {
+transform: scale(1.03);
+}
+
 .card {
   border-radius: 8px;
+  background-color: rgb(253, 252, 250);
 }
+
+.fa-minus-circle{
+  color: red;
+  transition: all 0.5s ease;
+  transform: scale(1);
+}
+
+.fa-minus-circle:hover {
+  transform: scale(1.5);
+  }
 
 .jumbotron {
   background-image: url(../images/jumbo2.jpg);
@@ -26,22 +67,32 @@ h2 {
   background-size: cover;
 }
 
-.display-4{
-    color: #fafafa;
+.display-4 {
+  color: #fafafa;
 }
-.lead{
-    color:#fafafa;
+.lead {
+  color: #fafafa;
 }
 
-.btn-warning{
-    background-color:rgb(251,203,123, 0.9);
-    border:none;
+.btn-warning {
+  background-color: #f4cc70;
+  border: none;
+  transition: all 1s ease;
+  transform: scale(1);
 }
-.btn-warning:hover{
-    background-color: rgb(251,203,123,1);
+.btn-warning:hover {
+  background-color: rgb(251, 203, 123, 1);
+  transform: scale(1.1) perspective(1px);
 }
 
 .nopadding {
-    padding: 0 !important;
-    margin: 0 !important;
- }
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.grey {
+  background-color: grey;
+}
+.nomargin {
+  margin:0 !important;
+}

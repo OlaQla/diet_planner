@@ -1,0 +1,51 @@
+{% extends 'base.html'%} {% block content %}
+
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">#</th>
+            <th scope="col">Monday</th>
+            <th scope="col">Tuesday</th>
+            <th scope="col">Wednesday</th>
+            <th scope="col">Thursday</th>
+            <th scope="col">Friday</th>
+            <th scope="col">Saturday</th>
+            <th scope="col">Sunday</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cat in categories %}
+        <tr>
+            <th>
+                <i class="fa fa-minus-circle" ></i>
+            </th>
+            <th scope="row">{{cat.name}}</th>
+            {% for n in range(7) %}
+            <td> <select class="form-control" id="exampleFormControlSelect1" name="new_hours">
+                    {% for recipe in recipes %}
+                    {% if recipe.category == cat.name %}
+                    <option>{{recipe.title}}</option>
+                    {% endif %}
+                    {% endfor %}
+                </select>
+            </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
+{% block scripts %}
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+    $("table i").click(function(){
+        $(this).parents("tr").remove()
+    })
+})
+</script>
+
+{% endblock %}

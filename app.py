@@ -12,7 +12,7 @@ mongo = PyMongo(app)
 
 @app.route('/')
 def diet_planner():
-    return "Hello, World"
+    return render_template ('main.html')
 
 
 """ CRUD Category section """
@@ -29,8 +29,9 @@ def delete_category(category_id):
 
 @app.route('/edit_category/<category_id>')
 def edit_category(category_id):
+    all_categories = mongo.db.categories.find()
     return render_template('edit_category.html',
-    category=mongo.db.categories.find_one({'_id': ObjectId(category_id)}))
+    category=mongo.db.categories.find_one({'_id': ObjectId(category_id)}), categories = all_categories)
     
 @app.route('/update_category/<category_id>', methods=['POST'])
 def update_category(category_id):
@@ -63,6 +64,7 @@ def delete_ingredient(ingredient_id):
 
 @app.route('/edit_ingredient/<ingredient_id>')
 def edit_ingredient(ingredient_id):
+    
     return render_template('edit_ingredient.html',
         ingredient=mongo.db.ingredients.find_one({'_id': ObjectId(ingredient_id)}))
 
@@ -83,7 +85,7 @@ def insert_ingredient():
     ingredient_insert = {'name': request.form.get('new_ingredient'),
                          'unit': request.form.get('new_ingredient_unit')}
     mongo.db.ingredients.insert_one(ingredient_insert)
-    return redirect(url_for('get_ingrediends'))
+    return redirect(url_for('get_ingredients'))
 
 """ CRUD Recipe section """
 
@@ -128,6 +130,16 @@ def update_recipe(recipe_id):
         {'_id': ObjectId(recipe_id)}, request.json)
     return ('', 200)
 
+
+"""Diet planner"""
+
+@app.route('/diet_plan')
+def diet_plan():
+    all_categories = list(mongo.db.categories.find())
+    all_recipes = mongo.db.recipies.find()
+    all_categories.sort(key=lambda c: c['sort_index'])
+    
+    return render_template('diet_plan.html', categories = all_categories, recipes= list(all_recipes) )
 
 if __name__ == '__main__':
     app.run(host="localhost", port="5000", debug=True)

@@ -11,14 +11,14 @@
 </div>
 <div class="row">
     {% for recipe in recipes %}
-    <div class="card-group col-sm-12 col-md-6 col-lg-4">
+    <div class="card-group col-sm-12 col-md-6 col-lg-4" data-target="{{url_for('view_recipe', recipe_id=recipe._id)}}">
         <div class="card mt-3">
             <img src="{{url_for('static', filename=recipe.image)}}" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">{{recipe.title}}</h5>
-                <hr>
+                <h4 class="card-title text-center">{{recipe.title}}</h4>
+               
                 <div class='container nopadding col-12'>
-                    <div class='row '>
+                    <div class='row bigger'>
                         <small class ="col-4 text-center nopadding"><strong><i class="fa fa-align-center"></i>  Category: </strong> </small>
                         <small class='col-4 text-center nopadding'><strong><i class="fa fa-clock"></i>  Prep time: </strong>
                             </small>
@@ -30,15 +30,21 @@
                         <small class='col-4 text-center'>{{recipe.servings}}</small>
                     </div>
                 </div>
-                <hr>
-                <a href="{{url_for('view_recipe', recipe_id=recipe._id)}}" class="btn btn-warning bottom-buttons">
-                    Get the recipe
-                    <i class="fa fa-angle-right"></i>
-                </a>
             </div>
         </div>
     </div>
 
     {%endfor%}
 </div>
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $(".card-group").click(function(){
+            window.location.href = $(this).data("target");
+        })
+    })
+    
+    </script>
 {% endblock %}

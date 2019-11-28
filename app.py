@@ -136,8 +136,8 @@ def update_recipe(recipe_id):
 @app.route('/diet_plan')
 def diet_plan():
     all_categories = list(mongo.db.categories.find())
-    all_recipes = mongo.db.recipies.find()
     all_categories.sort(key=lambda c: c['sort_index'])
+    all_recipes = mongo.db.recipies.find({}, {"_id": False})
     
     return render_template('diet_plan.html', categories = all_categories, recipes= list(all_recipes) )
 

@@ -1,5 +1,6 @@
 body {
-  background-color: #f6f0e8;
+  background-color: #FFF8EF
+
 }
 h2 {
   margin-top: 20px;
@@ -52,7 +53,7 @@ transform: scale(1.03);
 }
 
 .fa-minus-circle{
-  color: red;
+  color: grey;
   transition: all 0.5s ease;
   transform: scale(1);
 }
@@ -95,4 +96,8 @@ transform: scale(1.03);
 }
 .nomargin {
   margin:0 !important;
+}
+
+.form_style{
+  border: solid 1px lightgrey;
 }

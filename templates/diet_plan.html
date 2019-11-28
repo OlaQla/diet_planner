@@ -18,14 +18,14 @@
         {% for cat in categories %}
         <tr>
             <th>
-                <i class="fa fa-minus-circle" ></i>
+                <i class="fa fa-minus-circle"></i>
             </th>
-            <th scope="row">{{cat.name}}</th>
+            <th scope="row" class="category_name">{{cat.name}}</th>
             {% for n in range(7) %}
             <td> <select class="form-control" id="exampleFormControlSelect1" name="new_hours">
                     {% for recipe in recipes %}
                     {% if recipe.category == cat.name %}
-                    <option>{{recipe.title}}</option>
+                    <option class="recipe_name">{{recipe.title}}</option>
                     {% endif %}
                     {% endfor %}
                 </select>
@@ -35,17 +35,82 @@
         {% endfor %}
     </tbody>
 </table>
+
+<div id="print"></div>
+<div id="shopping_list"></div>
+
+
+
 {% endblock %}
 
 {% block scripts %}
 
 <script type="text/javascript">
-$(document).ready(function(){
+    $(document).ready(function () {
 
-    $("table i").click(function(){
+        const recipes = {{ recipes | tojson
+    }};
+    const recipesMap = new Map(recipes.map(r => [r.title, r]));
+
+    $("table i").click(function () {
         $(this).parents("tr").remove()
     })
+
+    $("select").change(function () {
+        $print = $("#print");
+        $shopping_list = $("#shopping_list");
+        $shopping_list.empty();
+        $print.empty();
+
+        let all_ingredients = new Map()
+
+        $("thead th:gt(1)").each(function (day_index) {
+            //$print.append(`<strong><div>${$(this).text()}</div><strong>`)
+
+            console.log(`day: ${day_index}`)
+            $(".category_name").each(function (category_index) {
+                //$print.append(`<div>${$(this).text()}</div>`)
+                console.log(`cat: ${category_index}`)
+                const dish_name = $(`tr:eq(${category_index + 1}) td:eq(${day_index}) select`).val();
+                //$print.append(`<div>${dish_name}</div>`)
+
+                const recipe = recipesMap.get(dish_name);
+                //$print.append(`<div>${recipe.recipe}</div>`)
+
+                recipe.ingredients.forEach(i => {
+                    const floatAmount = parseFloat(i.amount);
+
+                    if (all_ingredients.has(i.name)) {
+                        if (all_ingredients.get(i.name).has(i.unit)) {
+                            const newValue = all_ingredients.get(i.name).get(i.unit) + floatAmount
+                            all_ingredients.get(i.name).set(i.unit, newValue);
+
+                        } else {
+                            all_ingredients.get(i.name).set(i.unit, floatAmount)
+                        }
+                    } else {
+                        all_ingredients.set(i.name, new Map())
+                        all_ingredients.get(i.name).set(i.unit, floatAmount)
+                    }
+                })
+                console.log(`cat: ${category_index}`)
+            })
+
+            console.log(`day: ${day_index}`)
+        })
+
+        for (const [name, unit_amount] of all_ingredients.entries()) {
+            $shopping_list.append(`<div>${name}</div>`)
+
+            for (const [unit, amount] of unit_amount.entries()) {
+                $shopping_list.append(`<div>${unit} ${amount}</div>`)
+            }
+        }
+
+
+    })
 })
+
 </script>
 
 {% endblock %}

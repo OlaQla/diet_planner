@@ -1,116 +1,129 @@
 {% extends 'base.html'%} {% block content %}
 
 {% if existing_recipe %}
-<h2>Edit recipe</h2>
+<h2 class="text-center">Edit recipe</h2>
 
 {% else %}
-<h2>Add recipe</h2>
+<h2 class="text-center">Add your recipe</h2>
 
 {% endif %}
-
-<form action="" method="POST" class="col-12">
-    <div class="form-group list-group list-group-flush">
-        <label>Title</label>
-        <input class="form-control list-group-item" type="text" name="new_title" placeholder="new title">
-    </div>
-    <div class="form-group list-group list-group-flush">
-        <label>Image</label>
-        <input class="form-control list-group-item" type="text" name="new_image" placeholder="image">
-    </div>
-    <div class="form-group">
-        <label for="exampleFormControlTextarea1">Write your recipe</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" name="new_recipe" rows="3"></textarea>
-    </div>
-    <div class="form-group">
-        <label for="exampleFormControlSelect1">How meny servings?</label>
-        <select class="form-control" id="exampleFormControlSelect1" name="new_servings">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="exampleFormControlSelect1">Category</label>
-        <select class="form-control" id="exampleFormControlSelect1" name="category">
-            {% for cat in categories %}
-            <option value="{{cat.name}}">{{cat.name}}</option>
-            {% endfor %}
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="exampleFormControlSelect1">Preper time: minutes</label>
-        <select class="form-control" id="exampleFormControlSelect1" name="new_minutes">
-            <option>0</option>
-            <option>5</option>
-            <option>10</option>
-            <option>15</option>
-            <option>20</option>
-            <option>25</option>
-            <option>30</option>
-            <option>35</option>
-            <option>40</option>
-            <option>45</option>
-            <option>50</option>
-            <option>55</option>
-
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="exampleFormControlSelect1">Preper time: hours</label>
-        <select class="form-control" id="exampleFormControlSelect1" name="new_hours">
-            <option>0</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
-            <option>11</option>
-            <option>12</option>
-        </select>
-    </div>
-    <div class="container-flex">
+<div class="col-10  offset-1">
+    <form action="" method="POST" class="col-12 form_style p-5">
         <div class="row">
-            <div class="form-group col-6">
-                <label for="search_ingredient">Add ingredient</label>
-                <select class="form-control" id="search_ingredient" name="category">
-                    {% for ing in ingredients %}
-                    <option value="{{ing.name}}">{{ing.name}}</option>
+            <div class="col-6 form-group list-group list-group-flush">
+                <label>Title</label>
+                <input class="form-control list-group-item" type="text" name="new_title" placeholder="new title">
+            </div>
+
+            <div class="col-6 form-group">
+                <label for="exampleFormControlSelect1">Category</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="category">
+                    {% for cat in categories %}
+                    <option value="{{cat.name}}">{{cat.name}}</option>
                     {% endfor %}
                 </select>
             </div>
-            <div class="form-group col-3">
-                <label for="search_unit">Unit</label>
-                <select class="form-control" id="search_unit" name="category">
-                    {% for unit in units %}
-                    <option value="{{unit.name}}">{{unit.name}}</option>
-                    {% endfor %}
-                </select>
-            </div>
-            <button type="button" class="col-1 btn" id="add_ingredient"><i class="fa fa-plus"></i></button>
         </div>
-        <ul id="ingredients_list">
-            
-        </ul>
-    </div>
-    {% if existing_recipe%}
-    <button type="button" class="btn btn-info bottom-buttons" id="submit_button">Edit recipe <i
-        class="fa fa-check "></i></button>
-    {% else %}
-    <button type="button" class="btn btn-info bottom-buttons" id="submit_button">Save recipe <i
-        class="fa fa-check "></i></button>
-    {% endif %}
-    
-    <a href="{{url_for('get_recipes')}}" class="btn btn-secondary bottom-buttons" id="cancel_button">Cancel <i
-            class="fa fa-trash"></i></a>
-</form>
+
+        <div class="row">
+            <div class=" col-6 form-group">
+                <label for="exampleFormControlSelect1">How meny servings?</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="new_servings">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                </select>
+            </div>
+
+            <div class="col-6 form-group list-group list-group-flush">
+                <label>Image</label>
+                <input class="form-control list-group-item" type="text" name="new_image" placeholder="image">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Write your recipe</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" name="new_recipe" rows="3"></textarea>
+        </div>
+
+        <p>Preper time: </p>
+        <div class="row">
+            <div class="col-6 form-group">
+                <label for="exampleFormControlSelect1"> minutes</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="new_minutes">
+                    <option>0</option>
+                    <option>5</option>
+                    <option>10</option>
+                    <option>15</option>
+                    <option>20</option>
+                    <option>25</option>
+                    <option>30</option>
+                    <option>35</option>
+                    <option>40</option>
+                    <option>45</option>
+                    <option>50</option>
+                    <option>55</option>
+
+                </select>
+            </div>
+            <div class="col-6 form-group">
+                <label for="exampleFormControlSelect1">hours</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="new_hours">
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                </select>
+            </div>
+        </div>
+        <div class="container-flex">
+            <div class="row">
+                <div class="form-group col-6">
+                    <label for="search_ingredient">Add ingredient</label>
+                    <select class="form-control" id="search_ingredient" name="category">
+                        {% for ing in ingredients %}
+                        <option value="{{ing.name}}">{{ing.name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group col-3">
+                    <label for="search_unit">Unit</label>
+                    <select class="form-control" id="search_unit" name="category">
+                        {% for unit in units %}
+                        <option value="{{unit.name}}">{{unit.name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="button" class="col-1 btn" id="add_ingredient"><i class="fa fa-plus"></i></button>
+            </div>
+            <ul id="ingredients_list">
+
+            </ul>
+        </div>
+        {% if existing_recipe%}
+        <button type="button" class="btn btn-info bottom-buttons" id="submit_button">Edit recipe <i
+                class="fa fa-check "></i></button>
+        {% else %}
+        <button type="button" class="btn btn-info bottom-buttons" id="submit_button">Save recipe <i
+                class="fa fa-check "></i></button>
+        {% endif %}
+
+        <a href="{{url_for('get_recipes')}}" class="btn btn-secondary bottom-buttons" id="cancel_button">Cancel <i
+                class="fa fa-trash"></i></a>
+    </form>
+</div>
 
 {% endblock %}
 
@@ -118,7 +131,7 @@
 
 {% if existing_recipe %}
 <script type="text/javascript">
-    $(document).ready(function(){
+    $(document).ready(function () {
         $("form").find("input[name=new_title]").val("{{existing_recipe.title}}");
         $("form").find("textarea[name=new_recipe]").val("{{existing_recipe.recipe}}");
         $("form").find("input[name=new_image]").val("{{existing_recipe.image}}");
@@ -127,21 +140,22 @@
         $("form").find("select[name=new_minutes]").val("{{existing_recipe.prepare_time_minutes}}");
         $("form").find("select[name=new_hours]").val("{{existing_recipe.prepare_time_hours}}");
 
-        const ingredients = {{ existing_recipe.ingredients | tojson }};
-        
-        ingredients.forEach(function(i) {
-            $("form").find("#ingredients_list").append(`<li><div><div>${i.name}</div><div>${i.unit}</div><div><input class=\"form-control form-control-sm\" type=\"text\" value ="${i.amount}" placeholder=\"amount\"></div><div><button type="button" class="delete_ingredient">Delete</button></div></div></li>`)
-        })
+        const ingredients = {{ existing_recipe.ingredients | tojson
+    }};
+
+    ingredients.forEach(function (i) {
+        $("form").find("#ingredients_list").append(`<li><div><div>${i.name}</div><div>${i.unit}</div><div><input class=\"form-control form-control-sm\" type=\"text\" value ="${i.amount}" placeholder=\"amount\"></div><div><button type="button" class="delete_ingredient">Delete</button></div></div></li>`)
+    })
               
     })
 </script>
 {% endif %}
-        
+
 <script type="text/javascript">
 
     $(document).ready(function () {
 
-        $(document).on("click", ".delete_ingredient", function(){
+        $(document).on("click", ".delete_ingredient", function () {
             $(this).parents("li").eq(0).remove()
         })
 
@@ -154,7 +168,7 @@
         })
 
         $("#submit_button").click(function () {
-            const ingredients = $("#ingredients_list").find("li").map(function() { return { name: $(this).children().eq(0).children().eq(0).text(), unit: $(this).children().eq(0).children().eq(1).text(), amount:$(this).find("input").val()}}).toArray();
+            const ingredients = $("#ingredients_list").find("li").map(function () { return { name: $(this).children().eq(0).children().eq(0).text(), unit: $(this).children().eq(0).children().eq(1).text(), amount: $(this).find("input").val() } }).toArray();
             const data = {
                 title: $("form").find("input[name=new_title]").val(),
                 recipe: $("form").find("textarea[name=new_recipe]").val(),
@@ -167,9 +181,9 @@
             }
 
             {% if existing_recipe %}
-                const url = "{{ url_for('update_recipe', recipe_id = existing_recipe._id)}}";
+            const url = "{{ url_for('update_recipe', recipe_id = existing_recipe._id)}}";
             {% else %}
-                const url = "{{ url_for('insert_recipe')}}";
+            const url = "{{ url_for('insert_recipe')}}";
             {% endif %}
 
             $.ajax({

@@ -38,7 +38,7 @@
 
 <div id="print">
 
-    
+
 </div>
 
 
@@ -104,7 +104,11 @@
                 $print.append(`<div>${dish_name}</div>`)
 
                 const recipe = recipesMap.get(dish_name);
-                $print.append(`<div>${recipe.recipe}</div>`)
+                if(recipe.recipe && Array.isArray(recipe.recipe)) {
+                    recipe.recipe.forEach(function(step){
+                        $print.append(`<div>${step}</div>`)
+                    })
+                }
 
                 recipe.ingredients.forEach(i => {
                     const floatAmount = parseFloat(i.amount);

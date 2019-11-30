@@ -36,8 +36,10 @@
                                 {% endif %}
 
                             </ul>
-                            <h4><i class="fas fa-book-open"></i> Directions: </h4>
-                            <div>{{recipe.recipe}}</div>
+                            <h4><i class="fas fa-book-open"></i> Steps: </h4>
+                            {% for step in recipe.recipe %}
+                            <div>{{loop.index}}.  {{step}}</div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>

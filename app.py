@@ -103,6 +103,7 @@ def add_recipe():
 
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
+    print(request.json)
     mongo.db.recipies.insert_one(request.json)
     return ('', 200)
 

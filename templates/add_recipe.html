@@ -43,12 +43,6 @@
                 <input class="form-control list-group-item" type="text" name="new_image" placeholder="image">
             </div>
         </div>
-
-        <div class="form-group">
-            <label for="exampleFormControlTextarea1">Write your recipe</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" name="new_recipe" rows="3"></textarea>
-        </div>
-
         <p>Preper time: </p>
         <div class="row">
             <div class="col-6 form-group">
@@ -112,6 +106,15 @@
 
             </ul>
         </div>
+
+        <div class="form-group" id="steps_list">
+            <div class="row">
+                <label class="col-2" for="exampleFormControlTextarea1">Steps: </label>
+                <button id="add_step" class="btn-info col-2" type="button">Add step <i class="fa fa-plus"></i></button>
+            </div>
+
+        </div>
+
         {% if existing_recipe%}
         <button type="button" class="btn btn-info bottom-buttons" id="submit_button">Edit recipe <i
                 class="fa fa-check "></i></button>
@@ -133,7 +136,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $("form").find("input[name=new_title]").val("{{existing_recipe.title}}");
-        $("form").find("textarea[name=new_recipe]").val("{{existing_recipe.recipe}}");
+        //$("form").find("textarea[name=new_recipe]").val("{{existing_recipe.recipe}}");
         $("form").find("input[name=new_image]").val("{{existing_recipe.image}}");
         $("form").find("select[name=new_servings]").val("{{existing_recipe.servings}}");
         $("form").find("select[name=category]").val("{{existing_recipe.category}}");
@@ -146,7 +149,16 @@
     ingredients.forEach(function (i) {
         $("form").find("#ingredients_list").append(`<li><div><div>${i.name}</div><div>${i.unit}</div><div><input class=\"form-control form-control-sm\" type=\"text\" value ="${i.amount}" placeholder=\"amount\"></div><div><button type="button" class="delete_ingredient">Delete</button></div></div></li>`)
     })
-              
+
+    const steps = {{ existing_recipe.recipe | tojson }};
+    steps.forEach(function (step) {
+        $("#steps_list").append(`
+                    <div class="row">
+                        <p class="col-1">${$("#steps_list").children().length}.</p>
+                        <textarea class="form-control col-6" id="exampleFormControlTextarea1" name="new_recipe" rows="3">${step}</textarea>
+                        <i class="fa fa-minus-circle btn col-1 remove_step"></i>
+                    </div>`)
+    })
     })
 </script>
 {% endif %}
@@ -167,17 +179,37 @@
             $("form").find("#ingredients_list").append(`<li><div><div>${ingredient_name}</div><div>${ingredient_unit}</div><div><input class=\"form-control form-control-sm\" type=\"text\" placeholder=\"amount\"></div><div><button type="button" class="delete_ingredient">Delete</button></div></div></li>`)
         })
 
+        $("#add_step").click(function () {
+            $("#steps_list").append(`
+                    <div class="row">
+                        <p class="col-1">${$("#steps_list").children().length}.</p>
+                        <textarea class="form-control col-6" id="exampleFormControlTextarea1" name="new_recipe" rows="3"></textarea>
+                        <i class="fa fa-minus-circle btn col-1 remove_step"></i>
+                    </div>`)
+        })
+
+
+        $(document).on("click", ".remove_step", function () {
+            $(this).parents(".row").remove()
+            $("#steps_list .row:gt(0)").each(function (index) {
+                $(this).find("p").text(`${index + 1}.`)
+            })
+        })
+
         $("#submit_button").click(function () {
-            const ingredients = $("#ingredients_list").find("li").map(function () { return { name: $(this).children().eq(0).children().eq(0).text(), unit: $(this).children().eq(0).children().eq(1).text(), amount: $(this).find("input").val() } }).toArray();
+            const ingredients = $("#ingredients_list").find("li").map(function () { return { name: $(this).children().eq(0).children().eq(0).text(), unit: $(this).children().eq(0).children().eq(1).text(), amount: $(this).find("input").val() } });
+            const steps = $("#steps_list").find(".row").map(function () {
+                return $(this).find("textarea").val()
+            })
             const data = {
                 title: $("form").find("input[name=new_title]").val(),
-                recipe: $("form").find("textarea[name=new_recipe]").val(),
+                recipe: steps.toArray(),
                 image: $("form").find("input[name=new_image]").val(),
                 servings: $("form").find("select[name=new_servings]").val(),
                 category: $("form").find("select[name=category]").val(),
                 prepare_time_minutes: $("form").find("select[name=new_minutes]").val(),
                 prepare_time_hours: $("form").find("select[name=new_hours]").val(),
-                ingredients: ingredients
+                ingredients: ingredients.toArray()
             }
 
             {% if existing_recipe %}

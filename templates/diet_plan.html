@@ -36,9 +36,38 @@
     </tbody>
 </table>
 
-<div id="print"></div>
-<div id="shopping_list"></div>
+<div id="print">
 
+    
+</div>
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" id = "generate_shopping_list" data-toggle="modal" data-target="#exampleModalScrollable">
+    Generate shopping list
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-success text-center" id="exampleModalScrollableTitle">Shoping List</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul class="list-group list-group-flush shopping_list">
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 {% endblock %}
@@ -56,26 +85,26 @@
         $(this).parents("tr").remove()
     })
 
-    $("select").change(function () {
+    $("#generate_shopping_list").click(function () {
         $print = $("#print");
-        $shopping_list = $("#shopping_list");
+        $shopping_list = $(".shopping_list");
         $shopping_list.empty();
         $print.empty();
 
         let all_ingredients = new Map()
 
         $("thead th:gt(1)").each(function (day_index) {
-            //$print.append(`<strong><div>${$(this).text()}</div><strong>`)
+            $print.append(`<strong><div>${$(this).text()}</div><strong>`)
 
             console.log(`day: ${day_index}`)
             $(".category_name").each(function (category_index) {
-                //$print.append(`<div>${$(this).text()}</div>`)
+                $print.append(`<div>${$(this).text()}</div>`)
                 console.log(`cat: ${category_index}`)
                 const dish_name = $(`tr:eq(${category_index + 1}) td:eq(${day_index}) select`).val();
-                //$print.append(`<div>${dish_name}</div>`)
+                $print.append(`<div>${dish_name}</div>`)
 
                 const recipe = recipesMap.get(dish_name);
-                //$print.append(`<div>${recipe.recipe}</div>`)
+                $print.append(`<div>${recipe.recipe}</div>`)
 
                 recipe.ingredients.forEach(i => {
                     const floatAmount = parseFloat(i.amount);
@@ -100,10 +129,10 @@
         })
 
         for (const [name, unit_amount] of all_ingredients.entries()) {
-            $shopping_list.append(`<div>${name}</div>`)
+           
 
             for (const [unit, amount] of unit_amount.entries()) {
-                $shopping_list.append(`<div>${unit} ${amount}</div>`)
+                $shopping_list.append(`<li class ="list-group-item"><div class="row"><div class="col-2">${name}</div><div class="col-1">${amount}</div><div class="col-1">${unit}</div></div></li>`)
             }
         }
 

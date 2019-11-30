@@ -101,3 +101,12 @@ transform: scale(1.03);
 .form_style{
   border: solid 1px lightgrey;
 }
+
+.navbar, footer{
+  background-color:#68a225;
+  color: #fafafa;
+}
+
+footer{
+margin-top: 30px;
+}

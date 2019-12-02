@@ -8,8 +8,8 @@
 
 {% endif %}
 
-<div class="col-sm-12">
-    <form action="" method="POST" class="col-12 form_style p-lg-5">
+<div class="">
+    <form action="" method="POST" class="col-12 border p-lg-5 mb-5 pb-5">
         <div class="row justyfi-content-center mb-3">
             <div class="col-6">
                 <label class="font-weight-bolder">Title</label>
@@ -103,7 +103,7 @@
                 </div>
                 <i id="add_ingredient" class="b_plus fa fa-plus text-success"></i>
             </div>
-            <ul id="ingredients_list">
+            <ul class="list-unstyled" id="ingredients_list">
 
             </ul>
         </div>
@@ -150,12 +150,12 @@
     }};
 
     ingredients.forEach(function (i) {
-        $("form").find("#ingredients_list").append(`<li class="list-unstyled">
+        $("form").find("#ingredients_list").append(`<li">
             <div class="row">
-                <div class="col-sm-4 col-md-2">${i.name}</div>
-                <div class="col-sm-2 col-md-1">${i.unit}</div>
-                <div class="col-sm-3 col-md-2"><input class="form-control form-control-sm" type="text" value ="${i.amount}" placeholder="amount"></div>
-                <div class="col-sm-3 col-md-2"><i class="delete_ingredient fa fa-minus b_minus text-danger"></i></div>
+                <div class="col-4 col-md-2">${i.name}</div>
+                <div class="col-3 col-md-1">${i.unit}</div>
+                <div class="col-3 col-md-2"><input class="form-control form-control-sm" type="text" value ="${i.amount}" placeholder="amount"></div>
+                <div class="col-1 col-md-2"><i class="delete_ingredient fa fa-minus b_minus text-danger"></i></div>
             </div></li>`)
     })
 
@@ -188,10 +188,10 @@
 
             $("form").find("#ingredients_list").append(`<li class="list-unstyled">
                 <div class="row">
-                    <div class="col-sm-4 col-md-2">${ingredient_name}</div>
-                    <div class="col-sm-2 col-md-1">${ingredient_unit}</div>
-                    <div class="col-sm-3 col-md-2"><input class=\"form-control form-control-sm\" type=\"text\" placeholder=\"amount\"></div>
-                    <div class="col-sm-3 col-md-2"><i class="delete_ingredient fa fa-minus b_minus text-danger"></i></div>
+                    <div class="col-4 col-md-2">${ingredient_name}</div>
+                    <div class="col-3 col-md-1">${ingredient_unit}</div>
+                    <div class="col-3 col-md-2"><input class=\"form-control form-control-sm\" type=\"text\" placeholder=\"amount\"></div>
+                    <div class="col-1 col-md-2"><i class="delete_ingredient fa fa-minus b_minus text-danger"></i></div>
                 </div>
                     </li>`)
         })

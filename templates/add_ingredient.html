@@ -1,15 +1,15 @@
 {% extends 'base.html'%} {% block content %}
+<div class="justyfy-content-center mt-5">
+<h2 class="text-center">Add Ingredient</h2>
 
-<h2>Add Ingredient</h2>
-
-<form action="{{ url_for('insert_ingredient')}}" method="POST" class="col-12">
-    <div class="form-group list-group list-group-flush">
+<form action="{{ url_for('insert_ingredient')}}" method="POST" class="col-12 col-md-8 offset-md-2">
+   
         <label>Ingredient name</label>
-        <input class="form-control list-group-item" type="text" name="new_ingredient" placeholder="New ingredient">
-    </div>
+        <input class="form-control" type="text" name="new_ingredient" placeholder="New ingredient">
+       
     <button type="submit" class="btn btn-info bottom-buttons">Add ingredient <i class="fa fa-check "></i></button>
     <a href="{{url_for('get_ingredients')}}" class="btn btn-secondary bottom-buttons">Cancel <i
             class="fa fa-trash"></i></a>
 </form>
-
+</div>
 {% endblock %}

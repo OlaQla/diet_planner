@@ -1,7 +1,7 @@
 {% extends 'base.html'%} {% block content %}
 
 {% if existing_recipe %}
-<h3 class="text-center p-5">Edit recipe</h3>
+<h3 class="text-center p-5">Edit Recipe</h3>
 
 {% else %}
 <h3 class="text-center p-5">Add your recipe</h3>
@@ -17,7 +17,7 @@
             </div>
 
             <div class="col-6">
-                <label  class="font-weight-bolder" for="exampleFormControlSelect1">Category</label>
+                <label class="font-weight-bolder" for="exampleFormControlSelect1">Category</label>
                 <select class="form-control" id="exampleFormControlSelect1" name="category">
                     {% for cat in categories %}
                     <option value="{{cat.name}}">{{cat.name}}</option>
@@ -101,23 +101,24 @@
                         {% endfor %}
                     </select>
                 </div>
-               <i id="add_ingredient" class="b_plus fa fa-plus text-success"></i>
+                <i id="add_ingredient" class="b_plus fa fa-plus text-success"></i>
             </div>
             <ul id="ingredients_list">
 
             </ul>
         </div>
 
-        <div class="form-group" id="steps_list">
+        <div class="form-group mb-2" id="steps_list">
             <div class="row">
-                <label class="col-2" for="exampleFormControlTextarea1">Steps: </label>
-                <button id="add_step" class="btn btn-success col-sm-3 col-md-2 mb-3" type="button">Add step <i class="fa fa-plus"></i></button>
+                <label class="font-weight-bolder col-2" for="exampleFormControlTextarea1">Steps: </label>
+                <button id="add_step" class="btn btn-success col-sm-3 col-md-2 mb-3" type="button">Add step <i
+                        class="fa fa-plus"></i></button>
             </div>
 
         </div>
 
         {% if existing_recipe%}
-        <button type="button" class="btn btn-info bottom-buttons" id="submit_button">Edit recipe <i
+        <button type="button" class="btn btn-info bottom-buttons" id="submit_button">Save changes <i
                 class="fa fa-check "></i></button>
         {% else %}
         <button type="button" class="btn btn-info bottom-buttons" id="submit_button">Save recipe <i
@@ -149,12 +150,12 @@
     }};
 
     ingredients.forEach(function (i) {
-        $("form").find("#ingredients_list").append(`<li>
-            <div>
-                <div>${i.name}</div>
-                <div>${i.unit}</div>
-                <div><input class=\"form-control form-control-sm\" type=\"text\" value ="${i.amount}" placeholder=\"amount\"></div>
-                <div><button type="button" class="delete_ingredient">Delete</button></div>
+        $("form").find("#ingredients_list").append(`<li class="list-unstyled">
+            <div class="row">
+                <div class="col-sm-4 col-md-2">${i.name}</div>
+                <div class="col-sm-2 col-md-1">${i.unit}</div>
+                <div class="col-sm-3 col-md-2"><input class=\"form-control form-control-sm\" type=\"text\" value ="${i.amount}" placeholder=\"amount\"></div>
+                <div class="col-sm-3 col-md-2"><i class="delete_ingredient fa fa-minus b_minus text-danger"></i></div>
                 </div></li>`)
     })
 
@@ -166,7 +167,7 @@
                         <textarea class="form-control col-6" id="exampleFormControlTextarea1" name="new_recipe" rows="3">${step}</textarea>
                         <i class="remove_step fa fa-minus b_minus text-danger col-1"></i>
                     </div>`)
-                    
+
     })
     })
 </script>

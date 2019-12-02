@@ -1,6 +1,49 @@
 {% extends 'base.html'%} {% block content %}
 
-<a href="{{url_for('diet_plan')}}" class="btn btn-info bottom-buttons">
-        Plan your diet</a>
 
+        <div class="jumbotron jumbo_main jumbotron-fluid text-center ">
+                <div class="overlay"></div>
+                <div class="inner">
+                        <div class="container">
+                                <h1 class="display-4"><strong>Welcome to Diet Planner</strong></h1>
+                                <p class="lead">Eating smart has never been easier!
+                                </p>
+                        </div>
+                </div>
+        </div>
+
+<div class="container-fluid">
+        <div class="row justify-content-center">
+                <a href="{{url_for('diet_plan')}}" class="card card_main text-white bg-danger mr-3 mb-3 btn col-md-6 col-lg-4 shadow"
+                        style="max-width: 20rem;">
+                        <div class="card-header h4">Plan Your Diet <i class="fa fa-calendar-check"></i></div>
+                        <div class="card-body">
+                                <h5 class="card-title">Take the anxiety out of choosing what to eat</h5>
+                                <p class="card-text">Make the important decisions ahead of time and design your own diet
+                                        plan. Then there's nothing to worry about when it's time to eat.</p>
+                        </div>
+                </a>
+
+                <a href="{{url_for('get_recipes')}}" class="card card_main text-white bg-warning mr-3 mb-3 btn col-md-6 col-lg-4 shadow"
+                        style="max-width: 20rem;">
+                        <div class="card-header h4"> Your Cookbook <i class="fas fa-book-open"></i></div>
+                        <div class="card-body">
+                                <h5 class="card-title">Keep all your favourite recipe in one place</h5>
+                                <p class="card-text">Create your own digital cookbook. Build your own recipe database by
+                                        gathering recipes from all sources.
+                                </p>
+                        </div>
+                </a>
+                <a href="{{url_for('diet_plan')}}" class="card card_main text-white bg-info mr-3 mb-3 btn col-md-6 col-lg-4 shadow"
+                        style="max-width: 20rem;">
+                        <div class="card-header h4">Features</div>
+                        <div class="card-body">
+                                <h5 class="card-title">Generate your diet plan and shopping list</h5>
+                                <p class="card-text">No more skipping meals because you're missing ingredients. Generate
+                                        and print your meals for the week and the grocery list.</p>
+                        </div>
+                </a>
+        </div>
+
+</div>
 {% endblock %}

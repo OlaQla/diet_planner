@@ -1,59 +1,60 @@
 {% extends 'base.html'%} {% block content %}
 <div class="container col-12 col-md-10 col-lg-8 offset -md-2 offset-lg-2 ">
-    
-        <div class="card row">
-            <img src="{{url_for('static', filename=recipe.image)}}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h3 class="card-title text-center">{{recipe.title}}</h3>
-                <hr>
-                <div class='container nopadding'>
-                    <div class="container-fluid col-12">
-                        <div class='row '>
-                            <div class='col-4 green'><strong><i class="fa fa-align-center"></i> Category: </strong>
-                                {{recipe.category}}</div>
-                            <div class='col-4 green'><strong><i class="fa fa-clock"></i> Prep time: </strong>
-                                {{recipe.prepare_time_hours}}:{{recipe.prepare_time_minutes}}</div>
-                            <div class='col-4 green'><strong><i class="fa fa-utensils"></i> Servings: </strong>
-                                {{recipe.servings}}</div>
-                        </div>
 
-                     
-                        <div class='col-12'>
-                            <h4><i class="fa fa-apple-alt"></i> Ingredients: </h4>
-                            <ul>
-                                {% if recipe.ingredients %}
-                                {% for ingredient in recipe.ingredients %}
-                                <li>
-                                    <div class="row nopadding">
-                                        <div class="mx-1">{{ingredient.name}}</div>
-                                        <div class="mx-1">{{ingredient.amount}}</div>
-                                        <div class="mx-1">{{ingredient.unit}}</div>
-                                    </div>
-                                    <hr>
-                                </li>
-                                
-                                {% endfor %}
-                                {% endif %}
+    <div class="card mb-3 row">
+        <img src="{{url_for('static', filename=recipe.image)}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h3 class="card-title text-center">{{recipe.title}}</h3>
+            <hr>
+            <div class='container nopadding'>
+                <div class="container-fluid col-12">
+                    <div class='row border-bottom pb-4 justify-content-center'>
+                        <div class='col-4 text-info'><strong><i class="fa fa-align-center"></i> Category: </strong>
+                            {{recipe.category}}</div>
+                        <div class='col-4 text-info'><strong><i class="fa fa-clock"></i> Prep time: </strong>
+                            {{recipe.prepare_time_hours}}:{{recipe.prepare_time_minutes}}</div>
+                        <div class='col-4 text-info'><strong><i class="fa fa-utensils"></i> Servings: </strong>
+                            {{recipe.servings}}</div>
+                    </div>
 
-                            </ul>
-                            <h4><i class="fas fa-book-open"></i> Steps: </h4>
-                            {% for step in recipe.recipe %}
-                            <div>{{loop.index}}.  {{step}}</div>
+
+                    <div class='col-12 pt-4'>
+                        <h4 class="text-success"><i class="fa fa-apple-alt text-success pb-3"></i> Ingredients: </h4>
+                        <ul>
+                            {% if recipe.ingredients %}
+                            {% for ingredient in recipe.ingredients %}
+                            <li>
+                                <div class="row nopadding">
+                                    <div class="mx-1">{{ingredient.name}}</div>
+                                    <div class="mx-1">{{ingredient.amount}}</div>
+                                    <div class="mx-1">{{ingredient.unit}}</div>
+                                </div>
+                                <hr>
+                            </li>
+
                             {% endfor %}
-                        </div>
+                            {% endif %}
+
+                        </ul>
+                        <h4 class="text-success pl-2 pt-4"><i class=" text-success fas fa-book-open"></i> Steps: </h4>
+                        {% for step in recipe.recipe %}
+                        <div class="pl-4">{{loop.index}}. {{step}}</div>
+                        <hr>
+                        {% endfor %}
                     </div>
                 </div>
-                
-                <a href="{{url_for('get_recipes')}}" class="btn btn-success bottom-buttons">Go back to all recipes
-                </a>
-                <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn btn-primary bottom-buttons"
-                    role="button" aria-pressed="true">Edit</a>
-                <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="btn btn-danger bottom-buttons"
-                    role="button" aria-pressed="true">Delete</a>
-
-
             </div>
+
+            <a href="{{url_for('get_recipes')}}" class="btn btn-info bottom-buttons">Go back to all recipes
+            </a>
+            <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn btn-primary bottom-buttons"
+                role="button" aria-pressed="true">Edit</a>
+            <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="btn btn-danger bottom-buttons"
+                role="button" aria-pressed="true">Delete</a>
+
+
         </div>
-   
+    </div>
+
 </div>
 {% endblock %}

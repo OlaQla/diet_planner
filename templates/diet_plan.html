@@ -3,8 +3,8 @@
 <table class="table">
     <thead class="thead-light">
         <tr>
-            <th scope="col">#</th>
-            <th scope="col">#</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
             <th scope="col">Monday</th>
             <th scope="col">Tuesday</th>
             <th scope="col">Wednesday</th>
@@ -36,14 +36,39 @@
     </tbody>
 </table>
 
-<div id="print">
 
+<!-- Button trigger modal -->
+<button id = "generate_diet_plan" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    Generate diet plan
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-success" id="exampleModalCenterTitle">Diet plan</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div id="print" class="border pr-3 pl-3 ">
 
-</div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" id = "generate_shopping_list" data-toggle="modal" data-target="#exampleModalScrollable">
+<button type="button" class="btn btn-primary" id="generate_shopping_list" data-toggle="modal"
+    data-target="#exampleModalScrollable">
     Generate shopping list
 </button>
 
@@ -85,30 +110,62 @@
         $(this).parents("tr").remove()
     })
 
-    $("#generate_shopping_list").click(function () {
+    $("#generate_diet_plan").click(function(){
         $print = $("#print");
+        $print.empty();
+
+
+    })
+    
+    $("#generate_shopping_list").click(function () {
+        
         $shopping_list = $(".shopping_list");
         $shopping_list.empty();
-        $print.empty();
+        
 
         let all_ingredients = new Map()
 
+
         $("thead th:gt(1)").each(function (day_index) {
-            $print.append(`<strong><div>${$(this).text()}</div><strong>`)
+            $print.append(`<div class="row bg-warning p-3 border font-weight-bold">${$(this).text()}</div>`)
+            $print.append(`<div class="row p-2 border-top-0">
+                        <div class="col-4 text-center p-1 font-weight-bold">Meal:</div>
+                        <div class="col-4 text-center p-1 font-weight-bold">Ingredients List:</div>
+                        <div class="col-4 text-center p-1 font-weight-bold"> Steps List:</div>
+                </div>`)
 
-            console.log(`day: ${day_index}`)
             $(".category_name").each(function (category_index) {
-                $print.append(`<div>${$(this).text()}</div>`)
-                console.log(`cat: ${category_index}`)
-                const dish_name = $(`tr:eq(${category_index + 1}) td:eq(${day_index}) select`).val();
-                $print.append(`<div>${dish_name}</div>`)
 
+                const dish_name = $(`tr:eq(${category_index + 1}) td:eq(${day_index}) select`).val();
                 const recipe = recipesMap.get(dish_name);
-                if(recipe.recipe && Array.isArray(recipe.recipe)) {
-                    recipe.recipe.forEach(function(step){
-                        $print.append(`<div>${step}</div>`)
+
+                $row = $(`<div class="row"></div>`)
+                $col1 = $(`<div class="col-4 nopadding ">
+                                <div class="container">
+                                    <div class="row  p-1 border-bottom border-top text-uppercase font-weight-bold">${$(this).text()}</div>
+                                    <div class="row  p-1 font-italic">${dish_name}</div>
+                                    </div>
+                            </div>`)
+                $col2 = $(`<div class="col-4 border"></div>`)
+                $col3 = $(`<div class="col-4 border"></div>`)
+                $inglist = $(`<ul class="small"></ul>`)
+                recipe.ingredients.forEach(function (i) {
+                    $inglist.append(`<li>${i.name}</li>`)
+                })
+
+                $steplist = $(`<ol class="small"></ol>`)
+                if (recipe.recipe && Array.isArray(recipe.recipe)) {
+                    recipe.recipe.forEach(function (step) {
+                        $steplist.append(`<li>${step}</li>`)
                     })
                 }
+                $col2.append($inglist)
+                $col3.append($steplist)
+                $row.append($col1)
+                $row.append($col2)
+                $row.append($col3)
+
+                $print.append($row)
 
                 recipe.ingredients.forEach(i => {
                     const floatAmount = parseFloat(i.amount);
@@ -126,14 +183,15 @@
                         all_ingredients.get(i.name).set(i.unit, floatAmount)
                     }
                 })
-                console.log(`cat: ${category_index}`)
+
+
             })
 
-            console.log(`day: ${day_index}`)
+
         })
 
         for (const [name, unit_amount] of all_ingredients.entries()) {
-           
+
 
             for (const [unit, amount] of unit_amount.entries()) {
                 $shopping_list.append(`<li class ="list-group-item"><div class="row"><div class="col-2">${name}</div><div class="col-1">${amount}</div><div class="col-1">${unit}</div></div></li>`)

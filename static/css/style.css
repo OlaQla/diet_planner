@@ -1,12 +1,11 @@
 body {
-  background-color: #FFF8EF
-
+  background-color: #fafafa;
 }
 h2 {
   margin-top: 20px;
   margin-bottom: 50px;
 }
-
+h1,
 h2,
 h3,
 h4,
@@ -16,35 +15,56 @@ h5 {
 }
 h4,
 h3 {
-  color:black;
+  color: black;
 }
 .bigger {
   font-family: "asap condensed", sans-serif !important;
   font-size: 20px;
 }
 
-small {
-  color: #6ab187;
-}
-.green {
-  color: #6ab187;
-}
-
 .bottom-buttons {
   margin-top: 20px;
 }
 
-.container {
-  width: 100%;
+.b_plus{
+  outline:none;
+  width: 2em;
+  height:2em;
+  margin-top:2.5em;
+  margin-left: 2em;
+  transition: all 0.5s ease;
+  transform: scale(1);
+}
+.b_plus:hover {
+  transform: scale(1.3);
+}
+.b_minus{
+  transition: all 0.5s ease;
+  transform: scale(1);
+}
+.b_minus:hover {
+  transform: scale(1.3);
 }
 
+}
+
+.container {
+  width: 100% !important;
+}
+.card_main{
+  transition: all 0.5s ease;
+  transform: scale(1);
+}
+.card_main:hover {
+  transform: scale(1.03);
+}
 .card-group {
   display: flex;
   transition: all 0.5s ease;
   transform: scale(1);
 }
 .card-group:hover {
-transform: scale(1.03);
+  transform: scale(1.03);
 }
 
 .card {
@@ -52,22 +72,33 @@ transform: scale(1.03);
   background-color: rgb(253, 252, 250);
 }
 
-.fa-minus-circle{
-  color: grey;
-  transition: all 0.5s ease;
-  transform: scale(1);
-}
-
-.fa-minus-circle:hover {
-  transform: scale(1.5);
-  }
-
-.jumbotron {
+.jumbo_get_recipe {
   background-image: url(../images/jumbo2.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
+.jumbo_main {
+  position: relative;
+  background-image: url(../images/diet_planner.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
 
+.jumbo_main > .overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+.jumbo_main > .inner {
+  position: relative;
+  z-index: 2;
+}
 .display-4 {
   color: #fafafa;
 }
@@ -75,16 +106,7 @@ transform: scale(1.03);
   color: #fafafa;
 }
 
-.btn-warning {
-  background-color: #f4cc70;
-  border: none;
-  transition: all 1s ease;
-  transform: scale(1);
-}
-.btn-warning:hover {
-  background-color: rgb(251, 203, 123, 1);
-  transform: scale(1.1) perspective(1px);
-}
+
 
 .nopadding {
   padding: 0 !important;
@@ -95,18 +117,19 @@ transform: scale(1.03);
   background-color: grey;
 }
 .nomargin {
-  margin:0 !important;
+  margin: 0 !important;
 }
 
-.form_style{
+.form_style {
   border: solid 1px lightgrey;
 }
 
-.navbar, footer{
-  background-color:#68a225;
+.navbar,
+footer {
+  background-color: #68a225;
   color: #fafafa;
 }
 
-footer{
-margin-top: 30px;
+footer {
+  margin-top: 30px;
 }

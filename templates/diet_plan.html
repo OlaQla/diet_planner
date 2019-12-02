@@ -114,18 +114,6 @@
         $print = $("#print");
         $print.empty();
 
-
-    })
-    
-    $("#generate_shopping_list").click(function () {
-        
-        $shopping_list = $(".shopping_list");
-        $shopping_list.empty();
-        
-
-        let all_ingredients = new Map()
-
-
         $("thead th:gt(1)").each(function (day_index) {
             $print.append(`<div class="row bg-warning p-3 border font-weight-bold">${$(this).text()}</div>`)
             $print.append(`<div class="row p-2 border-top-0">
@@ -166,6 +154,23 @@
                 $row.append($col3)
 
                 $print.append($row)
+            })
+        })
+
+    })
+    
+    $("#generate_shopping_list").click(function () {
+        
+        $shopping_list = $(".shopping_list");
+        $shopping_list.empty();
+        
+        let all_ingredients = new Map()
+
+        $("thead th:gt(1)").each(function (day_index) {
+            $(".category_name").each(function (category_index) {
+
+                const dish_name = $(`tr:eq(${category_index + 1}) td:eq(${day_index}) select`).val();
+                const recipe = recipesMap.get(dish_name);
 
                 recipe.ingredients.forEach(i => {
                     const floatAmount = parseFloat(i.amount);

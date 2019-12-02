@@ -154,9 +154,9 @@
             <div class="row">
                 <div class="col-sm-4 col-md-2">${i.name}</div>
                 <div class="col-sm-2 col-md-1">${i.unit}</div>
-                <div class="col-sm-3 col-md-2"><input class=\"form-control form-control-sm\" type=\"text\" value ="${i.amount}" placeholder=\"amount\"></div>
+                <div class="col-sm-3 col-md-2"><input class="form-control form-control-sm" type="text" value ="${i.amount}" placeholder="amount"></div>
                 <div class="col-sm-3 col-md-2"><i class="delete_ingredient fa fa-minus b_minus text-danger"></i></div>
-                </div></li>`)
+            </div></li>`)
     })
 
     const steps = {{ existing_recipe.recipe | tojson }};

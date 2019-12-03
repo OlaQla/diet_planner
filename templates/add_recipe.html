@@ -1,19 +1,47 @@
 {% extends 'base.html'%} {% block content %}
 
 {% if existing_recipe %}
-<h3 class="text-center p-5">Edit Recipe</h3>
+<h1 class="text-center p-5">Edit Recipe</h1>
 
 {% else %}
-<h3 class="text-center p-5">Add your recipe</h3>
+<h1 class="text-center p-5">Add your recipe</h1>
 
 {% endif %}
 
 <div class="">
     <form action="" method="POST" class="col-12 border p-lg-5 mb-5 pb-5">
+            <div class="col-6 pb-4">
+                    <img id="image_preview" class="img-thumbnail rounded img-fluid max-width: 100%">
+                    <figcaption>Click to change image</figcaption>
+                    <!-- Modal -->
+                    <div class="modal fade" id="modal_image_select" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalScrollableTitle">Select image</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-flex"></div>
+                                    <div class="row" id="image_list">
+
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         <div class="row justyfi-content-center mb-3">
             <div class="col-6">
                 <label class="font-weight-bolder">Title</label>
-                <input class="form-control" type="text" placeholder="new title">
+                <input class="form-control" type="text" placeholder="new title" name="new_title">
             </div>
 
             <div class="col-6">
@@ -41,45 +69,11 @@
 
             <div class="col-6">
                 <div class="row">
-                    <div class="col-7">
-                        <label class="font-weight-bolder">Image</label>
-                        <input class="form-control" type="text" placeholder="img">
-                    </div>
-                    <div class="col-1 p-0">
-                        <!-- Button trigger modal -->
-                        <button id="image" type="button" class="btn btn-success btn-sm m-0" data-toggle="modal"
-                            data-target="#exampleModalScrollable">
-                            Image
-                        </button>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
-                            aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-scrollable" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="container-flex"></div>
-                                        <div class="row" id="image_list">
-
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-dismiss="modal">Close</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
+        
         <p class="font-weight-bolder">Preper time: </p>
         <div class="row justyfi-content-center mb-3">
             <div class="col-6">
@@ -175,13 +169,12 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $("form").find("input[name=new_title]").val("{{existing_recipe.title}}");
-        //$("form").find("textarea[name=new_recipe]").val("{{existing_recipe.recipe}}");
         $("form").find("input[name=new_image]").val("{{existing_recipe.image}}");
         $("form").find("select[name=new_servings]").val("{{existing_recipe.servings}}");
         $("form").find("select[name=category]").val("{{existing_recipe.category}}");
         $("form").find("select[name=new_minutes]").val("{{existing_recipe.prepare_time_minutes}}");
         $("form").find("select[name=new_hours]").val("{{existing_recipe.prepare_time_hours}}");
-
+        $("#image_preview").attr('src', '{{existing_recipe.image}}')
         const ingredients = {{ existing_recipe.ingredients | tojson
     }};
 
@@ -216,9 +209,20 @@
         $.get("/images", function (data) {
             data.forEach(function (image) {
                 $("#image_list").append(`<div class="col-4 p-0">
-                                            <img src="${image}" alt="" class="card-img-top img-thumbnail rounded img-fluid max-width: 100%">
+                                            <img src="${image}" alt="" class="img-thumbnail rounded img-fluid max-width: 100%">
                                        </div>`)
             })
+        })
+
+        $(document).on("click", "#image_list img", function(){
+            src = $(this).attr('src');
+            $("#input_img_url").val(src);
+            $('#modal_image_select').modal('hide');
+            $("#image_preview").attr('src', src);
+        })
+
+        $("#image_preview").click(function(){
+            $('#modal_image_select').modal('show');
         })
 
         $(document).on("click", ".delete_ingredient", function () {
@@ -265,7 +269,7 @@
             const data = {
                 title: $("form").find("input[name=new_title]").val(),
                 recipe: steps.toArray(),
-                image: $("form").find("input[name=new_image]").val(),
+                image: $("#image_preview").attr('src'),
                 servings: $("form").find("select[name=new_servings]").val(),
                 category: $("form").find("select[name=category]").val(),
                 prepare_time_minutes: $("form").find("select[name=new_minutes]").val(),

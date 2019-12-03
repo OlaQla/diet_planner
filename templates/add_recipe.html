@@ -41,13 +41,13 @@
 
             <div class="col-6">
                 <div class="row">
-                    <div class="col-8">
+                    <div class="col-7">
                         <label class="font-weight-bolder">Image</label>
-                        <input class="form-control" type="text" placeholder="image">
+                        <input class="form-control" type="text" placeholder="img">
                     </div>
-                    <div class="col-2">
+                    <div class="col-1 p-0">
                         <!-- Button trigger modal -->
-                        <button id="image" type="button" class="btn btn-primary" data-toggle="modal"
+                        <button id="image" type="button" class="btn btn-success btn-sm m-0" data-toggle="modal"
                             data-target="#exampleModalScrollable">
                             Image
                         </button>
@@ -63,13 +63,15 @@
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <div id = "image_list" class="modal-body">
-                                        ...
+                                    <div class="modal-body">
+                                        <div class="container-flex"></div>
+                                        <div class="row" id="image_list">
+
+                                        </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
                                     </div>
                                 </div>
                             </div>
@@ -211,9 +213,11 @@
 
     $(document).ready(function () {
 
-        $.get("/images", function(data){
-            data.forEach(function(image){
-                $("#image_list").append(`<img src="${image}" alt="">`)
+        $.get("/images", function (data) {
+            data.forEach(function (image) {
+                $("#image_list").append(`<div class="col-4 p-0">
+                                            <img src="${image}" alt="" class="card-img-top img-thumbnail rounded img-fluid max-width: 100%">
+                                       </div>`)
             })
         })
 

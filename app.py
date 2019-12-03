@@ -1,7 +1,9 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, url_for, Response
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId 
+import boto3
+import json
 
 app = Flask(__name__)
 mongo_password = os.getenv("MONGO_PASSWORD")
@@ -132,7 +134,7 @@ def update_recipe(recipe_id):
     return ('', 200)
 
 
-"""Diet planner"""
+""" Diet planner """
 
 @app.route('/diet_plan')
 def diet_plan():
@@ -142,5 +144,20 @@ def diet_plan():
     
     return render_template('diet_plan.html', categories = all_categories, recipes= list(all_recipes) )
 
+""" Images """
+
+@app.route('/images')
+def all_images():
+    s3=boto3.resource("s3")
+    bucket=s3.Bucket("diet.planner")
+    location = boto3.client("s3").get_bucket_location(Bucket="diet.planner")["LocationConstraint"]
+
+    data = map(lambda image: "https://s3-%s.amazonaws.com/%s/%s" % (location, "diet.planner", image.key), bucket.objects.all())
+    return Response(
+        json.dumps(list(data)), 
+        headers = { "Content-Type": "application/json"})
+   
+
+   
 if __name__ == '__main__':
     app.run(host="localhost", port="5000", debug=True)

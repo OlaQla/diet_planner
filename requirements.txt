@@ -3,3 +3,4 @@ Werkzeug==0.16.0
 Gunicorn==20.0.0
 Flask-PyMongo==2.3.0
 dnspython==1.16.0
+boto3==1.10.30

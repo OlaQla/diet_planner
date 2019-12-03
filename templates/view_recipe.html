@@ -1,23 +1,37 @@
 {% extends 'base.html'%} {% block content %}
-<div class="container col-12 col-md-10 col-lg-8 offset -md-2 offset-lg-2 ">
+<div class="container col-md-10 col-lg-8 px-0">
 
-    <div class="card mb-3 row">
+    <div class="card view_recipe_card mb-3 row justify-content-md-center">
         <img src="{{url_for('static', filename=recipe.image)}}" class="card-img-top" alt="...">
         <div class="card-body">
             <h3 class="card-title text-center">{{recipe.title}}</h3>
             <hr>
             <div class='container nopadding'>
-                <div class="container-fluid col-12">
-                    <div class='row border-bottom pb-4 justify-content-center'>
-                        <div class='col-4 text-info'><strong><i class="fa fa-align-center"></i> Category: </strong>
-                            {{recipe.category}}</div>
-                        <div class='col-4 text-info'><strong><i class="fa fa-clock"></i> Prep time: </strong>
-                            {{recipe.prepare_time_hours}}:{{recipe.prepare_time_minutes}}</div>
-                        <div class='col-4 text-info'><strong><i class="fa fa-utensils"></i> Servings: </strong>
-                            {{recipe.servings}}</div>
+                <div class="container-fluid col-12 px-0">
+                    <div class="container text-center">
+                        <div class="row text-success">
+                            <div class="col-4"><i class="fa fa-align-center"></i></div>
+                            <div class="col-4"><i class="fa fa-clock"></i></div>
+                            <div class="col-4"><i class="fa fa-utensils"></i></div>
+                        </div>
+                        <div class="row text-info">
+                            <div class="col-4">
+                                <p class="font-weight-bold">Category:</p>
+                            </div>
+                            <div class="col-4">
+                                <p class="font-weight-bold">Time:</p>
+                            </div>
+                            <div class="col-4">
+                                <p class="font-weight-bold">Servings:</p>
+                            </div>
+                        </div>
+                        <div class="row text-secondary">
+                            <div class="col-4">{{recipe.category}}</div>
+                            <div class="col-4"> {{recipe.prepare_time_hours}}:{{recipe.prepare_time_minutes}}</div>
+                            <div class="col-4"> {{recipe.servings}}</div>
+                        </div>
                     </div>
-
-
+                    <hr>
                     <div class='col-12 pt-4'>
                         <h4 class="text-success"><i class="fa fa-apple-alt text-success pb-3"></i> Ingredients: </h4>
                         <ul>

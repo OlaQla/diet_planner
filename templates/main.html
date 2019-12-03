@@ -1,18 +1,19 @@
 {% extends 'base.html'%} {% block content %}
 
 
-        <div class="jumbotron jumbo_main jumbotron-fluid text-center ">
-                <div class="overlay"></div>
-                <div class="inner">
+        <div class="jumbotron jumbo_main jumbotron-fluid text-center rounded-bottom">
+                <div class="overlay rounded-bottom"></div>
+                <div class="inner pb-5">
                         <div class="container">
                                 <h1 class="display-4"><strong>Welcome to Diet Planner</strong></h1>
                                 <p class="lead">Eating smart has never been easier!
                                 </p>
                         </div>
                 </div>
+                <div class="big pb-5"></div>
         </div>
 
-<div class="container-fluid">
+<div class="container-fluid my-5">
         <div class="row justify-content-center">
                 <a href="{{url_for('diet_plan')}}" class="card card_main text-white bg-danger mr-3 mb-3 btn col-md-6 col-lg-4 shadow"
                         style="max-width: 20rem;">

@@ -72,6 +72,7 @@ h3 {
 }
 
 .jumbo_get_recipe {
+  width:100%;
   background-image: url(../images/jumbo2.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -129,27 +130,6 @@ footer {
   margin-top: 30px;
 }
 
-.list-group-item {
-  width: 3em;
-  height: 3em;
-  padding-top: 0.6em;
-  padding-bottom: 0.2em;
-  padding-right: 2em;
-  margin-right:1em !important;
-  background-color: transparent;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-}
-
-.list-group-item:hover {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-}
-.list-item a {
-  text-align: center;
-  color: black;
-  font-size: 1em;
-}
 
 #image_list img {
   width:100%;

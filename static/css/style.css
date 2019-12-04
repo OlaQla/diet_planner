@@ -1,4 +1,6 @@
-
+body{
+  color: #263238;
+}
 form{
   background-color:rgba(255, 255, 255, 0.9)
 }
@@ -14,9 +16,11 @@ h5 {
   font-family: "asap condensed", sans-serif !important;
   font-weight: 700;
 }
-h4,
-h3 {
-  color: black;
+.color-view-recipe{
+color: #00695c;
+}
+.color-ingredients{
+color:#007E33;
 }
 .bigger {
   font-family: "asap condensed", sans-serif !important;
@@ -113,15 +117,13 @@ h3 {
   margin: 0 !important;
 }
 
-.grey {
-  background-color: grey;
-}
+
 .nomargin {
   margin: 0 !important;
 }
 
 .navbar, footer {
-  background-color: #68a225;
+  background-color: #007E33;
   color: #fafafa;
 }
 
@@ -140,7 +142,7 @@ footer {
 }
 
 #get_recipe_image{
-  height: 18rem;
+  height: 16rem;
   width:100%;
 }
 #view_recipe_image{
@@ -152,7 +154,39 @@ footer {
   background-color: rgba(255, 255, 255, 0.9)
 }
 
+.social_icon{
+  width: 3em;
+  height: 3em;
+  padding-top: 0.6em;
+  padding-bottom: 0.2em;
+  padding-right: 1em;
+  display: inline-table;
+  background-color: transparent;
+  border:none;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
 
+.social_icon a{
+  text-align: center;
+  color: #fafafa;
+  font-size: 1.5em;
+}
+
+.social_icon:hover {
+  -webkit-transform: scale(1.2);
+   transform: scale(1.2);
+}
+
+.nav-link{
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-link:hover{
+  -webkit-transform: scale(1.1);
+   transform: scale(1.1);
+}
 @media only screen and (max-width : 767px){
   #view_recipe_image{
     height: 20rem;

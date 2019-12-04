@@ -1,26 +1,48 @@
 {% extends 'base.html'%} {% block content %}
+<div class="container">
+<h2 class="text-center mb-2">Ingredients</h2>
 
-<h2>Ingredients</h2>
+<div class="row  mb-4">
+<div class="col-1 col-md-2"></div>
+<a href="{{url_for('add_ingredient')}}" class="btn btn-info bottom-buttons col-5 col-md-2" >Add ingredient    <i class="fa fa-plus"></i></a>
+</div>
 
-<ul class=" list-group list-group-flush col-sm-12 col-md-8 col-lg-12">
+<ul  class="list-group list-group-flush col-md-8 offset-md-2 mb-5 p-0">
     {% for ingredient in ingredients %}
     <li class="row">
-        <div class="list-group-item container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <strong class="h4">{{ingredient.name}}</strong>
+        <div id="ingredients_list" class="list-group-item container ">
+            <div class="row pl-2">
+                <div class="col-4 col-lg-8">
+                    <strong >{{ingredient.name}}</strong>
                 </div>
-                <div class="col-lg-4">
-                    <a href="{{url_for('edit_ingredient', ingredient_id=ingredient._id)}}" class="btn btn-primary" role="button" aria-pressed="true">Edit</a>
+                <div class="col-5 col-lg-4">
+                    <a href="{{url_for('edit_ingredient', ingredient_id=ingredient._id)}}" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Edit</a>
                     <a href="{{url_for('delete_ingredient', ingredient_id=ingredient._id)}}"
-                        class="btn btn-danger " role="button" aria-pressed="true">Delete</a>
+                        class="btn btn-danger btn-sm" role="button" aria-pressed="true">Delete</a>
                     </div>
             </div>
         </div>
     </li>
     {% endfor %}
 </ul>
-
-<a href="{{url_for('add_ingredient')}}" class="btn btn-info bottom-buttons" >Add ingredient    <i class="fa fa-plus"></i></a>
+</div>
 
 {% endblock %}}
+
+{% block styles %}
+
+body {
+        background-image: url("{{url_for('static', filename='images/background1.jpeg')}}");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+        width: 100%;
+          height: 100%;
+          z-index: 1;
+          background-color: hsla(0,0%,0%,0.10);
+          background-blend-mode: overlay;
+          background-repeat: no-repeat;
+      }
+
+{% endblock %}

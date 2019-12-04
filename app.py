@@ -13,6 +13,7 @@ app.config["MONGO_URI"] = MONGODB_URI
 mongo = PyMongo(app)
 
 @app.route('/')
+@app.route('/diet_planner')
 def diet_planner():
     return render_template ('main.html')
 

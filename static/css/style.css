@@ -47,7 +47,6 @@ h3 {
   transform: scale(1.03);
 }
 
-
 .container {
   width: 100% !important;
 }
@@ -121,15 +120,14 @@ h3 {
   margin: 0 !important;
 }
 
-.navbar,
-footer {
+.navbar, footer {
   background-color: #68a225;
   color: #fafafa;
 }
 
 footer {
   margin-top: 30px;
-}S
+}
 
 
 #image_list img {
@@ -150,19 +148,26 @@ footer {
   width:100%;
 }
 
+#ingredients_list{
+  background-color: rgba(255, 255, 255, 0.9)
+}
 
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {  }
 
-// Medium devices (tablets, 768px and up)
+@media only screen and (max-width : 767px){
+  #view_recipe_image{
+    height: 20rem;
+    width:100%;
+  }
+}
+
+
 @media (min-width: 768px) { 
   
 }
 
-// Large devices (desktops, 992px and up)
 @media (min-width: 992px) { 
   
  }
 
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) { ... }
+
+@media (min-width: 1200px) {  }

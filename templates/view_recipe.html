@@ -1,8 +1,8 @@
 {% extends 'base.html'%} {% block content %}
-<div class="container col-md-10 col-lg-8 px-0">
+<div class="container col-md-10 col-lg-8">
 
     <div class="card view_recipe_card mb-3 row justify-content-md-center">
-        <img src="{{url_for('static', filename=recipe.image)}}" class="card-img-top" alt="...">
+        <img id="view_recipe_image" src="{{recipe.image}}" class="card-img-top img-fluid" alt="...">
         <div class="card-body">
             <h3 class="card-title text-center">{{recipe.title}}</h3>
             <hr>

@@ -1,21 +1,22 @@
 {% extends 'base.html'%} {% block content %}
 
 
-        <div class="jumbotron jumbo_main jumbotron-fluid text-center rounded-bottom">
-                <div class="overlay rounded-bottom"></div>
-                <div class="inner pb-5">
-                        <div class="container">
-                                <h1 class="display-4"><strong>Welcome to Diet Planner</strong></h1>
-                                <p class="lead">Eating smart has never been easier!
-                                </p>
-                        </div>
+<div class="jumbotron jumbo_main jumbotron-fluid text-center rounded-bottom">
+        <div class="overlay rounded-bottom"></div>
+        <div class="inner pb-5">
+                <div class="container">
+                        <h1 class="display-4"><strong>Welcome to Diet Planner</strong></h1>
+                        <p class="lead">Eating smart has never been easier!
+                        </p>
                 </div>
-                <div class="big pb-5"></div>
         </div>
+        <div class="big pb-5"></div>
+</div>
 
-<div class="container-fluid my-5">
+<div class="container-fluid my-5 mx-1">
         <div class="row justify-content-center">
-                <a href="{{url_for('diet_plan')}}" class="card card_main text-white bg-danger mr-3 mb-3 btn col-md-6 col-lg-4 shadow"
+                <a href="{{url_for('diet_plan')}}"
+                        class="card card_main text-white bg-danger mr-3 mb-3 btn col-md-6 col-lg-4 shadow"
                         style="max-width: 20rem;">
                         <div class="card-header h4">Plan Your Diet <i class="fa fa-calendar-check"></i></div>
                         <div class="card-body">
@@ -25,7 +26,8 @@
                         </div>
                 </a>
 
-                <a href="{{url_for('get_recipes')}}" class="card card_main text-white bg-warning mr-3 mb-3 btn col-md-6 col-lg-4 shadow"
+                <a href="{{url_for('get_recipes')}}"
+                        class="card card_main text-white bg-warning mr-3 mb-3 btn col-md-6 col-lg-4 shadow"
                         style="max-width: 20rem;">
                         <div class="card-header h4"> Your Cookbook <i class="fas fa-book-open"></i></div>
                         <div class="card-body">
@@ -35,7 +37,8 @@
                                 </p>
                         </div>
                 </a>
-                <a href="{{url_for('diet_plan')}}" class="card card_main text-white bg-info mr-3 mb-3 btn col-md-6 col-lg-4 shadow"
+                <a href="{{url_for('diet_plan')}}"
+                        class="card card_main text-white bg-info mr-3 mb-3 btn col-md-6 col-lg-4 shadow"
                         style="max-width: 20rem;">
                         <div class="card-header h4">Features <i class="fa fa-tasks"></i></div>
                         <div class="card-body">

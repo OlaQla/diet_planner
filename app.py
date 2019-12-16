@@ -40,7 +40,8 @@ def edit_category(category_id):
 def update_category(category_id):
     mongo.db.categories.update(
         {'_id': ObjectId(category_id)},
-        {'name': request.form.get('new_name')})
+        {'name': request.form.get('new_name'),
+        'sort_index': int(request.form.get('sort-index'))})
     return redirect(url_for('get_categories'))
 
 @app.route('/add_category')
@@ -49,7 +50,7 @@ def add_category():
 
 @app.route('/insert_category', methods=['POST'])
 def insert_category():
-    category_insert = {'name': request.form.get('new_category')}
+    category_insert = {'name': request.form.get('new_category'), 'sort_index': int(request.form.get('sort-index'))}
     mongo.db.categories.insert_one(category_insert)
     return redirect(url_for('get_categories'))
 
@@ -100,7 +101,7 @@ def get_recipes():
 @app.route('/add_recipe')
 def add_recipe():
     all_categories = mongo.db.categories.find()
-    all_ingredients = mongo.db.ingredients.find()
+    all_ingredients = mongo.db.ingredients.find().sort("name", 1)
     all_units = mongo.db.units.find()
     return render_template('add_recipe.html', categories = all_categories, ingredients = all_ingredients, units = all_units)
 
@@ -124,7 +125,7 @@ def delete_recipe(recipe_id):
 @app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
     all_categories = mongo.db.categories.find()
-    all_ingredients = mongo.db.ingredients.find()
+    all_ingredients = mongo.db.ingredients.find().sort("name", 1)
     all_units = mongo.db.units.find()
     return render_template('add_recipe.html', categories = all_categories, ingredients = all_ingredients, units = all_units, existing_recipe=mongo.db.recipies.find_one({'_id': ObjectId(recipe_id)}))
 

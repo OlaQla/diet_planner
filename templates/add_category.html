@@ -1,31 +1,36 @@
 {% extends 'base.html'%} {% block content %}
-<div class="justyfy-content-center mt-5"></div>
-<h1 class="text-center pb-4">Add Category</h1>
+<div class="justyfy-content-center my-5">
+  <h1 class="text-center pb-4">Add Category</h1>
 
-<form action="{{ url_for('insert_category')}}" method="POST" class="col-12 col-md-8 offset-md-2 p-5">
-    
-        <label class="font-weight-bold">Category name</label>
-        <input class="form-control list-group-item" type="text" name="new_category" placeholder="New category">
-  
-    <button type="submit" class="btn btn-info bottom-buttons">Add category       <i class="fa fa-check "></i></button>
-    <a href="{{url_for('get_categories')}}" class="btn btn-secondary bottom-buttons">Cancel <i class="fa fa-trash"></i></a>
-</form>
+  <form action="{{ url_for('insert_category')}}" method="POST" class="col-12 col-md-8 offset-md-2 p-5">
+    <div class="row mb-1">
+      <label class="font-weight-bold">Category name</label>
+      <input class="form-control list-group-item" type="text" name="new_category" placeholder="New category">
+    </div>
+    <div class="row">
+      <label class="font-weight-bold">Sort index (between 1 and 100)</label>
+      <input class="form-control list-group-item" type="number" name="sort-index" min="1" max="100"
+        placeholder="Sort index">
+    </div>
+    <button type="submit" class="btn btn-info bottom-buttons">Add category <i class="fa fa-check "></i></button>
+    <a href="{{url_for('get_categories')}}" class="btn btn-secondary bottom-buttons">Cancel <i
+        class="fa fa-trash"></i></a>
+  </form>
 </div>
 {% endblock %}
 {% block styles %}
 body {
-    background-image: url("{{url_for('static', filename='images/background1.jpeg')}}");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-      height: 100%;
-      z-index: 1;
-      background-color: hsla(0,0%,0%,0.10);
-      background-blend-mode: overlay;
-      background-repeat: no-repeat;
-  }
+background-image: url("{{url_for('static', filename='images/background1.jpeg')}}");
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-position: center;
+background-size: cover;
+width: 100%;
+height: 100%;
+z-index: 1;
+background-color: hsla(0,0%,0%,0.10);
+background-blend-mode: overlay;
+background-repeat: no-repeat;
+}
 
 {% endblock %}
-    

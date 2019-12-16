@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Calligraffitti|Josefin+Sans|Roboto&display=swap");
+
 body{
   color: #263238;
 }
@@ -110,7 +112,24 @@ color:#007E33;
   color: #fafafa;
 }
 
+.nothingFound {
+  width: 100%;
+  height: 12em;
+  background-color: transparent;
+}
 
+.nothingFound p {
+  text-align: center;
+  padding-top: 2em;
+  padding-bottom:3em;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1.5em;
+  line-height: 2.5em;
+}
+
+.nothingFound p span {
+  font-size: 1.7em;
+}
 
 .nopadding {
   padding: 0 !important;

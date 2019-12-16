@@ -13,11 +13,12 @@
 
     <form class="form-inline md-form form-sm mt-0">
         <i class="fas fa-search" aria-hidden="true"></i>
-        <input class="form-control form-control-sm ml-3 w-50" type="text" placeholder="Search" aria-label="Search">
+        <input id="myInput" class="form-control form-control-sm ml-3 w-50" type="text" placeholder="Search"
+            aria-label="Search">
     </form>
 
 
-    <div class="row mb-4">
+    <div id="cards-container" class="row mb-4">
         {% for recipe in recipes %}
         <div class="card-group col-sm-12 col-md-6 col-lg-4 pl-1"
             data-target="{{url_for('view_recipe', recipe_id=recipe._id)}}">
@@ -46,9 +47,13 @@
                 </div>
             </div>
         </div>
-
         {%endfor%}
     </div>
+</div>
+ <!----------Feedback for user that serch returned no results-------------->
+ <div class="nothingFound" style="display:none">
+    <p><span>Whoops!</span> </br>Sorry, but nothing matched your search. Please try some different
+        keywords.</p>
 </div>
 {% endblock %}
 
@@ -60,34 +65,34 @@
         })
 
         $("#myInput").keyup(function () {
-  var currentValue = $(this).val().toLowerCase().trim();
+            var currentValue = $(this).val().toLowerCase().trim();
 
-  // Get all cards
-  var allCards = $(".cards");
+            // Get all cards
+            var allCards = $("#cards-container").find(".card-group");
 
-  // Remove display none from all cards
-  allCards.show();
+            // Remove display none from all cards
+            allCards.show();
 
-  // Filter cards that lowercase title don't start with search value
-  var nonMatchingCards = allCards.filter(function () {
-    var titleText = $(this).find(".titleGrapes").text().toLowerCase().trim();
-    return !titleText.startsWith(currentValue);
-  });
+            // Filter cards that lowercase title don't start with search value
+            var nonMatchingCards = allCards.filter(function () {
+                var titleText = $(this).find(".card-title").text().toLowerCase().trim();
+                return !titleText.startsWith(currentValue);
+            });
 
-  // Set display none to all filtered cards
-  nonMatchingCards.hide();
-  // if there are no search results show info 
-  if (nonMatchingCards.length === allCards.length) {
-    $(".nothingFound").show();
-    $("#gridGrapes").removeClass("singleResult");
-  } else if(allCards.length - nonMatchingCards.length === 1) {
-    $("#gridGrapes").addClass("singleResult");
-  } else {
-    $(".nothingFound").hide();
-    $("#gridGrapes").removeClass("singleResult");
-  }
 
-});
+            // Set display none to all filtered cards
+            nonMatchingCards.hide();
+            
+             // if there are no search results show info 
+             if (nonMatchingCards.length === allCards.length) {
+                 $(".nothingFound").show();
+                
+             } else {
+                 $(".nothingFound").hide();
+                
+             }
+
+        });
     })
 
 </script>

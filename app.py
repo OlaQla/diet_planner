@@ -58,7 +58,7 @@ def insert_category():
 
 @app.route('/get_ingredients')
 def get_ingredients():
-    all_ingredients = mongo.db.ingredients.find()
+    all_ingredients = mongo.db.ingredients.find().sort('name', 1)
     return render_template ('get_ingredients.html', ingredients = all_ingredients)
 
 @app.route('/delete_ingredient/<ingredient_id>')

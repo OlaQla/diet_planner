@@ -1,23 +1,28 @@
 {% extends 'base.html'%} {% block content %}
 <div class="container">
+   
+   <!--------------------------------------Jumbotron CookBook page---------------------->
     <div class="jumbotron jumbo_get_recipe jumbotron-fluid rounded-bottom">
         <div class="container pb-5">
             <h1 class="display-4"><strong> Your Recipes</strong></h1>
             <p class="lead">The absolute best way to organize your recipes from ALL sources in one place!</p>
-            <a href="{{url_for('add_recipe')}}" class="btn btn-info bottom-buttons">
+            
+            <!--------------- button add recipe ----------------->
+            <a href="{{url_for('add_recipe')}}" class="btn btn-info mt-5">
                 Add recipe
                 <i class="fa fa-plus"></i>
             </a>
         </div>
     </div>
 
+    <!------------------------------search input---------------------->
     <form class="form-inline md-form form-sm mt-0">
         <i class="fas fa-search" aria-hidden="true"></i>
         <input id="myInput" class="form-control form-control-sm ml-3 w-50" type="text" placeholder="Search"
             aria-label="Search">
     </form>
 
-
+<!--------------------------------------------Recipes cards --------------------------->
     <div id="cards-container" class="row mb-4">
         {% for recipe in recipes %}
         <div class="card-group col-sm-12 col-md-6 col-lg-4 pl-1"
@@ -50,7 +55,8 @@
         {%endfor%}
     </div>
 </div>
- <!----------Feedback for user that serch returned no results-------------->
+
+<!----------Feedback for user that serch returned no results-------------->
  <div class="nothingFound" style="display:none">
     <p><span>Whoops!</span> </br>Sorry, but nothing matched your search. Please try some different
         keywords.</p>
@@ -59,10 +65,15 @@
 
 {% block scripts %}
 <script type="text/javascript">
+
     $(document).ready(function () {
+        // Get recipe view after clicking on card
         $(".card-group").click(function () {
             window.location.href = $(this).data("target");
         })
+
+
+        // search input
 
         $("#myInput").keyup(function () {
             var currentValue = $(this).val().toLowerCase().trim();
@@ -91,7 +102,6 @@
                  $(".nothingFound").hide();
                 
              }
-
         });
     })
 

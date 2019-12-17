@@ -2,33 +2,39 @@
 <div class="justyfy-content-center mt-5">
         <h1 class="text-center pb-4">Add Ingredient</h1>
 
+
+        <!--------------------Add ingredient form---------->
         <form action="{{ url_for('insert_ingredient')}}" method="POST" class="col-12 col-md-8 offset-md-2 p-5">
 
                 <label class="font-weight-bold">Ingredient name</label>
                 <input class="form-control" type="text" name="new_ingredient" placeholder="New ingredient">
 
+                <!---------------------Add ingredient button------>
                 <button type="submit" class="btn btn-info bottom-buttons">Add ingredient <i
                                 class="fa fa-check "></i></button>
+
+                <!---------------------Cancel changes button------>
                 <a href="{{url_for('get_ingredients')}}" class="btn btn-secondary bottom-buttons">Cancel <i
                                 class="fa fa-trash"></i></a>
         </form>
 </div>
 {% endblock %}
 
+<!----------------------------------------Background image---------------------------->
 {% block styles %}
 
 body {
-background-image: url("{{url_for('static', filename='images/background1.jpeg')}}");
-background-repeat: no-repeat;
-background-attachment: fixed;
-background-position: center;
-background-size: cover;
-width: 100%;
-height: 100%;
-z-index: 1;
-background-color: hsla(0,0%,0%,0.10);
-background-blend-mode: overlay;
-background-repeat: no-repeat;
-}
+        background-image: url("{{url_for('static', filename='images/background1.jpeg')}}");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background-color: hsla(0,0%,0%,0.10);
+        background-blend-mode: overlay;
+        background-repeat: no-repeat;
+    }
 
 {% endblock %}

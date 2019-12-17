@@ -1,5 +1,6 @@
 {% extends 'base.html'%} {% block content %}
 
+<!-----------------------------Home page jumbotron -------------------->
         <div class="jumbotron jumbo_main jumbotron-fluid text-center rounded-bottom">
                 <div class="overlay rounded-bottom"></div>
                 <div class="inner pb-5">
@@ -12,8 +13,11 @@
                 <div class="big pb-5"></div>
         </div>
 
+        <!------------------------------------------------- Cards---------------------------->
         <div class="my-5">
                 <div class="row justify-content-center">
+
+                        <!--------------------Card Diet Plan ----------------->
                         <a href="{{url_for('diet_plan')}}" class="card card_main text-white bg-danger mr-2 mb-3 btn col-md-6 col-lg-4 shadow" style="max-width: 19rem;">
                                 <div class="card-header h4">Plan Your Diet <i class="fa fa-calendar-check"></i></div>
                                 <div class="card-body">
@@ -23,7 +27,7 @@
                                                 plan. Then there's nothing to worry about when it's time to eat.</p>
                                 </div>
                         </a>
-
+                        <!--------------------Card CookBook ----------------->
                         <a href="{{url_for('get_recipes')}}"
                                 class="card card_main text-white bg-warning mr-2 mb-3 btn col-md-6 col-lg-4 shadow"
                                 style="max-width: 20rem;">
@@ -36,6 +40,7 @@
                                         </p>
                                 </div>
                         </a>
+                        <!--------------------Card Features ----------------->
                         <a href="{{url_for('diet_plan')}}"
                                 class="card card_main text-white bg-info mr-2 mb-3 btn col-md-6 col-lg-4 shadow"
                                 style="max-width: 20rem;">

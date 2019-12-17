@@ -179,7 +179,7 @@
 
 {% block scripts %}
 
-<!-------------------------------Submit existing recipe---------->
+<!------------------------------- existing recipe---------->
 {% if existing_recipe %}
 <script type="text/javascript">
     $(document).ready(function () {
@@ -196,7 +196,7 @@
     }};
 
     ingredients.forEach(function (i) {
-        $("form").find("#ingredients_list").append(`<li">
+        $("form").find("#ingredients_list").append(`<li>
             <div class="row">
                 <div class="col-4 col-md-2">${i.name}</div>
                 <div class="col-3 col-md-1">${i.unit}</div>

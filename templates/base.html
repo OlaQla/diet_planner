@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
         type="text/css" />
@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
 
     <!-------------------- style block for custom backround ----->
-    <style type="text/css"> 
+    <style type="text/css">
         {% block styles %}
 
         {% endblock %}
@@ -29,8 +29,8 @@
 <body class="d-flex flex-column h-100">
     <!--------------------------------------------Navbar -------------------------------------->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg- sticky-top">
-            <p class="navbar-brand h2 text-light">Diet Planner</p>
+        <nav class="navbar navbar-expand-lg navbar-light bg- fixed-top">
+            <p class="navbar-brand nav_title text-light">Diet Planner</p>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
                 aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -38,23 +38,24 @@
 
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{url_for('diet_planner')}}">Home <span
-                                class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item active">
+                    
+                        <li class="nav-item active link_nav">
+                            <a class="nav-link" href="{{url_for('diet_planner')}}">Home <span
+                                    class="sr-only">(current)</span></a>
+                        </li>
+                    <li class="nav-item active link_nav">
                         <a class="nav-link" href="{{url_for('get_recipes')}}">CookBook <span
                                 class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item active link_nav">
                         <a class="nav-link" href="{{url_for('diet_plan')}}">Diet Plan <span
                                 class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item active link_nav">
                         <a class="nav-link" href="{{url_for('get_ingredients')}}">Ingredient Menager <span
                                 class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item active link_nav">
                         <a class="nav-link" href="{{url_for('get_categories')}}">Category Manager <span
                                 class="sr-only">(current)</span></a>
                     </li>
@@ -64,8 +65,8 @@
     </header>
 
     <!-------------------------------------container content section--------------------------->
-    <main role="main" class="flex-shrink-0">
-        <div class="container p-0 ">
+    <main role="main" class="flex-shrink-0 mt-5">
+        <div class="container main_container px-lg-0">
             {% block content %}
 
             {% endblock %}

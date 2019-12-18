@@ -1,9 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Calligraffitti|Josefin+Sans|Roboto&display=swap");
 
 body{
-  color: #263238;
+  color:  #263238;
 }
-
 /*---------------------   fonts -----------------------*/
 h2 {
   margin-top: 20px;
@@ -86,13 +85,7 @@ form{
 .container {
   width: 100% !important;
 }
-.card_main{
-  transition: all 0.5s ease;
-  transform: scale(1);
-}
-.card_main:hover {
-  transform: scale(1.03);
-}
+
 .card-group {
   display: flex;
   transition: all 0.5s ease;
@@ -172,19 +165,57 @@ form{
 }
 
 /*-------------------------------------------- navbar ---------------------*/
-.nav-link{
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+
+
+.nav_title{
+  padding:0;
+  margin:0;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1.7em;
+  font-weight: 700;
+  color:#fafafa;
+  padding-right:1.5em;
 }
 
-.nav-link:hover{
-  -webkit-transform: scale(1.1);
-   transform: scale(1.1);
+.nav-item{
+  font-family: "Josefin Sans", sans-serif;
+  padding-right: 1em;
 }
+
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+  color: rgba(255,255,255,.9);
+
+}
+
+/* -------------buttons navbar stiling-----------*/
+.link_nav {
+  margin:0;
+  transition: all 0.3s;
+  position: relative;
+}
+.link_nav {
+  transition: all 0.3s;
+}
+.link_nav:hover {
+  letter-spacing: 1.5px;
+}
+.link_nav ::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.7);
+  transition: width .3s;
+}
+
+.link_nav :hover::after {
+  width: 100%;
+}
+
 
 /*------------------------------------------ footer -------------------- */
 .navbar, footer {
-  background-color: #007E33;
+  background-image: linear-gradient(to right, #007e33, #018737, #018f3b, #03b44b, #04c853);
   color: #fafafa;
 }
 
@@ -207,7 +238,7 @@ footer {
 
 .social_icon a{
   text-align: center;
-  color: #263238;
+  color: #fafafa;
   font-size: 1.5em;
 }
 

@@ -18,7 +18,7 @@
                 <div class="row justify-content-center">
 
                         <!--------------------Card Diet Plan ----------------->
-                        <a href="{{url_for('diet_plan')}}" class="card card_main text-white bg-danger mr-2 mb-3 btn col-md-6 col-lg-4 shadow" style="max-width: 19rem;">
+                        <a href="{{url_for('diet_plan')}}" class="card text-white bg-danger mr-2 mb-3 btn col-md-6 col-lg-4 shadow" style="max-width: 19rem;">
                                 <div class="card-header h4">Plan Your Diet <i class="fa fa-calendar-check"></i></div>
                                 <div class="card-body">
                                         <h5 class="card-title">Take the anxiety out of choosing what to eat</h5>
@@ -29,7 +29,7 @@
                         </a>
                         <!--------------------Card CookBook ----------------->
                         <a href="{{url_for('get_recipes')}}"
-                                class="card card_main text-white bg-warning mr-2 mb-3 btn col-md-6 col-lg-4 shadow"
+                                class="card text-white bg-warning mr-2 mb-3 btn col-md-6 col-lg-4 shadow"
                                 style="max-width: 20rem;">
                                 <div class="card-header h4"> Your Cookbook <i class="fas fa-book-open"></i></div>
                                 <div class="card-body">
@@ -42,7 +42,7 @@
                         </a>
                         <!--------------------Card Features ----------------->
                         <a href="{{url_for('diet_plan')}}"
-                                class="card card_main text-white bg-info mr-2 mb-3 btn col-md-6 col-lg-4 shadow"
+                                class="card text-white bg-info mr-2 mb-3 btn col-md-6 col-lg-4 shadow"
                                 style="max-width: 20rem;">
                                 <div class="card-header h4">Features <i class="fa fa-tasks"></i></div>
                                 <div class="card-body">
@@ -53,8 +53,12 @@
                                 </div>
                         </a>
                 </div>
-
         </div>
+
+
+{% endblock %}
+
+{% block styles %}
 
 
 {% endblock %}

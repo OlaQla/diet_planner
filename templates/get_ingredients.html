@@ -5,7 +5,7 @@
     <!---------------------------------button add ingredient-->
     <div class="row  mb-4">
         <div class="col-1 col-md-2"></div>
-        <a href="{{url_for('add_ingredient')}}" class="btn btn-info bottom-buttons col-5 col-md-3 col-lg-2">Add
+        <a href="{{url_for('add_ingredient')}}" class="btn btn-info bottom-buttons col-6 col-md-4 col-lg-2">Add
             ingredient <i class="fa fa-plus"></i></a>
     </div>
 
@@ -15,11 +15,11 @@
         <li class="row">
             <div id="ingredients_list" class="list-group-item container ">
                 <div class="row pl-2">
-                    <div class="col-4 col-lg-8">
+                    <div class="col-5 col-sm-7 col-md-6 col-lg-8">
                         <strong>{{ingredient.name}}</strong>
                     </div>
                     <!------------------Buttons ------------------->
-                    <div class="col-5 col-lg-4">
+                    <div class="col-6  col-lg-4">
                         <!------Edit ingredient button---->
                         <a href="{{url_for('edit_ingredient', ingredient_id=ingredient._id)}}"
                             class="btn btn-primary btn-sm" role="button" aria-pressed="true">Edit</a>

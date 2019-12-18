@@ -1,5 +1,5 @@
 {% extends 'base.html'%} {% block content %}
-<div class="container">
+<div class="container p-0 justify-content-center">
    
    <!--------------------------------------Jumbotron CookBook page---------------------->
     <div class="jumbotron jumbo_get_recipe jumbotron-fluid rounded-bottom">
@@ -25,7 +25,7 @@
 <!--------------------------------------------Recipes cards --------------------------->
     <div id="cards-container" class="row mb-4">
         {% for recipe in recipes %}
-        <div class="card-group col-sm-12 col-md-6 col-lg-4 pl-1"
+        <div class="card-group col-sm-12 col-md-6 col-lg-4 pl-md-1"
             data-target="{{url_for('view_recipe', recipe_id=recipe._id)}}">
             <div class="card mt-3 shadow-sm">
                 <img id="get_recipe_image" src="{{recipe.image}}" class="card-img-top img-fluid" alt="...">

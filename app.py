@@ -13,6 +13,9 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
 mongo = PyMongo(app)
 
+if not os.path.exists("./uploads"):
+    os.makedirs("./uploads")
+
 @app.route('/')
 @app.route('/diet_planner')
 def diet_planner():
@@ -132,43 +135,18 @@ def edit_recipe(recipe_id):
 
 def upload_to_s3(filename):
     s3 = boto3.client('s3')
-    response = s3.upload_file(filename, "diet.planner", filename, ExtraArgs={'ACL': 'public-read'})
+    print(f"uploading file {filename}")
+    response = s3.upload_file(filename, "diet.planner", os.path.basename(filename), ExtraArgs={'ACL': 'public-read'})
 
     return response    
 
 @app.route('/add_image', methods=['POST'])
 def add_image():
     f = request.files['image']
-    f.save(os.path.join("uploads", f.filename))
-    upload_to_s3(f"uploads/{f.filename}")
-
+    f.save(os.path.join("./uploads", f.filename))
+    upload_to_s3(f"./uploads/{f.filename}")
     return('', 200)
 
-@app.route('/test', methods=['GET', 'POST'])
-def upload_file():
-    if request.method == 'POST':
-        # check if the post request has the file part
-        if 'file' not in request.files:
-            flash('No file part')
-            return redirect(request.url)
-        file = request.files['file']
-        # if user does not select file, browser also
-        # submit an empty part without filename
-        if file.filename == '':
-            flash('No selected file')
-            return redirect(request.url)
-        if file:
-            return(file, 200)
-
-    return '''
-    <!doctype html>
-    <title>Upload new File</title>
-    <h1>Upload new File</h1>
-    <form method=post enctype=multipart/form-data>
-      <input type=file name=file>
-      <input type=submit value=Upload>
-    </form>
-    '''
 
 @app.route('/update_recipe/<recipe_id>', methods=['POST'])
 def update_recipe(recipe_id):

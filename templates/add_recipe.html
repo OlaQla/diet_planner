@@ -11,41 +11,54 @@
 {% endif %}
 
 <!----------------------------------Add / Edit recipe form-------------------->
-<div class="">
+<div>
+    <!------- Modal with images to choose--------->
+    <div class="modal fade" id="modal_image_select" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <!-----------modal header-------->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalScrollableTitle">Select image</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!-----------modal body-------->
+                <div class="modal-body">
+                    <div class="container-flex"></div>
+                    <div class="row" id="image_list">
+
+                    </div>
+                </div>
+                <!------------------------------- modal footer----------->
+                <!---------------Upload img----------------->
+                <div class="modal-footer">
+                    <div class="input-group mb-3">
+                        <div id="upload_img" class="input-group-prepend">
+                            <span class="input-group-text">Upload</span>
+                        </div>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputGroupFile01">
+                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                        </div>
+                        <form method=post enctype=multipart/form-data action='{{url_for("add_image")}}'>
+                            <input type="file" name="image">
+                            <input type=submit value=Upload>
+                          </form>
+                    </div>
+                    <!------------------Close modal button --------------->
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <form action="" method="POST" class="col-12 border p-lg-5 mb-5 pb-5">
         <div class="col-6 pb-4">
             <!-----------image/button to add or change image------------->
             <img id="image_preview" class="img-thumbnail rounded img-fluid max-width: 100% mt-3">
             <figcaption>Click to change image</figcaption>
-            <!------- Modal with images to choose--------->
-            <div class="modal fade" id="modal_image_select" tabindex="-1" role="dialog"
-                aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-scrollable" role="document">
-                    <div class="modal-content">
-                        <!-----------modal header-------->
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalScrollableTitle">Select image</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <!-----------modal body-------->
-                        <div class="modal-body">
-                            <div class="container-flex"></div>
-                            <div class="row" id="image_list">
-
-                            </div>
-                        </div>
-                        <!-----------Close modal button----------->
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
-
-
         <div class="row justyfi-content-center mb-3">
             <!------------Add / Edit Title input------------->
             <div class="col-6">
@@ -147,7 +160,7 @@
                 <div class="form-group col-2">
                     <label for="add_ingredient_amount">Amount</label>
                     <input type="text" class="form-control" id="add_ingredient_amount" placeholder="Amount">
-                  </div>
+                </div>
                 <i id="add_ingredient" class="b_plus fa fa-plus text-success"></i>
             </div>
             <ul class="list-unstyled" id="ingredients_list">
@@ -187,7 +200,7 @@
 {% if existing_recipe %}
 <script type="text/javascript">
     $(document).ready(function () {
-        
+
 
         $("form").find("input[name=new_title]").val("{{existing_recipe.title}}");
         $("form").find("input[name=new_image]").val("{{existing_recipe.image}}");
@@ -283,6 +296,26 @@
             })
         })
 
+        $("#upload_img").click(function () {
+            formdata = new FormData();
+            formfiles = $(this).siblings().eq(0).find("input[type=file]").prop('files')
+
+            if(formfiles.length > 0){
+                file = formfiles[0];
+                formdata.append('image', file);
+                $.ajax({
+                    url: "{{url_for('add_image')}}",
+                    type: "POST",
+                    data: formdata,
+                    processData: false,
+                    contentType: false,
+                    enctype: 'multipart/form-data'
+                })
+            }
+        })
+
+
+
         $("#submit_button").click(function () {
             const ingredients = $("#ingredients_list").find("li").map(function () { return { name: $(this).children().eq(0).children().eq(0).text(), unit: $(this).children().eq(0).children().eq(1).text(), amount: $(this).children().eq(0).children().eq(2).text() } });
             const steps = $("#steps_list").find(".row").map(function () {
@@ -328,17 +361,17 @@
 {% block styles %}
 
 body {
-    background-image: url("{{url_for('static', filename='images/background1.jpeg')}}");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    background-color: hsla(0,0%,0%,0.10);
-    background-blend-mode: overlay;
-    background-repeat: no-repeat;
+background-image: url("{{url_for('static', filename='images/background1.jpeg')}}");
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-position: center;
+background-size: cover;
+width: 100%;
+height: 100%;
+z-index: 1;
+background-color: hsla(0,0%,0%,0.10);
+background-blend-mode: overlay;
+background-repeat: no-repeat;
 }
 
 {% endblock %}

@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for, Response
+from flask import Flask, flash, render_template, redirect, request, url_for, Response
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId 
 import boto3
@@ -9,6 +9,7 @@ app = Flask(__name__)
 mongo_password = os.getenv("MONGO_PASSWORD")
 MONGODB_URI = f"mongodb+srv://ola:{mongo_password}@myfirstcluster-wl3fx.mongodb.net/diet_planner"
 app.config["MONGO_URI"] = MONGODB_URI
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
 mongo = PyMongo(app)
 
@@ -128,6 +129,46 @@ def edit_recipe(recipe_id):
     all_ingredients = mongo.db.ingredients.find().sort("name", 1)
     all_units = mongo.db.units.find()
     return render_template('add_recipe.html', categories = all_categories, ingredients = all_ingredients, units = all_units, existing_recipe=mongo.db.recipies.find_one({'_id': ObjectId(recipe_id)}))
+
+def upload_to_s3(filename):
+    s3 = boto3.client('s3')
+    response = s3.upload_file(filename, "diet.planner", filename, ExtraArgs={'ACL': 'public-read'})
+
+    return response    
+
+@app.route('/add_image', methods=['POST'])
+def add_image():
+    f = request.files['image']
+    f.save(os.path.join("uploads", f.filename))
+    upload_to_s3(f"uploads/{f.filename}")
+
+    return('', 200)
+
+@app.route('/test', methods=['GET', 'POST'])
+def upload_file():
+    if request.method == 'POST':
+        # check if the post request has the file part
+        if 'file' not in request.files:
+            flash('No file part')
+            return redirect(request.url)
+        file = request.files['file']
+        # if user does not select file, browser also
+        # submit an empty part without filename
+        if file.filename == '':
+            flash('No selected file')
+            return redirect(request.url)
+        if file:
+            return(file, 200)
+
+    return '''
+    <!doctype html>
+    <title>Upload new File</title>
+    <h1>Upload new File</h1>
+    <form method=post enctype=multipart/form-data>
+      <input type=file name=file>
+      <input type=submit value=Upload>
+    </form>
+    '''
 
 @app.route('/update_recipe/<recipe_id>', methods=['POST'])
 def update_recipe(recipe_id):

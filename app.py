@@ -1,5 +1,5 @@
 import os
-from flask import Flask, flash, render_template, redirect, request, url_for, Response
+from flask import Flask, flash, render_template, redirect, request, url_for, Response, send_from_directory
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId 
 import boto3
@@ -15,7 +15,10 @@ mongo = PyMongo(app)
 
 if not os.path.exists("./uploads"):
     os.makedirs("./uploads")
-
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
 @app.route('/')
 @app.route('/diet_planner')
 def diet_planner():

@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Calligraffitti|Josefin+Sans|Roboto&display=swap");
 
-body{
-  color:  #263238;
+body {
+  color: #263238;
 }
 /*---------------------   fonts -----------------------*/
 h2 {
@@ -19,52 +19,51 @@ h5 {
 /* ----------------- recipe images -------------------*/
 
 #image_list img {
-  width:100%;
+  width: 100%;
   height: 8rem;
 }
 #image_preview {
-  width:10rem;
-  height:9rem;
+  width: 10rem;
+  height: 9rem;
 }
 
-#get_recipe_image{
+#get_recipe_image {
   height: 16rem;
-  width:100%;
+  width: 100%;
 }
-#view_recipe_image{
+#view_recipe_image {
   height: 35rem;
-  width:100%;
+  width: 100%;
 }
 
-.color-view-recipe{
+.color-view-recipe {
   color: #00695c;
-  }
-.color-ingredients{
-  color:#007E33;
-  }
+}
+.color-ingredients {
+  color: #007e33;
+}
 
 /* -----------------    forms styling ----------------*/
-form{
-  background-color:rgba(255, 255, 255, 0.9)
+form {
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
-#ingredients_list{
-  background-color: rgba(255, 255, 255, 0.9)
+#ingredients_list {
+  background-color: rgba(255, 255, 255, 0.9);
 }
-
 
 .bigger {
   font-family: "asap condensed", sans-serif !important;
   font-size: 20px;
 }
-      /*-----------------------   buttons --------------*/
-            
-      /*add infredient, steps */
-.b_plus{
-  outline:none;
+/*-----------------------   buttons --------------*/
+
+/*add infredient, steps */
+.b_plus {
+  outline: none;
   width: 2em;
-  height:2em;
-  margin-top:2.5em;
+  height: 2em;
+  margin-top: 2.5em;
   margin-left: 2em;
   transition: all 0.5s ease;
   transform: scale(1);
@@ -72,8 +71,8 @@ form{
 .b_plus:hover {
   transform: scale(1.3);
 }
-           /*remove infredient, steps */
-.b_minus{
+/*remove infredient, steps */
+.b_minus {
   transition: all 0.5s ease;
   transform: scale(1);
 }
@@ -99,10 +98,9 @@ form{
   background-color: rgb(253, 252, 250);
 }
 
-
 /*------------------------------ jumbotron home page and cookbook page --------------*/
 .jumbo_get_recipe {
-  width:100%;
+  width: 100%;
   background-image: url(../images/jumbo2.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -149,7 +147,7 @@ form{
 .nothingFound p {
   text-align: center;
   padding-top: 2em;
-  padding-bottom:3em;
+  padding-bottom: 3em;
   font-family: "Josefin Sans", sans-serif;
   font-size: 1.5em;
   line-height: 2.5em;
@@ -166,30 +164,31 @@ form{
 
 /*-------------------------------------------- navbar ---------------------*/
 
-
-.nav_title{
-  padding:0;
-  margin:0;
+.nav_title {
+  padding: 0;
+  margin: 0;
   font-family: "Josefin Sans", sans-serif;
   font-size: 1.7em;
   font-weight: 700;
-  color:#fafafa;
-  padding-right:1.5em;
+  color: #fafafa;
+  padding-right: 1.5em;
 }
 
-.nav-item{
+.nav-item {
   font-family: "Josefin Sans", sans-serif;
   padding-right: 1em;
 }
 
-.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
-  color: rgba(255,255,255,.9);
-
+.navbar-light .navbar-nav .active > .nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show > .nav-link {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /* -------------buttons navbar stiling-----------*/
 .link_nav {
-  margin:0;
+  margin: 0;
   transition: all 0.3s;
   position: relative;
 }
@@ -200,21 +199,21 @@ form{
   letter-spacing: 1.5px;
 }
 .link_nav ::after {
-  content: '';
+  content: "";
   display: block;
   width: 0;
   height: 1px;
   background: rgba(255, 255, 255, 0.7);
-  transition: width .3s;
+  transition: width 0.3s;
 }
 
 .link_nav :hover::after {
   width: 100%;
 }
 
-
 /*------------------------------------------ footer -------------------- */
-.navbar, footer {
+.navbar,
+footer {
   background-image: linear-gradient(to right, #007e33, #018737, #018f3b, #03b44b, #04c853);
   color: #fafafa;
 }
@@ -223,7 +222,7 @@ footer {
   margin-top: 30px;
 }
 
-.social_icon{
+.social_icon {
   width: 3em;
   height: 3em;
   padding-top: 0.6em;
@@ -231,12 +230,12 @@ footer {
   padding-right: 1em;
   display: inline-table;
   background-color: transparent;
-  border:none;
+  border: none;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
 
-.social_icon a{
+.social_icon a {
   text-align: center;
   color: #fafafa;
   font-size: 1.5em;
@@ -244,25 +243,40 @@ footer {
 
 .social_icon:hover {
   -webkit-transform: scale(1.2);
-   transform: scale(1.2);
+  transform: scale(1.2);
 }
 
+/*-----------------------------------Diet planner-----------------------*/
+#recipes-list {
+  max-height: 30em;
+  margin-bottom: 10px;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
 
+.recipe-diet-planner{
+width: 100px;
+ height: 100px; 
+ background-color: rgba(0,0,255,0.1);
+}
+
+.sidebar-image{
+  height: 12em !important;
+}
 
 /*------------------------------------ media query -----------------*/
-@media only screen and (max-width : 767px){
-  #view_recipe_image{
+@media only screen and (max-width: 767px) {
+  #view_recipe_image {
     height: 20rem;
-    width:100%;
+    width: 100%;
   }
 }
 
-@media (min-width: 768px) { 
-  
+@media (min-width: 768px) {
 }
 
-@media (min-width: 992px) { 
-  
- }
+@media (min-width: 992px) {
+}
 
-@media (min-width: 1200px) {  }
+@media (min-width: 1200px) {
+}

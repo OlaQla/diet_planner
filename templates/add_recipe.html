@@ -45,7 +45,7 @@
                         <form method=post enctype=multipart/form-data action='{{url_for("add_image")}}'>
                             <input type="file" name="image">
                             <input type=submit value=Upload>
-                          </form>
+                        </form>
                     </div>
                     <!------------------Close modal button --------------->
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -300,7 +300,7 @@
             formdata = new FormData();
             formfiles = $(this).siblings().eq(0).find("input[type=file]").prop('files')
 
-            if(formfiles.length > 0){
+            if (formfiles.length > 0) {
                 file = formfiles[0];
                 formdata.append('image', file);
                 $.ajax({

@@ -1,102 +1,289 @@
 {% extends 'base.html'%} {% block content %}
+<div class="container pt-4">
+    <div class="row">
+        <div class="col-7 mb-3 mr-2">
+            <!-----------------------------Carousel diet plan-------------------------->
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval=false>
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
+                </ol>
+                <div class="carousel-inner bg-secondary">
+                    <div class="carousel-item active">
+                        <div class="row bg-warning p-3 border font-weight-bold"><span class="text-center">Monday</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><button type="button" class="btn btn-success">Breakfast</button></div>
+                            <div class="col-4 mh-100 recipe-diet-planner">
+                                Recipe</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><button type="button" class="btn btn-success">Lunch</button></div>
+                            <div class="col-4 mh-100 recipe-diet-planner">
+                                Recipe</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><button type="button" class="btn btn-success">Tea</button></div>
+                            <div class="col-4 mh-100 recipe-diet-planner">
+                                Recipe</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><button type="button" class="btn btn-success">Diner</button></div>
+                            <div class="col-4 mh-100 recipe-diet-planner">
+                                Recipe</div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row bg-warning p-3 border font-weight-bold"><span class="text-center">Tuesday</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><button type="button" class="btn btn-success">Breakfast</button></div>
+                            <div class="col-4 mh-100 recipe-diet-planner">
+                                Recipe</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><button type="button" class="btn btn-success">Lunch</button></div>
+                            <div class="col-4 mh-100 recipe-diet-planner">
+                                Recipe</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><button type="button" class="btn btn-success">Tea</button></div>
+                            <div class="col-4 mh-100 recipe-diet-planner">
+                                Recipe</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><button type="button" class="btn btn-success">Diner</button></div>
+                            <div class="col-4 mh-100 recipe-diet-planner">
+                                Recipe</div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row bg-warning p-3 border font-weight-bold"><span
+                                class="text-center">Wednesday</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><button type="button" class="btn btn-success">Breakfast</button></div>
+                            <div class="col-4 mh-100 recipe-diet-planner">
+                                Recipe</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><button type="button" class="btn btn-success">Lunch</button></div>
+                            <div class="col-4 mh-100 recipe-diet-planner">
+                                Recipe</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><button type="button" class="btn btn-success">Tea</button></div>
+                            <div class="col-4 mh-100 recipe-diet-planner">
+                                Recipe</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><button type="button" class="btn btn-success">Diner</button></div>
+                            <div class="col-4 mh-100 recipe-diet-planner">
+                                Recipe</div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row bg-warning p-3 border font-weight-bold"><span
+                                class="text-center">Thuesday</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><button type="button" class="btn btn-success">Breakfast</button></div>
+                            <div class="col-4 mh-100 recipe-diet-planner">
+                                Recipe</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><button type="button" class="btn btn-success">Lunch</button></div>
+                            <div class="col-4 mh-100 recipe-diet-planner">
+                                Recipe</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><button type="button" class="btn btn-success">Tea</button></div>
+                            <div class="col-4 mh-100 recipe-diet-planner">
+                                Recipe</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><button type="button" class="btn btn-success">Diner</button></div>
+                            <div class="col-4 mh-100 recipe-diet-planner">
+                                Recipe</div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row bg-warning p-3 border font-weight-bold"><span class="text-center">Friday</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><button type="button" class="btn btn-success">Breakfast</button></div>
+                            <div class="col-4 mh-100 recipe-diet-planner">
+                                Recipe</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><button type="button" class="btn btn-success">Lunch</button></div>
+                            <div class="col-4 mh-100 recipe-diet-planner">
+                                Recipe</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><button type="button" class="btn btn-success">Tea</button></div>
+                            <div class="col-4 mh-100 recipe-diet-planner">
+                                Recipe</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><button type="button" class="btn btn-success">Diner</button></div>
+                            <div class="col-4 mh-100 recipe-diet-planner">
 
-<table class="table">
-    <thead class="thead-light">
-        <tr>
-            <th scope="col"></th>
-            <th scope="col"></th>
-            <th scope="col">Monday</th>
-            <th scope="col">Tuesday</th>
-            <th scope="col">Wednesday</th>
-            <th scope="col">Thursday</th>
-            <th scope="col">Friday</th>
-            <th scope="col">Saturday</th>
-            <th scope="col">Sunday</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for cat in categories %}
-        <tr>
-            <th>
-                <i class="fa fa-minus-circle"></i>
-            </th>
-            <th scope="row" class="category_name">{{cat.name}}</th>
-            {% for n in range(7) %}
-            <td> <select class="form-control" id="exampleFormControlSelect1" name="new_hours">
-                    {% for recipe in recipes %}
-                    {% if recipe.category == cat.name %}
-                    <option class="recipe_name">{{recipe.title}}</option>
-                    {% endif %}
-                    {% endfor %}
-                </select>
-            </td>
-            {% endfor %}
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-
-<div class="row mb-5">
-    <!-- Button trigger modal -->
-    <div class="col-5 col-md-3">
-        <button id="generate_diet_plan" type="button" class="btn btn-warning" data-toggle="modal"
-            data-target="#exampleModalCenter">
-            Generate diet plan
-        </button>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title text-success" id="exampleModalCenterTitle">Diet plan</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div id="print" class="border pr-3 pl-3 ">
-
+                                Recipe</div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row bg-warning p-3 border font-weight-bold"><span
+                                class="text-center">Saturday</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><button type="button" class="btn btn-success">Breakfast</button></div>
+                            <div class="col-4 mh-100 recipe-diet-planner">
+                                Recipe</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><button type="button" class="btn btn-success">Lunch</button></div>
+                            <div class="col-4 mh-100 recipe-diet-planner">
+                                Recipe</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><button type="button" class="btn btn-success">Tea</button></div>
+                            <div class="col-4 mh-100 recipe-diet-planner">
+                                Recipe</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><button type="button" class="btn btn-success">Diner</button></div>
+                            <div class="col-4 mh-100 recipe-diet-planner">
+                                Recipe</div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row bg-warning p-3 border font-weight-bold"><span class="text-center">Friday</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><button type="button" class="btn btn-success">Breakfast</button></div>
+                            <div class="col-4 mh-100 recipe-diet-planner">
+                                Recipe</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><button type="button" class="btn btn-success">Lunch</button></div>
+                            <div class="col-4 mh-100 recipe-diet-planner">
+                                Recipe</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><button type="button" class="btn btn-success">Tea</button></div>
+                            <div class="col-4 mh-100 recipe-diet-planner">
+                                Recipe</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><button type="button" class="btn btn-success">Diner</button></div>
+                            <div class="col-4 mh-100 recipe-diet-planner">
+                                Recipe</div>
+                        </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <!---------------------------------------------Side panel-------------------------->
+        <div class="col-4">
+            <div class="row">
+                <form class="col-12 form-inline md-form form-sm mb-3">
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                    <input id="myInput" class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
+                        aria-label="Search">
+                </form>
+                <div id="recipes-list" class="mt-1" data-spy="scroll" data-target="#navbar-example2" data-offset="0">
+
+                </div>
+            </div>
+            <!----------Feedback for user that serch returned no results-------------->
+            <div class="nothingFound" style="display:none">
+                <p><span>Whoops!</span> </br>Sorry, but nothing matched your search. Please try some different
+                    keywords.</p>
+            </div>
+        </div>
+    </div>
+
+    <!----------------------Buttons generate diet plan and shopping list------------------>
+
+    <div class="row mb-5">
+        <!-- Button trigger modal -->
+        <div class="col-5 col-md-3">
+            <button id="generate_diet_plan" type="button" class="btn btn-warning" data-toggle="modal"
+                data-target="#exampleModalCenter">
+                Generate diet plan
+            </button>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-success" id="exampleModalCenterTitle">Diet plan</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="print" class="border pr-3 pl-3 ">
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Button trigger modal -->
+        <div class="col-5 col-md-4">
+            <button type="button" class="btn btn-success" id="generate_shopping_list" data-toggle="modal"
+                data-target="#exampleModalScrollable">
+                Generate shopping list
+            </button>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-success text-center" id="exampleModalScrollableTitle">Shoping
+                            List
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <ul class="list-group list-group-flush shopping_list">
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-
-    <!-- Button trigger modal -->
-    <div class="col-5 col-md-4">
-        <button type="button" class="btn btn-success" id="generate_shopping_list" data-toggle="modal"
-            data-target="#exampleModalScrollable">
-            Generate shopping list
-        </button>
-    </div>
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title text-success text-center" id="exampleModalScrollableTitle">Shoping List</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <ul class="list-group list-group-flush shopping_list">
-                    </ul>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 
 {% endblock %}
@@ -113,6 +300,53 @@
     $("table i").click(function () {
         $(this).parents("tr").remove()
     })
+
+    // Fill in list with all recipes
+
+    // 1. Find with jquery element to put recipes to 
+    const $recipesList = $("#recipes-list");
+
+    // 2. For each in recipes add new html object (create with jQuery) to recipes list
+
+    recipes.forEach(function (recipe) {
+        $recipesList.append(`<div class="recipe-sidebar mb-4">
+                                 <h5 class="rec-title text-center text-info">${recipe.title}</h5>
+                                 
+                                 <div class="px-3"><img src="${recipe.image}" class="card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image"></div>
+                             </div>`)
+    })
+
+
+    $("#myInput").keyup(function () {
+        var currentValue = $(this).val().toLowerCase().trim();
+
+        // Get all cards
+        var allCards = $("#recipes-list").find(".recipe-sidebar");
+
+        // Remove display none from all cards
+        allCards.show();
+
+        // Filter cards that lowercase title don't start with search value
+        var nonMatchingCards = allCards.filter(function () {
+            var titleText = $(this).find(".rec-title ").text().toLowerCase().trim();
+            return !titleText.startsWith(currentValue);
+        });
+
+
+        // Set display none to all filtered cards
+        nonMatchingCards.hide();
+
+        // if there are no search results show info 
+        if (nonMatchingCards.length === allCards.length) {
+            $(".nothingFound").show();
+
+        } else {
+            $(".nothingFound").hide();
+
+        }
+    });
+
+    /*---------------------------Generate diet plan button----------------------*/
 
     $("#generate_diet_plan").click(function () {
         $print = $("#print");
@@ -162,6 +396,9 @@
         })
 
     })
+
+
+    /*--------------------------Generate shopping list button-------------------*/
 
     $("#generate_shopping_list").click(function () {
 

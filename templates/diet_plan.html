@@ -18,7 +18,7 @@
                         <div class="row bg-warning p-3 border font-weight-bold"><span class="text-center">Monday</span>
                         </div>
                         <div class="row">
-                            <div class="col-3"><button type="button" class="btn btn-success">Breakfast</button></div>
+                            <div class="col-3"><button type="button" class="btn btn-warning">Breakfast</button></div>
                             <div class="col-4 mh-100 recipe-diet-planner">
                                 Recipe</div>
                         </div>
@@ -42,7 +42,7 @@
                         <div class="row bg-warning p-3 border font-weight-bold"><span class="text-center">Tuesday</span>
                         </div>
                         <div class="row">
-                            <div class="col-3"><button type="button" class="btn btn-success">Breakfast</button></div>
+                            <div class="col-3"><button type="button" class="btn btn-warning">Breakfast</button></div>
                             <div class="col-4 mh-100 recipe-diet-planner">
                                 Recipe</div>
                         </div>
@@ -67,7 +67,7 @@
                                 class="text-center">Wednesday</span>
                         </div>
                         <div class="row">
-                            <div class="col-3"><button type="button" class="btn btn-success">Breakfast</button></div>
+                            <div class="col-3"><button type="button" class="btn btn-warning">Breakfast</button></div>
                             <div class="col-4 mh-100 recipe-diet-planner">
                                 Recipe</div>
                         </div>
@@ -92,7 +92,7 @@
                                 class="text-center">Thuesday</span>
                         </div>
                         <div class="row">
-                            <div class="col-3"><button type="button" class="btn btn-success">Breakfast</button></div>
+                            <div class="col-3"><button type="button" class="btn btn-warning">Breakfast</button></div>
                             <div class="col-4 mh-100 recipe-diet-planner">
                                 Recipe</div>
                         </div>
@@ -116,7 +116,7 @@
                         <div class="row bg-warning p-3 border font-weight-bold"><span class="text-center">Friday</span>
                         </div>
                         <div class="row">
-                            <div class="col-3"><button type="button" class="btn btn-success">Breakfast</button></div>
+                            <div class="col-3"><button type="button" class="btn btn-warning">Breakfast</button></div>
                             <div class="col-4 mh-100 recipe-diet-planner">
                                 Recipe</div>
                         </div>
@@ -142,7 +142,7 @@
                                 class="text-center">Saturday</span>
                         </div>
                         <div class="row">
-                            <div class="col-3"><button type="button" class="btn btn-success">Breakfast</button></div>
+                            <div class="col-3"><button type="button" class="btn btn-warning">Breakfast</button></div>
                             <div class="col-4 mh-100 recipe-diet-planner">
                                 Recipe</div>
                         </div>
@@ -163,10 +163,10 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <div class="row bg-warning p-3 border font-weight-bold"><span class="text-center">Friday</span>
+                        <div class="row bg-warning p-3 border font-weight-bold"><span class="text-center">Sunday</span>
                         </div>
                         <div class="row">
-                            <div class="col-3"><button type="button" class="btn btn-success">Breakfast</button></div>
+                            <div class="col-3"><button type="button" class="btn btn-warning">Breakfast</button></div>
                             <div class="col-4 mh-100 recipe-diet-planner">
                                 Recipe</div>
                         </div>
@@ -301,6 +301,15 @@
         $(this).parents("tr").remove()
     })
 
+    //handle switching between categories buttons
+
+    $(".carousel-item button").click(function(){
+        if(!$(this).hasClass("btn-warning")){
+            $(this).parents(".carousel-item").find("button").removeClass("btn-warning").addClass("btn-success")
+            $(this).addClass("btn-warning")
+        }
+    })
+
     // Fill in list with all recipes
 
     // 1. Find with jquery element to put recipes to 
@@ -309,11 +318,17 @@
     // 2. For each in recipes add new html object (create with jQuery) to recipes list
 
     recipes.forEach(function (recipe) {
-        $recipesList.append(`<div class="recipe-sidebar mb-4">
+        $newElem = $(`<div class="recipe-sidebar mb-4">
                                  <h5 class="rec-title text-center text-info">${recipe.title}</h5>
                                  
                                  <div class="px-3"><img src="${recipe.image}" class="card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image"></div>
                              </div>`)
+
+        $newElem.click(function(){
+            $(".carousel-item.active .btn-warning").parent().siblings(".recipe-diet-planner").text($(this).find(".rec-title").text())
+        });
+
+        $recipesList.append($newElem)
     })
 
 

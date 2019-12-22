@@ -264,6 +264,11 @@ width: 100px;
   height: 12em !important;
 }
 
+.carousel-control-prev, .carousel-control-next{
+  width:4%;
+ border: solid 1px green;
+}
+
 /*------------------------------------ media query -----------------*/
 @media only screen and (max-width: 767px) {
   #view_recipe_image {

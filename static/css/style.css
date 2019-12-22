@@ -248,16 +248,30 @@ footer {
 
 /*-----------------------------------Diet planner-----------------------*/
 #recipes-list {
-  max-height: 30em;
+  max-height: 58em;
   margin-bottom: 10px;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
 }
+.day-od-the-week{
+  font-size: 1.5em;
+  background-color:rgb(21,147,167);
+  color:#fafafa;
+}
+.carousel-inner{
+  border:solid 2px #e2e2e2;
+  border-radius: 5px;
+  background-color: #e2e2e2;
+  
+}
 
-.recipe-diet-planner{
-width: 100px;
- height: 100px; 
- background-color: rgba(0,0,255,0.1);
+.carousel-control-next-icon, .carousel-control-prev-icon {
+  background-color: black !important;
+
+}
+.recipe-diet-planner{ 
+  width: 100%;
+ background-color: transparent;
 }
 
 .sidebar-image{
@@ -266,8 +280,11 @@ width: 100px;
 
 .carousel-control-prev, .carousel-control-next{
   width:4%;
- border: solid 1px green;
+ /*border: solid 1px green;*/
+ 
+
 }
+
 
 /*------------------------------------ media query -----------------*/
 @media only screen and (max-width: 767px) {

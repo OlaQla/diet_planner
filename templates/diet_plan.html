@@ -1,9 +1,9 @@
 {% extends 'base.html'%} {% block content %}
-<div class="container pt-4">
-    <div class="row">
+<div class="container-flex justify-content-center ml-5 pt-4">
+    <div class="row px-10">
         <div class="col-7 mb-3 mr-2">
             <!-----------------------------Carousel diet plan-------------------------->
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval=false>
+            <div id="carouselExampleIndicators" class="carousel slide mt-3" data-ride="carousel" data-interval=false>
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -13,179 +13,411 @@
                     <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
                 </ol>
-                <div class="carousel-inner bg-secondary">
+                <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <div class="row bg-warning p-3 border font-weight-bold"><span class="text-center">Monday</span>
+                        <!-------------------------------------day of the week Monday------------>
+                        <div class="justify-content-center day-od-the-week row  p-3 mb-4 font-weight-bold"><span class="">Monday</span>
                         </div>
-                        <div class="row">
-                            <div class="col-3"><button type="button" class="btn btn-warning">Breakfast</button></div>
-                            <div class="col-4 mh-100 recipe-diet-planner">
-                                Recipe</div>
+                        <!-------------------------------------button Breakfast-------------->
+                        <div class="row mb-2 mx-3">
+                            <div class="col-4"><button type="button" class="btn btn-warning">Breakfast</button></div>
+                            <!------------------slide show recipe------------>
+                            <div class="col-8 recipe-diet-planner">
+                                <div class="container p-0 m-0">
+                                    <div class="slideShowRecipeTitle row justify-content-center font-weight-bold">Title
+                                    </div>
+                                    <img src="https://asset1.cxnmarksandspencer.com/is/image/mands/20191204_Not-just-any-food_LP_SB-21975_03?$editorial_600x360$"
+                                        class="slideShowRecipeImage card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image">
+                                </div>
+                            </div>
                         </div>
-                        <div class="row">
-                            <div class="col-3"><button type="button" class="btn btn-success">Lunch</button></div>
-                            <div class="col-4 mh-100 recipe-diet-planner">
-                                Recipe</div>
+                        <!------------------------------------------button Lunch ---------------->
+                        <div class="row mb-2 mx-3">
+                            <div class="col-4"><button type="button" class="btn btn-success">Lunch</button></div>
+                            <!------------------slide show recipe------------>
+                            <div class="col-8 recipe-diet-planner">
+                                <div class="container p-0 m-0">
+                                    <div class="slideShowRecipeTitle row justify-content-center font-weight-bold">Title
+                                    </div>
+                                    <img src="https://asset1.cxnmarksandspencer.com/is/image/mands/20191204_Not-just-any-food_LP_SB-21975_03?$editorial_600x360$"
+                                        class="slideShowRecipeImage card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image">
+                                </div>
+                            </div>
                         </div>
-                        <div class="row">
-                            <div class="col-3"><button type="button" class="btn btn-success">Tea</button></div>
-                            <div class="col-4 mh-100 recipe-diet-planner">
-                                Recipe</div>
+                        <!-------------------------------------------button Tea --------------->
+                        <div class="row mb-2 mx-3">
+                            <div class="col-4"><button type="button" class="btn btn-success">Tea</button></div>
+                            <!------------------slide show recipe------------>
+                            <div class="col-8 recipe-diet-planner">
+                                <div class="container p-0 m-0">
+                                    <div class="slideShowRecipeTitle row justify-content-center font-weight-bold">Title
+                                    </div>
+                                    <img src="https://asset1.cxnmarksandspencer.com/is/image/mands/20191204_Not-just-any-food_LP_SB-21975_03?$editorial_600x360$"
+                                        class="slideShowRecipeImage card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image">
+                                </div>
+                            </div>
                         </div>
-                        <div class="row">
-                            <div class="col-3"><button type="button" class="btn btn-success">Diner</button></div>
-                            <div class="col-4 mh-100 recipe-diet-planner">
-                                Recipe</div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row bg-warning p-3 border font-weight-bold"><span class="text-center">Tuesday</span>
-                        </div>
-                        <div class="row">
-                            <div class="col-3"><button type="button" class="btn btn-warning">Breakfast</button></div>
-                            <div class="col-4 mh-100 recipe-diet-planner">
-                                Recipe</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-3"><button type="button" class="btn btn-success">Lunch</button></div>
-                            <div class="col-4 mh-100 recipe-diet-planner">
-                                Recipe</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-3"><button type="button" class="btn btn-success">Tea</button></div>
-                            <div class="col-4 mh-100 recipe-diet-planner">
-                                Recipe</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-3"><button type="button" class="btn btn-success">Diner</button></div>
-                            <div class="col-4 mh-100 recipe-diet-planner">
-                                Recipe</div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row bg-warning p-3 border font-weight-bold"><span
-                                class="text-center">Wednesday</span>
-                        </div>
-                        <div class="row">
-                            <div class="col-3"><button type="button" class="btn btn-warning">Breakfast</button></div>
-                            <div class="col-4 mh-100 recipe-diet-planner">
-                                Recipe</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-3"><button type="button" class="btn btn-success">Lunch</button></div>
-                            <div class="col-4 mh-100 recipe-diet-planner">
-                                Recipe</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-3"><button type="button" class="btn btn-success">Tea</button></div>
-                            <div class="col-4 mh-100 recipe-diet-planner">
-                                Recipe</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-3"><button type="button" class="btn btn-success">Diner</button></div>
-                            <div class="col-4 mh-100 recipe-diet-planner">
-                                Recipe</div>
+                        <!---------------------------------------------button Diner ------------------>
+                        <div class="row mb-2 mx-3">
+                            <div class="col-4"><button type="button" class="btn btn-success">Diner</button></div>
+                            <!------------------slide show recipe------------>
+                            <div class="col-8 recipe-diet-planner">
+                                <div class="container p-0 m-0">
+                                    <div class="slideShowRecipeTitle row justify-content-center font-weight-bold">Title
+                                    </div>
+                                    <img src="https://asset1.cxnmarksandspencer.com/is/image/mands/20191204_Not-just-any-food_LP_SB-21975_03?$editorial_600x360$"
+                                        class="slideShowRecipeImage card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image">
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <div class="row bg-warning p-3 border font-weight-bold"><span
-                                class="text-center">Thuesday</span>
-                        </div>
-                        <div class="row">
-                            <div class="col-3"><button type="button" class="btn btn-warning">Breakfast</button></div>
-                            <div class="col-4 mh-100 recipe-diet-planner">
-                                Recipe</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-3"><button type="button" class="btn btn-success">Lunch</button></div>
-                            <div class="col-4 mh-100 recipe-diet-planner">
-                                Recipe</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-3"><button type="button" class="btn btn-success">Tea</button></div>
-                            <div class="col-4 mh-100 recipe-diet-planner">
-                                Recipe</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-3"><button type="button" class="btn btn-success">Diner</button></div>
-                            <div class="col-4 mh-100 recipe-diet-planner">
-                                Recipe</div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row bg-warning p-3 border font-weight-bold"><span class="text-center">Friday</span>
-                        </div>
-                        <div class="row">
-                            <div class="col-3"><button type="button" class="btn btn-warning">Breakfast</button></div>
-                            <div class="col-4 mh-100 recipe-diet-planner">
-                                Recipe</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-3"><button type="button" class="btn btn-success">Lunch</button></div>
-                            <div class="col-4 mh-100 recipe-diet-planner">
-                                Recipe</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-3"><button type="button" class="btn btn-success">Tea</button></div>
-                            <div class="col-4 mh-100 recipe-diet-planner">
-                                Recipe</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-3"><button type="button" class="btn btn-success">Diner</button></div>
-                            <div class="col-4 mh-100 recipe-diet-planner">
 
-                                Recipe</div>
-                        </div>
-                    </div>
+                    <!-------------------------------------day of the week Tuesday------------>
                     <div class="carousel-item">
-                        <div class="row bg-warning p-3 border font-weight-bold"><span
-                                class="text-center">Saturday</span>
+                        <div class="justify-content-center day-od-the-week row  p-3 mb-2 font-weight-bold"><span class="text-center">Tuesday</span>
                         </div>
-                        <div class="row">
-                            <div class="col-3"><button type="button" class="btn btn-warning">Breakfast</button></div>
-                            <div class="col-4 mh-100 recipe-diet-planner">
-                                Recipe</div>
+                        <!-------------------------------------button Breakfast-------------->
+                        <div class="row mb-2 mx-3">
+                            <div class="col-4"><button type="button" class="btn btn-warning">Breakfast</button></div>
+                            <!------------------slide show recipe------------>
+                            <div class="col-8 recipe-diet-planner">
+                                <div class="container p-0 m-0">
+                                    <div class="slideShowRecipeTitle row justify-content-center font-weight-bold">Title
+                                    </div>
+                                    <img src="https://asset1.cxnmarksandspencer.com/is/image/mands/20191204_Not-just-any-food_LP_SB-21975_03?$editorial_600x360$"
+                                        class="slideShowRecipeImage card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image">
+                                </div>
+                            </div>
                         </div>
-                        <div class="row">
-                            <div class="col-3"><button type="button" class="btn btn-success">Lunch</button></div>
-                            <div class="col-4 mh-100 recipe-diet-planner">
-                                Recipe</div>
+                        <!------------------------------------------button Lunch ---------------->
+                        <div class="row mb-2 mx-3">
+                            <div class="col-4"><button type="button" class="btn btn-success">Lunch</button></div>
+                            <!------------------slide show recipe------------>
+                            <div class="col-8 recipe-diet-planner">
+                                <div class="container p-0 m-0">
+                                    <div class="slideShowRecipeTitle row justify-content-center font-weight-bold">Title
+                                    </div>
+                                    <img src="https://asset1.cxnmarksandspencer.com/is/image/mands/20191204_Not-just-any-food_LP_SB-21975_03?$editorial_600x360$"
+                                        class="slideShowRecipeImage card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image">
+                                </div>
+                            </div>
                         </div>
-                        <div class="row">
-                            <div class="col-3"><button type="button" class="btn btn-success">Tea</button></div>
-                            <div class="col-4 mh-100 recipe-diet-planner">
-                                Recipe</div>
+                        <!-------------------------------------------button Tea --------------->
+                        <div class="row mb-2 mx-3">
+                            <div class="col-4"><button type="button" class="btn btn-success">Tea</button></div>
+                            <!------------------slide show recipe------------>
+                            <div class="col-8 recipe-diet-planner">
+                                <div class="container p-0 m-0">
+                                    <div class="slideShowRecipeTitle row justify-content-center font-weight-bold">Title
+                                    </div>
+                                    <img src="https://asset1.cxnmarksandspencer.com/is/image/mands/20191204_Not-just-any-food_LP_SB-21975_03?$editorial_600x360$"
+                                        class="slideShowRecipeImage card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image">
+                                </div>
+                            </div>
                         </div>
-                        <div class="row">
-                            <div class="col-3"><button type="button" class="btn btn-success">Diner</button></div>
-                            <div class="col-4 mh-100 recipe-diet-planner">
-                                Recipe</div>
+                        <!---------------------------------------------button Diner ------------------>
+                        <div class="row mb-2 mx-3">
+                            <div class="col-4"><button type="button" class="btn btn-success">Diner</button></div>
+                            <!------------------slide show recipe------------>
+                            <div class="col-8 recipe-diet-planner">
+                                <div class="container p-0 m-0">
+                                    <div class="slideShowRecipeTitle row justify-content-center font-weight-bold">Title
+                                    </div>
+                                    <img src="https://asset1.cxnmarksandspencer.com/is/image/mands/20191204_Not-just-any-food_LP_SB-21975_03?$editorial_600x360$"
+                                        class="slideShowRecipeImage card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image">
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <div class="row bg-warning p-3 border font-weight-bold"><span class="text-center">Sunday</span>
+
+                     <!-------------------------------------day of the week Wednesday------------>
+                     <div class="carousel-item">
+                        <div class="justify-content-center day-od-the-week row  p-3 mb-2 font-weight-bold"><span class="text-center">Wednesday</span>
                         </div>
-                        <div class="row">
-                            <div class="col-3"><button type="button" class="btn btn-warning">Breakfast</button></div>
-                            <div class="col-4 mh-100 recipe-diet-planner">
-                                Recipe</div>
+                        <!-------------------------------------button Breakfast-------------->
+                        <div class="row mb-2 mx-3">
+                            <div class="col-4"><button type="button" class="btn btn-warning">Breakfast</button></div>
+                            <!------------------slide show recipe------------>
+                            <div class="col-8 recipe-diet-planner">
+                                <div class="container p-0 m-0">
+                                    <div class="slideShowRecipeTitle row justify-content-center font-weight-bold">Title
+                                    </div>
+                                    <img src="https://asset1.cxnmarksandspencer.com/is/image/mands/20191204_Not-just-any-food_LP_SB-21975_03?$editorial_600x360$"
+                                        class="slideShowRecipeImage card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image">
+                                </div>
+                            </div>
                         </div>
-                        <div class="row">
-                            <div class="col-3"><button type="button" class="btn btn-success">Lunch</button></div>
-                            <div class="col-4 mh-100 recipe-diet-planner">
-                                Recipe</div>
+                        <!------------------------------------------button Lunch ---------------->
+                        <div class="row mb-2 mx-3">
+                            <div class="col-4"><button type="button" class="btn btn-success">Lunch</button></div>
+                            <!------------------slide show recipe------------>
+                            <div class="col-8 recipe-diet-planner">
+                                <div class="container p-0 m-0">
+                                    <div class="slideShowRecipeTitle row justify-content-center font-weight-bold">Title
+                                    </div>
+                                    <img src="https://asset1.cxnmarksandspencer.com/is/image/mands/20191204_Not-just-any-food_LP_SB-21975_03?$editorial_600x360$"
+                                        class="slideShowRecipeImage card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image">
+                                </div>
+                            </div>
                         </div>
-                        <div class="row">
-                            <div class="col-3"><button type="button" class="btn btn-success">Tea</button></div>
-                            <div class="col-4 mh-100 recipe-diet-planner">
-                                Recipe</div>
+                        <!-------------------------------------------button Tea --------------->
+                        <div class="row mb-2 mx-3">
+                            <div class="col-4"><button type="button" class="btn btn-success">Tea</button></div>
+                            <!------------------slide show recipe------------>
+                            <div class="col-8 recipe-diet-planner">
+                                <div class="container p-0 m-0">
+                                    <div class="slideShowRecipeTitle row justify-content-center font-weight-bold">Title
+                                    </div>
+                                    <img src="https://asset1.cxnmarksandspencer.com/is/image/mands/20191204_Not-just-any-food_LP_SB-21975_03?$editorial_600x360$"
+                                        class="slideShowRecipeImage card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image">
+                                </div>
+                            </div>
                         </div>
-                        <div class="row">
-                            <div class="col-3"><button type="button" class="btn btn-success">Diner</button></div>
-                            <div class="col-4 mh-100 recipe-diet-planner">
-                                Recipe</div>
+                        <!---------------------------------------------button Diner ------------------>
+                        <div class="row mb-2 mx-3">
+                            <div class="col-4"><button type="button" class="btn btn-success">Diner</button></div>
+                            <!------------------slide show recipe------------>
+                            <div class="col-8 recipe-diet-planner">
+                                <div class="container p-0 m-0">
+                                    <div class="slideShowRecipeTitle row justify-content-center font-weight-bold">Title
+                                    </div>
+                                    <img src="https://asset1.cxnmarksandspencer.com/is/image/mands/20191204_Not-just-any-food_LP_SB-21975_03?$editorial_600x360$"
+                                        class="slideShowRecipeImage card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image">
+                                </div>
+                            </div>
                         </div>
                     </div>
+                     <!-------------------------------------day of the week Thursday------------>
+                     <div class="carousel-item">
+                        <div class="justify-content-center day-od-the-week row  p-3 mb-2 font-weight-bold"><span class="text-center">Thursday</span>
+                        </div>
+                        <!-------------------------------------button Breakfast-------------->
+                        <div class="row mb-2 mx-3">
+                            <div class="col-4"><button type="button" class="btn btn-warning">Breakfast</button></div>
+                            <!------------------slide show recipe------------>
+                            <div class="col-8 recipe-diet-planner">
+                                <div class="container p-0 m-0">
+                                    <div class="slideShowRecipeTitle row justify-content-center font-weight-bold">Title
+                                    </div>
+                                    <img src="https://asset1.cxnmarksandspencer.com/is/image/mands/20191204_Not-just-any-food_LP_SB-21975_03?$editorial_600x360$"
+                                        class="slideShowRecipeImage card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image">
+                                </div>
+                            </div>
+                        </div>
+                        <!------------------------------------------button Lunch ---------------->
+                        <div class="row mb-2 mx-3">
+                            <div class="col-4"><button type="button" class="btn btn-success">Lunch</button></div>
+                            <!------------------slide show recipe------------>
+                            <div class="col-8 recipe-diet-planner">
+                                <div class="container p-0 m-0">
+                                    <div class="slideShowRecipeTitle row justify-content-center font-weight-bold">Title
+                                    </div>
+                                    <img src="https://asset1.cxnmarksandspencer.com/is/image/mands/20191204_Not-just-any-food_LP_SB-21975_03?$editorial_600x360$"
+                                        class="slideShowRecipeImage card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image">
+                                </div>
+                            </div>
+                        </div>
+                        <!-------------------------------------------button Tea --------------->
+                        <div class="row mb-2 mx-3">
+                            <div class="col-4"><button type="button" class="btn btn-success">Tea</button></div>
+                            <!------------------slide show recipe------------>
+                            <div class="col-8 recipe-diet-planner">
+                                <div class="container p-0 m-0">
+                                    <div class="slideShowRecipeTitle row justify-content-center font-weight-bold">Title
+                                    </div>
+                                    <img src="https://asset1.cxnmarksandspencer.com/is/image/mands/20191204_Not-just-any-food_LP_SB-21975_03?$editorial_600x360$"
+                                        class="slideShowRecipeImage card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image">
+                                </div>
+                            </div>
+                        </div>
+                        <!---------------------------------------------button Diner ------------------>
+                        <div class="row mb-2 mx-3">
+                            <div class="col-4"><button type="button" class="btn btn-success">Diner</button></div>
+                            <!------------------slide show recipe------------>
+                            <div class="col-8 recipe-diet-planner">
+                                <div class="container p-0 m-0">
+                                    <div class="slideShowRecipeTitle row justify-content-center font-weight-bold">Title
+                                    </div>
+                                    <img src="https://asset1.cxnmarksandspencer.com/is/image/mands/20191204_Not-just-any-food_LP_SB-21975_03?$editorial_600x360$"
+                                        class="slideShowRecipeImage card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <!-------------------------------------day of the week Friday------------>
+                     <div class="carousel-item">
+                        <div class="justify-content-center day-od-the-week row p-3 mb-2 font-weight-bold"><span class="text-center">Friday</span>
+                        </div>
+                        <!-------------------------------------button Breakfast-------------->
+                        <div class="row mb-2 mx-3">
+                            <div class="col-4"><button type="button" class="btn btn-warning">Breakfast</button></div>
+                            <!------------------slide show recipe------------>
+                            <div class="col-8 recipe-diet-planner">
+                                <div class="container p-0 m-0">
+                                    <div class="slideShowRecipeTitle row justify-content-center font-weight-bold">Title
+                                    </div>
+                                    <img src="https://asset1.cxnmarksandspencer.com/is/image/mands/20191204_Not-just-any-food_LP_SB-21975_03?$editorial_600x360$"
+                                        class="slideShowRecipeImage card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image">
+                                </div>
+                            </div>
+                        </div>
+                        <!------------------------------------------button Lunch ---------------->
+                        <div class="row mb-2 mx-3">
+                            <div class="col-4"><button type="button" class="btn btn-success">Lunch</button></div>
+                            <!------------------slide show recipe------------>
+                            <div class="col-8 recipe-diet-planner">
+                                <div class="container p-0 m-0">
+                                    <div class="slideShowRecipeTitle row justify-content-center font-weight-bold">Title
+                                    </div>
+                                    <img src="https://asset1.cxnmarksandspencer.com/is/image/mands/20191204_Not-just-any-food_LP_SB-21975_03?$editorial_600x360$"
+                                        class="slideShowRecipeImage card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image">
+                                </div>
+                            </div>
+                        </div>
+                        <!-------------------------------------------button Tea --------------->
+                        <div class="row mb-2 mx-3">
+                            <div class="col-4"><button type="button" class="btn btn-success">Tea</button></div>
+                            <!------------------slide show recipe------------>
+                            <div class="col-8 recipe-diet-planner">
+                                <div class="container p-0 m-0">
+                                    <div class="slideShowRecipeTitle row justify-content-center font-weight-bold">Title
+                                    </div>
+                                    <img src="https://asset1.cxnmarksandspencer.com/is/image/mands/20191204_Not-just-any-food_LP_SB-21975_03?$editorial_600x360$"
+                                        class="slideShowRecipeImage card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image">
+                                </div>
+                            </div>
+                        </div>
+                        <!---------------------------------------------button Diner ------------------>
+                        <div class="row mb-2 mx-3">
+                            <div class="col-4"><button type="button" class="btn btn-success">Diner</button></div>
+                            <!------------------slide show recipe------------>
+                            <div class="col-8 recipe-diet-planner">
+                                <div class="container p-0 m-0">
+                                    <div class="slideShowRecipeTitle row justify-content-center font-weight-bold">Title
+                                    </div>
+                                    <img src="https://asset1.cxnmarksandspencer.com/is/image/mands/20191204_Not-just-any-food_LP_SB-21975_03?$editorial_600x360$"
+                                        class="slideShowRecipeImage card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <!-------------------------------------day of the week Saturday------------>
+                     <div class="carousel-item">
+                        <div class="justify-content-center day-od-the-week row p-3 mb-2 font-weight-bold"><span class="text-center">Saturday</span>
+                        </div>
+                        <!-------------------------------------button Breakfast-------------->
+                        <div class="row mb-2 mx-3">
+                            <div class="col-4"><button type="button" class="btn btn-warning">Breakfast</button></div>
+                            <!------------------slide show recipe------------>
+                            <div class="col-8 recipe-diet-planner">
+                                <div class="container p-0 m-0">
+                                    <div class="slideShowRecipeTitle row justify-content-center font-weight-bold">Title
+                                    </div>
+                                    <img src="https://asset1.cxnmarksandspencer.com/is/image/mands/20191204_Not-just-any-food_LP_SB-21975_03?$editorial_600x360$"
+                                        class="slideShowRecipeImage card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image">
+                                </div>
+                            </div>
+                        </div>
+                        <!------------------------------------------button Lunch ---------------->
+                        <div class="row mb-2 mx-3">
+                            <div class="col-4"><button type="button" class="btn btn-success">Lunch</button></div>
+                            <!------------------slide show recipe------------>
+                            <div class="col-8 recipe-diet-planner">
+                                <div class="container p-0 m-0">
+                                    <div class="slideShowRecipeTitle row justify-content-center font-weight-bold">Title
+                                    </div>
+                                    <img src="https://asset1.cxnmarksandspencer.com/is/image/mands/20191204_Not-just-any-food_LP_SB-21975_03?$editorial_600x360$"
+                                        class="slideShowRecipeImage card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image">
+                                </div>
+                            </div>
+                        </div>
+                        <!-------------------------------------------button Tea --------------->
+                        <div class="row mb-2 mx-3">
+                            <div class="col-4"><button type="button" class="btn btn-success">Tea</button></div>
+                            <!------------------slide show recipe------------>
+                            <div class="col-8 recipe-diet-planner">
+                                <div class="container p-0 m-0">
+                                    <div class="slideShowRecipeTitle row justify-content-center font-weight-bold">Title
+                                    </div>
+                                    <img src="https://asset1.cxnmarksandspencer.com/is/image/mands/20191204_Not-just-any-food_LP_SB-21975_03?$editorial_600x360$"
+                                        class="slideShowRecipeImage card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image">
+                                </div>
+                            </div>
+                        </div>
+                        <!---------------------------------------------button Diner ------------------>
+                        <div class="row mb-2 mx-3">
+                            <div class="col-4"><button type="button" class="btn btn-success">Diner</button></div>
+                            <!------------------slide show recipe------------>
+                            <div class="col-8 recipe-diet-planner">
+                                <div class="container p-0 m-0">
+                                    <div class="slideShowRecipeTitle row justify-content-center font-weight-bold">Title
+                                    </div>
+                                    <img src="https://asset1.cxnmarksandspencer.com/is/image/mands/20191204_Not-just-any-food_LP_SB-21975_03?$editorial_600x360$"
+                                        class="slideShowRecipeImage card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <!-------------------------------------day of the week Sunday------------>
+                     <div class="carousel-item">
+                        <div class="justify-content-center day-od-the-week row p-3 mb-2 font-weight-bold"><span class="text-center">Sunday</span>
+                        </div>
+                        <!-------------------------------------button Breakfast-------------->
+                        <div class="row mb-2 mx-3">
+                            <div class="col-4"><button type="button" class="btn btn-warning">Breakfast</button></div>
+                            <!------------------slide show recipe------------>
+                            <div class="col-8 recipe-diet-planner">
+                                <div class="container p-0 m-0">
+                                    <div class="slideShowRecipeTitle row justify-content-center font-weight-bold">Title
+                                    </div>
+                                    <img src="https://asset1.cxnmarksandspencer.com/is/image/mands/20191204_Not-just-any-food_LP_SB-21975_03?$editorial_600x360$"
+                                        class="slideShowRecipeImage card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image">
+                                </div>
+                            </div>
+                        </div>
+                        <!------------------------------------------button Lunch ---------------->
+                        <div class="row mb-2 mx-3">
+                            <div class="col-4"><button type="button" class="btn btn-success">Lunch</button></div>
+                            <!------------------slide show recipe------------>
+                            <div class="col-8 recipe-diet-planner">
+                                <div class="container p-0 m-0">
+                                    <div class="slideShowRecipeTitle row justify-content-center font-weight-bold">Title
+                                    </div>
+                                    <img src="https://asset1.cxnmarksandspencer.com/is/image/mands/20191204_Not-just-any-food_LP_SB-21975_03?$editorial_600x360$"
+                                        class="slideShowRecipeImage card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image">
+                                </div>
+                            </div>
+                        </div>
+                        <!-------------------------------------------button Tea --------------->
+                        <div class="row mb-2 mx-3">
+                            <div class="col-4"><button type="button" class="btn btn-success">Tea</button></div>
+                            <!------------------slide show recipe------------>
+                            <div class="col-8 recipe-diet-planner">
+                                <div class="container p-0 m-0">
+                                    <div class="slideShowRecipeTitle row justify-content-center font-weight-bold">Title
+                                    </div>
+                                    <img src="https://asset1.cxnmarksandspencer.com/is/image/mands/20191204_Not-just-any-food_LP_SB-21975_03?$editorial_600x360$"
+                                        class="slideShowRecipeImage card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image">
+                                </div>
+                            </div>
+                        </div>
+                        <!---------------------------------------------button Diner ------------------>
+                        <div class="row mb-2 mx-3">
+                            <div class="col-4"><button type="button" class="btn btn-success">Diner</button></div>
+                            <!------------------slide show recipe------------>
+                            <div class="col-8 recipe-diet-planner">
+                                <div class="container p-0 m-0">
+                                    <div class="slideShowRecipeTitle row justify-content-center font-weight-bold">Title
+                                    </div>
+                                    <img src="https://asset1.cxnmarksandspencer.com/is/image/mands/20191204_Not-just-any-food_LP_SB-21975_03?$editorial_600x360$"
+                                        class="slideShowRecipeImage card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                      
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -303,8 +535,8 @@
 
     //handle switching between categories buttons
 
-    $(".carousel-item button").click(function(){
-        if(!$(this).hasClass("btn-warning")){
+    $(".carousel-item button").click(function () {
+        if (!$(this).hasClass("btn-warning")) {
             $(this).parents(".carousel-item").find("button").removeClass("btn-warning").addClass("btn-success")
             $(this).addClass("btn-warning")
         }
@@ -321,11 +553,13 @@
         $newElem = $(`<div class="recipe-sidebar mb-4">
                                  <h5 class="rec-title text-center text-info">${recipe.title}</h5>
                                  
-                                 <div class="px-3"><img src="${recipe.image}" class="card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image"></div>
+                                 <div class="px-3"><img src="${recipe.image}" class="rec-image card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image"></div>
                              </div>`)
 
-        $newElem.click(function(){
-            $(".carousel-item.active .btn-warning").parent().siblings(".recipe-diet-planner").text($(this).find(".rec-title").text())
+        $newElem.click(function () {
+            $slideShowRecipe = $(".carousel-item.active .btn-warning").parent()
+            $slideShowRecipe.siblings(".recipe-diet-planner").find(".slideShowRecipeTitle").text($(this).find(".rec-title").text())
+            $slideShowRecipe.siblings(".recipe-diet-planner").find(".slideShowRecipeImage").attr("src", $(this).find(".rec-image").attr("src"))
         });
 
         $recipesList.append($newElem)

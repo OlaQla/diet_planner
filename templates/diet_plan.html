@@ -659,30 +659,31 @@
 
         let all_ingredients = new Map()
 
-        $("thead th:gt(1)").each(function (day_index) {
-            $(".category_name").each(function (category_index) {
+        $(".carousel-item").each(function (day_index) {
+            $(this).find(".category_name").each(function (category_index) {
 
-                const dish_name = $(`tr:eq(${category_index + 1}) td:eq(${day_index}) select`).val();
-                const recipe = recipesMap.get(dish_name);
+                const dish_name = $(this).parents(".meal").find(`.slideShowRecipeTitle`).text();
+                if(dish_name && dish_name.trim() !== "") {
+                    const recipe = recipesMap.get(dish_name);
 
-                recipe.ingredients.forEach(i => {
-                    const floatAmount = parseFloat(i.amount);
+                    recipe.ingredients.forEach(i => {
+                        const floatAmount = parseFloat(i.amount);
 
-                    if (all_ingredients.has(i.name)) {
-                        if (all_ingredients.get(i.name).has(i.unit)) {
-                            const newValue = all_ingredients.get(i.name).get(i.unit) + floatAmount
-                            all_ingredients.get(i.name).set(i.unit, newValue);
+                        if (all_ingredients.has(i.name)) {
+                            if (all_ingredients.get(i.name).has(i.unit)) {
+                                const newValue = all_ingredients.get(i.name).get(i.unit) + floatAmount
+                                all_ingredients.get(i.name).set(i.unit, newValue);
 
+                            } else {
+                                all_ingredients.get(i.name).set(i.unit, floatAmount)
+                            }
                         } else {
+                            all_ingredients.set(i.name, new Map())
                             all_ingredients.get(i.name).set(i.unit, floatAmount)
                         }
-                    } else {
-                        all_ingredients.set(i.name, new Map())
-                        all_ingredients.get(i.name).set(i.unit, floatAmount)
-                    }
-                })
+                    })
 
-
+                }
             })
 
 

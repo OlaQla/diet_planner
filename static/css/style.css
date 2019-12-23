@@ -253,13 +253,12 @@ footer {
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
 }
-.day-od-the-week{
+.day-of-the-week{
   font-size: 1.5em;
   background-color:rgb(21,147,167);
   color:#fafafa;
 }
 .carousel-inner{
-  border:solid 2px #e2e2e2;
   border-radius: 5px;
   background-color: #e2e2e2;
   
@@ -280,9 +279,20 @@ footer {
 
 .carousel-control-prev, .carousel-control-next{
   width:4%;
- /*border: solid 1px green;*/
- 
+  background-color: rgba(0, 0, 0, 0.1);
+}
 
+.category_name{
+  width:8em;
+}
+.rec-image {
+  opacity: 1;
+  filter: alpha(opacity=40);
+}
+
+.rec-image:hover {
+  opacity: 0.7;
+  filter: alpha(opacity=100);
 }
 
 

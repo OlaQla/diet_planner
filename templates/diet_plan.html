@@ -2,6 +2,77 @@
 <div class="container-flex justify-content-center ml-lg-5 pt-4">
     <div class="row px-10 ">
         <div class="col-12 col-lg-7 mb-3 mr-2">
+            <div class="container-flex" style="display: none;">
+                <!-------------------------------------day of the week Monday------------>
+                <div class="form-group">
+                    <select class="form-control day-of-the-week mb-4 font-weight-bold" id="exampleFormControlSelect1">
+                        <option>Monday</option>
+                        <option>Tuesday</option>
+                        <option>Wednesday</option>
+                        <option>Thursday</option>
+                        <option>Friday</option>
+                        <option>Saturday</option>
+                        <option>Sunday</option>
+                    </select>
+
+                </div>
+
+                <!-------------------------------------button Breakfast-------------->
+                <div class="meal row mb-2 mx-3">
+                    <div class="col-12 pl-4"><button type="button"
+                            class="category_name btn btn-warning">Breakfast</button></div>
+                    <!------------------slide show recipe------------>
+                    <div class="col-12 recipe-diet-planner">
+                        <div class="container p-0 m-0">
+                            <div class="slideShowRecipeTitle row justify-content-center font-weight-bold">
+                            </div>
+                            <img src="{{url_for('static', filename='images/foodPlaceholder.png')}}"
+                                class="slideShowRecipeImage card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image">
+                        </div>
+                    </div>
+                </div>
+                <!------------------------------------------button Lunch ---------------->
+                <div class="meal row mb-2 mx-3">
+                    <div class="col-12"><button type="button" class="category_name btn btn-success">Lunch</button></div>
+                    <!------------------slide show recipe------------>
+                    <div class="col-12 recipe-diet-planner">
+                        <div class="container p-0 m-0">
+                            <div class="slideShowRecipeTitle row justify-content-center font-weight-bold">
+                            </div>
+                            <img src="{{url_for('static', filename='images/foodPlaceholder.png')}}"
+                                class="slideShowRecipeImage card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image">
+                        </div>
+                    </div>
+                </div>
+                <!-------------------------------------------button Tea --------------->
+                <div class="meal row mb-2 mx-3">
+                    <div class="col-12"><button type="button" class="category_name btn btn-success">Tea</button>
+                    </div>
+                    <!------------------slide show recipe------------>
+                    <div class="col-12 recipe-diet-planner">
+                        <div class="container p-0 m-0">
+                            <div class="slideShowRecipeTitle row justify-content-center font-weight-bold">
+                            </div>
+                            <img src="{{url_for('static', filename='images/foodPlaceholder.png')}}"
+                                class="slideShowRecipeImage card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image">
+                        </div>
+                    </div>
+                </div>
+                <!---------------------------------------------button Diner ------------------>
+                <div class="meal row mb-2 mx-3">
+                    <div class="col-12"><button type="button"
+                            class="category_name btn btn-success col-12">Diner</button></div>
+                    <!------------------slide show recipe------------>
+                    <div class="col-12 recipe-diet-planner">
+                        <div class="container p-0 m-0">
+                            <div class="slideShowRecipeTitle row justify-content-center font-weight-bold">
+                            </div>
+                            <img src="{{url_for('static', filename='images/foodPlaceholder.png')}}"
+                                class="slideShowRecipeImage card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image">
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-----------------------------Carousel diet plan-------------------------->
             <div id="carouselExampleIndicators" class="carousel slide mt-3" data-ride="carousel" data-interval=false>
                 <ol class="carousel-indicators">

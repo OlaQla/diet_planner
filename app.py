@@ -134,7 +134,10 @@ def edit_recipe(recipe_id):
     all_categories = mongo.db.categories.find()
     all_ingredients = mongo.db.ingredients.find().sort("name", 1)
     all_units = mongo.db.units.find()
-    return render_template('add_recipe.html', categories = all_categories, ingredients = all_ingredients, units = all_units, existing_recipe=mongo.db.recipies.find_one({'_id': ObjectId(recipe_id)}))
+    existing_recipe = mongo.db.recipies.find_one({'_id': ObjectId(recipe_id)})
+    if not "tags" in existing_recipe:
+        existing_recipe["tags"] = []
+    return render_template('add_recipe.html', categories = all_categories, ingredients = all_ingredients, units = all_units, existing_recipe=existing_recipe)
 
 def upload_to_s3(filename):
     s3 = boto3.client('s3')

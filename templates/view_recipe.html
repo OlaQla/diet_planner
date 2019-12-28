@@ -43,6 +43,14 @@
                         </div>
                     </div>
                     <hr>
+
+                    <!-----------------------------------Tags------------------------------------>
+                    <div class="row">
+                        {% for tag in recipe.tags %}
+                        <h5><span class="badge badge-warning align-middle mr-1">{{tag}}</span></h5>
+                        {% endfor %}
+                    </div>
+
                    <!------------------Ingredients list------------>
                     <div class='col-12 pt-4'>
                         <h4 class="color-ingredients"><i class="fas fa-apple-alt text-success pb-3"></i> Ingredients: </h4>

@@ -32,7 +32,7 @@
                 <div class="card-body">
                     <h4 class="card-title text-center">{{recipe.title}}</h4>
                     <hr>
-                    <div class='container nopadding col-12'>
+                    <div class='container color-view-recipe nopadding col-12'>
                         <div class='row bigger'>
                             <small class="col-4 text-center nopadding"><strong><i class="fa fa-align-center"></i>
                                     Category: </strong> </small>
@@ -87,7 +87,7 @@
             // Filter cards that lowercase title don't start with search value
             var nonMatchingCards = allCards.filter(function () {
                 var titleText = $(this).find(".card-title").text().toLowerCase().trim();
-                return !titleText.startsWith(currentValue);
+                return titleText.indexOf(currentValue) === -1;
             });
 
 

@@ -45,14 +45,15 @@
                     <hr>
 
                     <!-----------------------------------Tags------------------------------------>
-                    <div class="row">
+                    <div class="row justify-content-left pl-3 color-view-recipe"><i class="fas fa-tags pt-1 pr-1"></i><h6 class="font-weight-bold">Tags:</h6></div>
+                    <div class="row p-2">
                         {% for tag in recipe.tags %}
                         <h5><span class="badge badge-warning align-middle mr-1">{{tag}}</span></h5>
                         {% endfor %}
                     </div>
-
+                    <hr>
                    <!------------------Ingredients list------------>
-                    <div class='col-12 pt-4'>
+                    <div class='col-12 px-0 pt-4'>
                         <h4 class="color-ingredients"><i class="fas fa-apple-alt text-success pb-3"></i> Ingredients: </h4>
                         <ul>
                             {% if recipe.ingredients %}

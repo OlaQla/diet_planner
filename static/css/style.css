@@ -307,6 +307,10 @@ footer {
   font-size: 1em;;
 }
 
+#all_tags .close {
+  display: none;
+}
+
 /*------------------------------------ media query -----------------*/
 @media only screen and (max-width: 767px) {
   #view_recipe_image {

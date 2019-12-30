@@ -21,6 +21,11 @@ h5 {
   font-size: 1rem !important;
 }
 
+.close_diet{
+  font-size: 0.7rem !important;
+  outline:none;
+}
+
 /* ----------------- recipe images -------------------*/
 
 #image_list img {
@@ -145,6 +150,22 @@ form {
   height: 12em;
   background-color: transparent;
 }
+.nothingFound_diet{
+  font-size: 1em;
+}
+
+.nothingFound_diet p {
+  text-align: center;
+  padding-top: 1em;
+  padding-bottom: 3em;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1.3em;
+  line-height: 1.5em;
+}
+.nothingFound_diet p span {
+  font-size: 2em;
+}
+
 .nothingFound p span {
   font-size: 1.7em;
 }
@@ -253,15 +274,23 @@ footer {
 
 /*-----------------------------------Diet planner-----------------------*/
 #recipes-list {
-  max-height: 58em;
+  max-height: 63em;
   margin-bottom: 10px;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
+}
+
+.row_carousel{
+  min-height: 62em;
 }
 .day-of-the-week{
   font-size: 1.5em;
   background-color:rgb(21,147,167);
   color:#fafafa;
+}
+.search_section{
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 1);
 }
 
 .day-of-the-week-dropdown{
@@ -277,6 +306,7 @@ footer {
   background-color: black !important;
 
 }
+
 .recipe-diet-planner{ 
   width: 100%;
  background-color: transparent;
@@ -307,8 +337,20 @@ footer {
   font-size: 1em;;
 }
 
-#all_tags .close {
+#all_tags .close_diet {
   display: none;
+}
+.main_content{
+  padding-top: 160px;
+  padding-left: 4em;
+  padding-right: 4em;
+}
+#chosen_tags .tag {
+  background-color: #5cb85c;
+  color: white;
+}
+#chosen_tags .tag .close_diet {
+  color: white; 
 }
 
 /*------------------------------------ media query -----------------*/

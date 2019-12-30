@@ -25,9 +25,13 @@
                     </button>
                 </div>
                 <!-----------modal body-------->
-                <div class="modal-body">
+
+                <div class="modal-body text-center">
                     <div class="container-flex"></div>
-                    <div class="row" id="image_list">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <div class="row" id="image_list" style="display: none">
 
                     </div>
                 </div>
@@ -226,6 +230,17 @@
         const ingredients = {{ existing_recipe.ingredients | tojson
     }};
     const tags = {{ existing_recipe.tags | tojson}}
+    
+    //load
+    
+    // Hide the div
+    $("#image_list").hide();
+
+    // Show the div in 8s
+    $("#image_list").delay(6000).fadeIn(500);
+    $(".spinner-border").delay(6000).fadeOut();
+
+
 
     //add tags
     tags.forEach(function (tag) {
@@ -249,7 +264,7 @@
             </div></li>`)
     })
 
-    
+
     const steps = {{ existing_recipe.recipe | tojson }};
 
     //add steps

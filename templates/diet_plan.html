@@ -1,80 +1,35 @@
-{% extends 'base.html'%} {% block content %}
-<div class="container-flex justify-content-center ml-lg-5 pt-4">
-    <div class="row px-10 ">
-        <div class="col-12 col-lg-7 mb-3 mr-2">
-            <div class="container-flex" style="display: none;">
-                <!-------------------------------------day of the week Monday------------>
-                <div class="form-group">
-                    <select class="form-control day-of-the-week mb-4 font-weight-bold" id="exampleFormControlSelect1">
-                        <option>Monday</option>
-                        <option>Tuesday</option>
-                        <option>Wednesday</option>
-                        <option>Thursday</option>
-                        <option>Friday</option>
-                        <option>Saturday</option>
-                        <option>Sunday</option>
-                    </select>
+{% extends 'base.html'%} {% block uber_content %}
 
-                </div>
+<div class="main_container px-lg-0 text-center">
+    <!--------------------------Search---------------------->
+    <div class="row border-bottom p-0 pt-3 m-0 search_section position-fixed text-center">
 
-                <!-------------------------------------button Breakfast-------------->
-                <div class="meal row mb-2 mx-3">
-                    <div class="col-12 pl-4"><button type="button"
-                            class="category_name btn btn-warning">Breakfast</button></div>
-                    <!------------------slide show recipe------------>
-                    <div class="col-12 recipe-diet-planner">
-                        <div class="container p-0 m-0">
-                            <div class="slideShowRecipeTitle row justify-content-center font-weight-bold">
-                            </div>
-                            <img src="{{url_for('static', filename='images/foodPlaceholder.png')}}"
-                                class="slideShowRecipeImage card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image">
-                        </div>
-                    </div>
-                </div>
-                <!------------------------------------------button Lunch ---------------->
-                <div class="meal row mb-2 mx-3">
-                    <div class="col-12"><button type="button" class="category_name btn btn-success">Lunch</button></div>
-                    <!------------------slide show recipe------------>
-                    <div class="col-12 recipe-diet-planner">
-                        <div class="container p-0 m-0">
-                            <div class="slideShowRecipeTitle row justify-content-center font-weight-bold">
-                            </div>
-                            <img src="{{url_for('static', filename='images/foodPlaceholder.png')}}"
-                                class="slideShowRecipeImage card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image">
-                        </div>
-                    </div>
-                </div>
-                <!-------------------------------------------button Tea --------------->
-                <div class="meal row mb-2 mx-3">
-                    <div class="col-12"><button type="button" class="category_name btn btn-success">Tea</button>
-                    </div>
-                    <!------------------slide show recipe------------>
-                    <div class="col-12 recipe-diet-planner">
-                        <div class="container p-0 m-0">
-                            <div class="slideShowRecipeTitle row justify-content-center font-weight-bold">
-                            </div>
-                            <img src="{{url_for('static', filename='images/foodPlaceholder.png')}}"
-                                class="slideShowRecipeImage card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image">
-                        </div>
-                    </div>
-                </div>
-                <!---------------------------------------------button Diner ------------------>
-                <div class="meal row mb-2 mx-3">
-                    <div class="col-12"><button type="button"
-                            class="category_name btn btn-success col-12">Diner</button></div>
-                    <!------------------slide show recipe------------>
-                    <div class="col-12 recipe-diet-planner">
-                        <div class="container p-0 m-0">
-                            <div class="slideShowRecipeTitle row justify-content-center font-weight-bold">
-                            </div>
-                            <img src="{{url_for('static', filename='images/foodPlaceholder.png')}}"
-                                class="slideShowRecipeImage card-img-top img-thumbnail rounded img-fluid max-width: 100% sidebar-image">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-----------------------------Carousel diet plan-------------------------->
-            <div id="carouselExampleIndicators" class="carousel slide mt-3" data-ride="carousel" data-interval=false>
+        <!-------Search input------->
+        <div class="col-4 p-0 pt-2">
+            <form class="row form-inline md-form form-sm ml-2 mb-3">
+                <i class="fas fa-search" aria-hidden="true"></i>
+                <input id="myInput" class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
+                    aria-label="Search">
+            </form>
+        </div>
+        <!----------------all tags----------->
+        <div class="col-5 text-center pt-0 pb-3 px-2">
+            <h5 class="color-view-recipe mt-2"><i class="fas fa-tags pt-1 pr-1"></i>Filter by tags:</h5>
+            <div id="all_tags" class="col-12 text-justify py-2 px-0"></div>
+        </div>
+        <!----------------chosen tags----------->
+        <div class="col-3 text-center p-0 pb-3 pl-2">
+            <h5 class="color-view-recipe mt-2"><i class="fas fa-check-circle pt-1 pr-1"></i>Chosen tags:</h5>
+            <div id="chosen_tags" class=" col-12 col-12 py-2 px-0 text-justify"> </div>
+        </div>
+    </div>
+
+
+    <div class="row main_content justify-content-center">
+        <!-----------------------------Carousel diet plan-------------------------->
+        <div class="col-7 p-0 pr-4">
+            <div id="carouselExampleIndicators" class="carousel row row_carousel slide mt-4" data-ride="carousel"
+                data-interval=false>
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -87,8 +42,8 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <!-------------------------------------day of the week Monday------------>
-                        <div class="justify-content-center day-of-the-week row  p-3 mb-4 font-weight-bold"><span
-                                class="">Monday</span>
+                        <div class="justify-content-center day-of-the-week row  p-3 mb-4 font-weight-bold">
+                            <span class>Monday</span>
                         </div>
                         <!-------------------------------------button Breakfast-------------->
                         <div class="meal row mb-2 mx-3">
@@ -107,7 +62,8 @@
                         <!------------------------------------------button Lunch ---------------->
                         <div class="meal row mb-2 mx-3">
                             <div class="col-4"><button type="button"
-                                    class="category_name btn btn-success">Lunch</button></div>
+                                    class="category_name btn btn-success">Lunch</button>
+                            </div>
                             <!------------------slide show recipe------------>
                             <div class="col-8 recipe-diet-planner">
                                 <div class="container p-0 m-0">
@@ -135,7 +91,8 @@
                         <!---------------------------------------------button Diner ------------------>
                         <div class="meal row mb-2 mx-3">
                             <div class="col-4"><button type="button"
-                                    class="category_name btn btn-success">Diner</button></div>
+                                    class="category_name btn btn-success">Diner</button>
+                            </div>
                             <!------------------slide show recipe------------>
                             <div class="col-8 recipe-diet-planner">
                                 <div class="container p-0 m-0">
@@ -150,13 +107,14 @@
 
                     <!-------------------------------------day of the week Tuesday------------>
                     <div class="carousel-item">
-                        <div class="justify-content-center day-of-the-week row  p-3 mb-2 font-weight-bold"><span
-                                class="text-center">Tuesday</span>
+                        <div class="justify-content-center day-of-the-week row  p-3 mb-2 font-weight-bold">
+                            <span class="text-center">Tuesday</span>
                         </div>
                         <!-------------------------------------button Breakfast-------------->
                         <div class="meal row mb-2 mx-3">
                             <div class="col-4"><button type="button"
-                                    class="category_name btn btn-warning">Breakfast</button></div>
+                                    class="category_name btn btn-warning">Breakfast</button>
+                            </div>
                             <!------------------slide show recipe------------>
                             <div class="col-8 recipe-diet-planner">
                                 <div class="container p-0 m-0">
@@ -170,7 +128,8 @@
                         <!------------------------------------------button Lunch ---------------->
                         <div class="meal row mb-2 mx-3">
                             <div class="col-4"><button type="button"
-                                    class="category_name btn btn-success">Lunch</button></div>
+                                    class="category_name btn btn-success">Lunch</button>
+                            </div>
                             <!------------------slide show recipe------------>
                             <div class="col-8 recipe-diet-planner">
                                 <div class="container p-0 m-0">
@@ -198,7 +157,8 @@
                         <!---------------------------------------------button Diner ------------------>
                         <div class="meal row mb-2 mx-3">
                             <div class="col-4"><button type="button"
-                                    class="category_name btn btn-success">Diner</button></div>
+                                    class="category_name btn btn-success">Diner</button>
+                            </div>
                             <!------------------slide show recipe------------>
                             <div class="col-8 recipe-diet-planner">
                                 <div class="container p-0 m-0">
@@ -213,13 +173,14 @@
 
                     <!-------------------------------------day of the week Wednesday------------>
                     <div class="carousel-item">
-                        <div class="justify-content-center day-of-the-week row  p-3 mb-2 font-weight-bold"><span
-                                class="text-center">Wednesday</span>
+                        <div class="justify-content-center day-of-the-week row  p-3 mb-2 font-weight-bold">
+                            <span class="text-center">Wednesday</span>
                         </div>
                         <!-------------------------------------button Breakfast-------------->
                         <div class="meal row mb-2 mx-3">
                             <div class="col-4"><button type="button"
-                                    class="category_name btn btn-warning">Breakfast</button></div>
+                                    class="category_name btn btn-warning">Breakfast</button>
+                            </div>
                             <!------------------slide show recipe------------>
                             <div class="col-8 recipe-diet-planner">
                                 <div class="container p-0 m-0">
@@ -233,7 +194,8 @@
                         <!------------------------------------------button Lunch ---------------->
                         <div class="meal row mb-2 mx-3">
                             <div class="col-4"><button type="button"
-                                    class="category_name btn btn-success">Lunch</button></div>
+                                    class="category_name btn btn-success">Lunch</button>
+                            </div>
                             <!------------------slide show recipe------------>
                             <div class="col-8 recipe-diet-planner">
                                 <div class="container p-0 m-0">
@@ -261,7 +223,8 @@
                         <!---------------------------------------------button Diner ------------------>
                         <div class="meal row mb-2 mx-3">
                             <div class="col-4"><button type="button"
-                                    class="category_name btn btn-success">Diner</button></div>
+                                    class="category_name btn btn-success">Diner</button>
+                            </div>
                             <!------------------slide show recipe------------>
                             <div class="col-8 recipe-diet-planner">
                                 <div class="container p-0 m-0">
@@ -275,13 +238,14 @@
                     </div>
                     <!-------------------------------------day of the week Thursday------------>
                     <div class="carousel-item">
-                        <div class="justify-content-center day-of-the-week row  p-3 mb-2 font-weight-bold"><span
-                                class="text-center">Thursday</span>
+                        <div class="justify-content-center day-of-the-week row  p-3 mb-2 font-weight-bold">
+                            <span class="text-center">Thursday</span>
                         </div>
                         <!-------------------------------------button Breakfast-------------->
                         <div class="meal row mb-2 mx-3">
                             <div class="col-4"><button type="button"
-                                    class="category_name btn btn-warning">Breakfast</button></div>
+                                    class="category_name btn btn-warning">Breakfast</button>
+                            </div>
                             <!------------------slide show recipe------------>
                             <div class="col-8 recipe-diet-planner">
                                 <div class="container p-0 m-0">
@@ -295,7 +259,8 @@
                         <!------------------------------------------button Lunch ---------------->
                         <div class="meal row mb-2 mx-3">
                             <div class="col-4"><button type="button"
-                                    class="category_name btn btn-success">Lunch</button></div>
+                                    class="category_name btn btn-success">Lunch</button>
+                            </div>
                             <!------------------slide show recipe------------>
                             <div class="col-8 recipe-diet-planner">
                                 <div class="container p-0 m-0">
@@ -323,7 +288,8 @@
                         <!---------------------------------------------button Diner ------------------>
                         <div class="meal row mb-2 mx-3">
                             <div class="col-4"><button type="button"
-                                    class="category_name btn btn-success">Diner</button></div>
+                                    class="category_name btn btn-success">Diner</button>
+                            </div>
                             <!------------------slide show recipe------------>
                             <div class="col-8 recipe-diet-planner">
                                 <div class="container p-0 m-0">
@@ -337,13 +303,14 @@
                     </div>
                     <!-------------------------------------day of the week Friday------------>
                     <div class="carousel-item">
-                        <div class="justify-content-center day-of-the-week row p-3 mb-2 font-weight-bold"><span
-                                class="text-center">Friday</span>
+                        <div class="justify-content-center day-of-the-week row p-3 mb-2 font-weight-bold">
+                            <span class="text-center">Friday</span>
                         </div>
                         <!-------------------------------------button Breakfast-------------->
                         <div class="meal row mb-2 mx-3">
                             <div class="col-4"><button type="button"
-                                    class="category_name btn btn-warning">Breakfast</button></div>
+                                    class="category_name btn btn-warning">Breakfast</button>
+                            </div>
                             <!------------------slide show recipe------------>
                             <div class="col-8 recipe-diet-planner">
                                 <div class="container p-0 m-0">
@@ -357,7 +324,8 @@
                         <!------------------------------------------button Lunch ---------------->
                         <div class="meal row mb-2 mx-3">
                             <div class="col-4"><button type="button"
-                                    class="category_name btn btn-success">Lunch</button></div>
+                                    class="category_name btn btn-success">Lunch</button>
+                            </div>
                             <!------------------slide show recipe------------>
                             <div class="col-8 recipe-diet-planner">
                                 <div class="container p-0 m-0">
@@ -385,7 +353,8 @@
                         <!---------------------------------------------button Diner ------------------>
                         <div class="meal row mb-2 mx-3">
                             <div class="col-4"><button type="button"
-                                    class="category_name btn btn-success">Diner</button></div>
+                                    class="category_name btn btn-success">Diner</button>
+                            </div>
                             <!------------------slide show recipe------------>
                             <div class="col-8 recipe-diet-planner">
                                 <div class="container p-0 m-0">
@@ -399,13 +368,14 @@
                     </div>
                     <!-------------------------------------day of the week Saturday------------>
                     <div class="carousel-item">
-                        <div class="justify-content-center day-of-the-week row p-3 mb-2 font-weight-bold"><span
-                                class="text-center">Saturday</span>
+                        <div class="justify-content-center day-of-the-week row p-3 mb-2 font-weight-bold">
+                            <span class="text-center">Saturday</span>
                         </div>
                         <!-------------------------------------button Breakfast-------------->
                         <div class="meal row mb-2 mx-3">
                             <div class="col-4"><button type="button"
-                                    class="category_name btn btn-warning">Breakfast</button></div>
+                                    class="category_name btn btn-warning">Breakfast</button>
+                            </div>
                             <!------------------slide show recipe------------>
                             <div class="col-8 recipe-diet-planner">
                                 <div class="container p-0 m-0">
@@ -419,7 +389,8 @@
                         <!------------------------------------------button Lunch ---------------->
                         <div class="meal row mb-2 mx-3">
                             <div class="col-4"><button type="button"
-                                    class="category_name btn btn-success">Lunch</button></div>
+                                    class="category_name btn btn-success">Lunch</button>
+                            </div>
                             <!------------------slide show recipe------------>
                             <div class="col-8 recipe-diet-planner">
                                 <div class="container p-0 m-0">
@@ -447,7 +418,8 @@
                         <!---------------------------------------------button Diner ------------------>
                         <div class="meal row mb-2 mx-3">
                             <div class="col-4"><button type="button"
-                                    class="category_name btn btn-success">Diner</button></div>
+                                    class="category_name btn btn-success">Diner</button>
+                            </div>
                             <!------------------slide show recipe------------>
                             <div class="col-8 recipe-diet-planner">
                                 <div class="container p-0 m-0">
@@ -461,13 +433,14 @@
                     </div>
                     <!-------------------------------------day of the week Sunday------------>
                     <div class="carousel-item">
-                        <div class="justify-content-center day-of-the-week row p-3 mb-2 font-weight-bold"><span
-                                class="text-center">Sunday</span>
+                        <div class="justify-content-center day-of-the-week row p-3 mb-2 font-weight-bold">
+                            <span class="text-center">Sunday</span>
                         </div>
                         <!-------------------------------------button Breakfast-------------->
                         <div class="meal row mb-2 mx-3">
                             <div class="col-4"><button type="button"
-                                    class="category_name btn btn-warning">Breakfast</button></div>
+                                    class="category_name btn btn-warning">Breakfast</button>
+                            </div>
                             <!------------------slide show recipe------------>
                             <div class="col-8 recipe-diet-planner">
                                 <div class="container p-0 m-0">
@@ -481,7 +454,8 @@
                         <!------------------------------------------button Lunch ---------------->
                         <div class="meal row mb-2 mx-3">
                             <div class="col-4"><button type="button"
-                                    class="category_name btn btn-success">Lunch</button></div>
+                                    class="category_name btn btn-success">Lunch</button>
+                            </div>
                             <!------------------slide show recipe------------>
                             <div class="col-8 recipe-diet-planner">
                                 <div class="container p-0 m-0">
@@ -509,7 +483,8 @@
                         <!---------------------------------------------button Diner ------------------>
                         <div class="meal row mb-2 mx-3">
                             <div class="col-4"><button type="button"
-                                    class="category_name btn btn-success">Diner</button></div>
+                                    class="category_name btn btn-success">Diner</button>
+                            </div>
                             <!------------------slide show recipe------------>
                             <div class="col-8 recipe-diet-planner">
                                 <div class="container p-0 m-0">
@@ -521,9 +496,6 @@
                             </div>
                         </div>
                     </div>
-
-
-
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -535,31 +507,14 @@
                 </a>
             </div>
         </div>
-        <!---------------------------------------------Side panel-------------------------->
-        <div class="col-12 col-lg-4">
-            <div class="row">
-                <!--------------------------Search---------------------->
-                <form class="col-12 form-inline md-form form-sm mb-3">
-                    <i class="fas fa-search" aria-hidden="true"></i>
-                    <input id="myInput" class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
-                        aria-label="Search">
-                </form>
 
-                <div id="chosen_tags" class=" col-12 text-wrap border-bottom">
+        <div class="col-5 p-0">
+            <!-------------------------Recipes list---------------------------------------->
+            <div id="recipes-list" class="mt-3" data-spy="scroll" data-target="#navbar-example2" data-offset="0">
 
-                </div>
-
-                <div id="all_tags" class="border-bottom col-12">
-
-                </div>
-
-                <!-------------------------Recipes list-------------->
-                <div id="recipes-list" class="mt-1" data-spy="scroll" data-target="#navbar-example2" data-offset="0">
-
-                </div>
             </div>
             <!----------Feedback for user that search returned no results-------------->
-            <div class="nothingFound" style="display:none">
+            <div class="nothingFound_diet" style="display:none">
                 <p><span>Whoops!</span> </br>Sorry, but nothing matched your search. Please try some different
                     keywords.</p>
             </div>
@@ -568,15 +523,14 @@
 
     <!----------------------Buttons generate diet plan and shopping list------------------>
 
-    <div class="row mb-5">
-        <!------------ Button trigger modal Generate diet plan------------- -->
-        <div class="col-5 col-md-3">
-            <button id="generate_diet_plan" type="button" class="btn btn-warning" data-toggle="modal"
+    <div class="row my-4">
+        <div class="col-3">
+            <!------------ Button trigger modal Generate diet plan------------- -->
+            <button id="generate_diet_plan" type="button" class="btn btn-warning mb-1" data-toggle="modal"
                 data-target="#exampleModalCenter">
                 Generate diet plan
             </button>
         </div>
-
         <!-- Modal -->
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -599,10 +553,8 @@
                 </div>
             </div>
         </div>
-
-
-        <!------------------ Button trigger modal  Generate shopping list-------------------->
-        <div class="col-5 col-md-4">
+        <div class="col-3">
+            <!------------------ Button trigger modal  Generate shopping list-------------------->
             <button type="button" class="btn btn-success" id="generate_shopping_list" data-toggle="modal"
                 data-target="#exampleModalScrollable">
                 Generate shopping list
@@ -614,7 +566,8 @@
             <div class="modal-dialog modal-dialog-scrollable" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title text-success text-center" id="exampleModalScrollableTitle">Shoping
+                        <h5 class="modal-title text-success text-center" id="exampleModalScrollableTitle">
+                            Shoping
                             List
                         </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -631,6 +584,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 
 </div>
@@ -693,22 +647,22 @@
     })
 
     Array.from(distinctTags).sort().forEach(function (tag) {
-        $("#all_tags").append(`<h5><span class="badge badge-warning align-middle mr-1"><span class="tag_name">${tag}</span>
-                        <button type="button" class="close pl-2" aria-label="Close">
+        $("#all_tags").append(`<h6 class="d-inline"><span class="tag badge badge-warning align-middle mr-1"><span class="tag_name">${tag}</span>
+                        <button type="button" class="close_diet close pl-2" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </span>
-                </h5>`)
+                </h6>`)
     })
 
-    $(document).on("click", "#all_tags > h5", function () {
+    $(document).on("click", "#all_tags > h6", function () {
         $("#chosen_tags").append($(this))
         filterCards()
     })
 
-    $(document).on("click", ".close", function () {
-        $("#all_tags").append($(this).parents("h5"))
-        filterCards()
+    $(document).on("click", ".close_diet", function () {
+        $("#all_tags").append($(this).parents("h6"))
+        filterCards("h6")
     })
 
     function filterCards() {
@@ -741,10 +695,10 @@
 
         // if there are no search results show info 
         if (nonMatchingCards.length === allCards.length) {
-            $(".nothingFound").show();
+            $(".nothingFound_diet").show();
 
         } else {
-            $(".nothingFound").hide();
+            $(".nothingFound_diet").hide();
 
         }
     }
@@ -866,5 +820,18 @@
 })
 
 </script>
+
+{% endblock %}
+
+{% block styles %}
+
+.main_container {
+margin: 0 2em;
+padding: 0;
+}
+
+.container.general {
+display: none;
+}
 
 {% endblock %}

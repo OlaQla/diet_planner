@@ -1,29 +1,97 @@
 {% extends 'base.html'%} {% block uber_content %}
 
-<div class="main_container px-lg-0 text-center">
+<div class="main_container px-lg-0 text-center pt-4">
+    <!----------------------Buttons generate diet plan and shopping list------------------>
+
+    <div class="row d-flex justify-content-center pt-3">
+        <div class="col-4">
+            <!------------ Button trigger modal Generate diet plan------------- -->
+            <button id="generate_diet_plan" type="button" class="btn btn-warning mb-1" data-toggle="modal"
+                data-target="#dietPlanModalCenter"><i class="fa fa-calendar-check h6"></i>
+                <span class="h6">Generate diet plan</span>
+            </button>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="dietPlanModalCenter" tabindex="-1" role="dialog"
+            aria-labelledby="dietPlanModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-success" id="dietPlanModalCenterTitle">Diet plan</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="print" class="border pr-3 pl-3 ">
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <!------------------ Button trigger modal  Generate shopping list-------------------->
+            <button type="button" class="btn btn-warning" id="generate_shopping_list" data-toggle="modal"
+                data-target="#shopingListModalScrollable">
+               
+                    <i class="fas fa-list h6"></i>
+                    <span class="h6">Generate shopping list</span>
+              
+            </button>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="shopingListModalScrollable" tabindex="-1" role="dialog"
+            aria-labelledby="shopingListModalScrollableTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-success text-center" id="shopingListModalScrollableTitle">
+                            Shoping
+                            List
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <ul class="list-group list-group-flush shopping_list">
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
     <div class="row main_content justify-content-center">
         <!-----------------------------Carousel diet plan-------------------------->
         <div class="p-0">
-            <div id="carouselExampleIndicators" class="carousel row row_carousel slide mt-4" data-ride="carousel"
+            <div id="Indicators" class="carousel row row_carousel slide mt-4" data-ride="carousel"
                 data-interval=false>
                 <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
+                    <li data-target="#Indicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#Indicators" data-slide-to="1"></li>
+                    <li data-target="#Indicators" data-slide-to="2"></li>
+                    <li data-target="#Indicators" data-slide-to="3"></li>
+                    <li data-target="#Indicators" data-slide-to="4"></li>
+                    <li data-target="#Indicators" data-slide-to="5"></li>
+                    <li data-target="#Indicators" data-slide-to="6"></li>
                 </ol>
                 <!--------------------------------Modal Meals List------------------->
 
-                <div id="modal_meals_list" class="modal fade bd-example-modal-lg show" tabindex="-1" role="dialog"
+                <div id="modal_meals_list" class="modal fade meal_list_modal show" tabindex="-1" role="dialog"
                     aria-labelledby="myLargeModalLabel" style="display: none; padding-right: 17px;">
-                    <div class="modal-dialog modal-lg">
+                    <div class="modal-dialog modal-lg modal-dialog-scrollable">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h4 class="modal-title" id="myLargeModalLabel">Select meal from list</h4>
+                                <h4 class="modal-title text-success" id="myLargeModalLabel">Select meal from list</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">×</span>
                                 </button>
@@ -40,6 +108,7 @@
                                     </div>
                                     <!----------------all tags----------->
                                     <div class="col-6 text-center pt-0">
+                                        <div class="font-weight-bold">Click tag to refine search:</div>
                                         <div id="all_tags" class="col-12 text-justify py-2 px-0"></div>
                                     </div>
                                 </div>
@@ -64,7 +133,7 @@
                     </div>
                 </div>
 
-                <div class="carousel-inner">
+                <div class="carousel-inner mb-5">
                     {% for day in ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] %}
                     <div class="carousel-item {% if loop.first %} active {% endif %}">
                         <!-------------------------------------day of the week Monday------------>
@@ -72,34 +141,34 @@
                             <span class="day-of-the-week">{{day}}</span>
                         </div>
                         <div class="container-flex meals-carousel mb-4">
-                            <div class="row d-flex justify-content-center mb-2">
+                            <div class="row d-flex justify-content-center mb-4">
                                 <div class="meal col-5 mr-4">
                                     <div class="row">
-                                        <div class="category_name h4 text-center col-12 bg-light">Breakfast</div>
+                                        <div class="category_name h4 text-center col-12 py-3 rounded-top">Breakfast</div>
                                     </div>
                                     <div class="row">
-                                        <div class="container meal_carousel p-0 m-0">
+                                        <div class="container meal_carousel p-0 m-0"> 
                                             <div
-                                                class="slideShowRecipeTitle row justify-content-center font-weight-bold">
+                                                class="slideShowRecipeTitle row justify-content-center font-weight-bold text-info h5 py-3">&nbsp;
                                             </div>
                                             <img src="{{url_for('static', filename='images/foodPlaceholder.png')}}"
                                                 class="slideShowRecipeImage img-thumbnail rounded img-fluid max-width: 100% sidebar-image"
-                                                data-toggle="modal" data-target=".bd-example-modal-lg">
+                                                data-toggle="modal" data-target=".meal_list_modal">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="meal col-5">
                                     <div class="row">
-                                        <div class="category_name h4 text-center col-12 bg-light">Lunch</div>
+                                        <div class="category_name h4 text-center col-12 py-3 rounded-top">Lunch</div>
                                     </div>
                                     <div class="row">
                                         <div class="container meal_carousel p-0 m-0">
                                             <div
-                                                class="slideShowRecipeTitle row justify-content-center font-weight-bold">
+                                                class="slideShowRecipeTitle row justify-content-center font-weight-bold text-info h5 py-3">&nbsp;
                                             </div>
                                             <img src="{{url_for('static', filename='images/foodPlaceholder.png')}}"
                                                 class="slideShowRecipeImage img-thumbnail rounded img-fluid max-width: 100% sidebar-image"
-                                                data-toggle="modal" data-target=".bd-example-modal-lg">
+                                                data-toggle="modal" data-target=".meal_list_modal">
                                         </div>
                                     </div>
                                 </div>
@@ -108,31 +177,31 @@
                             <div class="row d-flex justify-content-center">
                                 <div class="meal col-5 mr-4">
                                     <div class="row">
-                                        <div class="category_name h4 text-center col-12 bg-light">Tea</div>
+                                        <div class="category_name h4 text-center col-12 py-3 rounded-top">Tea</div>
                                     </div>
                                     <div class="row">
                                         <div class="container meal_carousel p-0 m-0">
                                             <div
-                                                class="slideShowRecipeTitle row justify-content-center font-weight-bold">
+                                                class="slideShowRecipeTitle row justify-content-center font-weight-bold text-info h5 py-3">&nbsp;
                                             </div>
                                             <img src="{{url_for('static', filename='images/foodPlaceholder.png')}}"
                                                 class="slideShowRecipeImage img-thumbnail rounded img-fluid max-width: 100% sidebar-image"
-                                                data-toggle="modal" data-target=".bd-example-modal-lg">
+                                                data-toggle="modal" data-target=".meal_list_modal">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="meal col-5">
                                     <div class="row">
-                                        <div class="category_name h4 text-center col-12 bg-light">Dinner</div>
+                                        <div class="category_name h4 text-center col-12 py-3 rounded-top">Dinner</div>
                                     </div>
                                     <div class="row">
                                         <div class="container meal_carousel p-0 m-0">
                                             <div
-                                                class="slideShowRecipeTitle row justify-content-center font-weight-bold">
+                                                class="slideShowRecipeTitle row justify-content-center font-weight-bold text-info h5 py-3">&nbsp;
                                             </div>
                                             <img src="{{url_for('static', filename='images/foodPlaceholder.png')}}"
                                                 class="slideShowRecipeImage img-thumbnail rounded img-fluid max-width: 100% sidebar-image"
-                                                data-toggle="modal" data-target=".bd-example-modal-lg">
+                                                data-toggle="modal" data-target=".meal_list_modal">
                                         </div>
                                     </div>
                                 </div>
@@ -140,86 +209,19 @@
                         </div>
                     </div>
                     {% endfor %}
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <a class="carousel-control-prev" href="#Indicators" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
                     </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <a class="carousel-control-next" href="#Indicators" role="button" data-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
-               
+
             </div>
 
         </div>
-
-        <!----------------------Buttons generate diet plan and shopping list------------------>
-
-        <div class="row my-4">
-            <div class="col-3">
-                <!------------ Button trigger modal Generate diet plan------------- -->
-                <button id="generate_diet_plan" type="button" class="btn btn-warning mb-1" data-toggle="modal"
-                    data-target="#exampleModalCenter">
-                    Generate diet plan
-                </button>
-            </div>
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title text-success" id="exampleModalCenterTitle">Diet plan</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div id="print" class="border pr-3 pl-3 ">
-
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3">
-                <!------------------ Button trigger modal  Generate shopping list-------------------->
-                <button type="button" class="btn btn-success" id="generate_shopping_list" data-toggle="modal"
-                    data-target="#exampleModalScrollable">
-                    Generate shopping list
-                </button>
-            </div>
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
-                aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-scrollable" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title text-success text-center" id="exampleModalScrollableTitle">
-                                Shoping
-                                List
-                            </h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <ul class="list-group list-group-flush shopping_list">
-                            </ul>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
     </div>
 
     {% endblock %}

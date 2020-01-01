@@ -14,12 +14,12 @@
 <div>
     <!------- Modal with images to choose--------->
     <div class="modal fade" id="modal_image_select" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+        aria-labelledby="modal_image_list_scroll" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
                 <!-----------modal header-------->
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalScrollableTitle">Select image</h5>
+                    <h5 class="modal-title" id="modal_image_list_scroll">Select image</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -69,8 +69,8 @@
             </div>
             <!------------Add / Edit Category input------------->
             <div class="col-6">
-                <label class="font-weight-bolder" for="exampleFormControlSelect1">Category</label>
-                <select class="form-control" id="exampleFormControlSelect1" name="category">
+                <label class="font-weight-bolder" for="add_edit_category">Category</label>
+                <select class="form-control" id="add_edit_category" name="category">
                     {% for cat in categories %}
                     <option value="{{cat.name}}">{{cat.name}}</option>
                     {% endfor %}
@@ -81,8 +81,8 @@
         <!------------Add / Edit Servings input------------->
         <div class="row justyfi-content-center mb-3">
             <div class=" col-6">
-                <label class="font-weight-bolder" for="exampleFormControlSelect1">Servings</label>
-                <select class="form-control" id="exampleFormControlSelect1" name="new_servings">
+                <label class="font-weight-bolder" for="add_edit_category">Servings</label>
+                <select class="form-control" id="add_edit_category" name="new_servings">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -119,8 +119,8 @@
         <div class="row justyfi-content-center mb-3">
             <!-----------------minutes-->
             <div class="col-6">
-                <label class="font-weight-bolder" for="exampleFormControlSelect1"> minutes</label>
-                <select class="form-control" id="exampleFormControlSelect1" name="new_minutes">
+                <label class="font-weight-bolder" for="add_edit_category"> minutes</label>
+                <select class="form-control" id="add_edit_category" name="new_minutes">
                     <option>0</option>
                     <option>5</option>
                     <option>10</option>
@@ -138,8 +138,8 @@
             </div>
             <!--------------Hours-->
             <div class="col-6">
-                <label class="font-weight-bolder" for="exampleFormControlSelect1">hours</label>
-                <select class="form-control" id="exampleFormControlSelect1" name="new_hours">
+                <label class="font-weight-bolder" for="add_edit_category">hours</label>
+                <select class="form-control" id="add_edit_category" name="new_hours">
                     <option>0</option>
                     <option>1</option>
                     <option>2</option>
@@ -188,7 +188,7 @@
         <!------------Add / Edit Steps input------------->
         <div class="form-group mb-2" id="steps_list">
             <div class="row">
-                <label class="font-weight-bolder col-2" for="exampleFormControlTextarea1">Steps: </label>
+                <label class="font-weight-bolder col-2" for="steps_label">Steps: </label>
                 <button id="add_step" class="btn btn-success col-4 col-md-2 mb-3" type="button">Add step <i
                         class="fa fa-plus"></i></button>
             </div>
@@ -274,7 +274,7 @@
         $("#steps_list").append(`
                     <div class="row">
                         <p class="col-1">${$("#steps_list").children().length}.</p>
-                        <textarea class="form-control col-6" id="exampleFormControlTextarea1" name="new_recipe" rows="3">${step}</textarea>
+                        <textarea class="form-control col-6" id="steps_label" name="new_recipe" rows="3">${step}</textarea>
                         <i class="remove_step fa fa-minus b_minus text-danger col-1"></i>
                     </div>`)
 
@@ -362,7 +362,7 @@
             $("#steps_list").append(`
                     <div class="row">
                         <p class="col-1">${$("#steps_list").children().length}.</p>
-                        <textarea class="form-control col-6" id="exampleFormControlTextarea1" name="new_recipe" rows="3"></textarea>
+                        <textarea class="form-control col-6" id="steps_label" name="new_recipe" rows="3"></textarea>
                         <i class="remove_step fa fa-minus b_minus text-danger col-1"></i>
                     </div>`)
         })

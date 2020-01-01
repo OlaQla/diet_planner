@@ -273,47 +273,32 @@ footer {
 }
 
 /*-----------------------------------Diet planner-----------------------*/
-#recipes-list {
-  max-height: 63em;
-  margin-bottom: 10px;
-  overflow: scroll;
-  -webkit-overflow-scrolling: touch;
+.slideShowRecipeImage {
+  width: 100%;
+  height:15rem;
+}
+.card-img-top {
+  width: 100%;
+  height: 10rem;
 }
 
-.row_carousel{
-  min-height: 62em;
-}
-.day-of-the-week{
+.days-of-the-week{
   font-size: 1.5em;
   background-color:rgb(21,147,167);
   color:#fafafa;
 }
-.search_section{
-  z-index: 1;
-  background-color: rgba(255, 255, 255, 1);
-}
 
-.day-of-the-week-dropdown{
-  font-size: 1em !important;
-}
 .carousel-inner{
   border-radius: 5px;
-  background-color: #e2e2e2;
-  
 }
 
 .carousel-control-next-icon, .carousel-control-prev-icon {
   background-color: black !important;
-
 }
 
 .recipe-diet-planner{ 
-  width: 100%;
+width: 100%;
  background-color: transparent;
-}
-
-.sidebar-image{
-  height: 12em !important;
 }
 
 .carousel-control-prev, .carousel-control-next{
@@ -337,20 +322,21 @@ footer {
   font-size: 1em;;
 }
 
-#all_tags .close_diet {
-  display: none;
-}
+
 .main_content{
-  padding-top: 160px;
   padding-left: 4em;
   padding-right: 4em;
 }
-#chosen_tags .tag {
+#all_tags .close_diet {
+  display: none;
+}
+#all_tags .active .tag {
   background-color: #5cb85c;
   color: white;
 }
-#chosen_tags .tag .close_diet {
-  color: white; 
+#all_tags .active .tag .close_diet {
+  color: white;
+  display:inline;
 }
 
 /*------------------------------------ media query -----------------*/

@@ -107,7 +107,7 @@
         </div>
         <!--------------------------------input tag------------->
         <div class="row my-4">
-            <div class="col-5"><input id="tag_input" class="form-control" type="text" placeholder="Tag name"
+            <div class="col-8 col-md-5"><input id="tag_input" class="form-control" type="text" placeholder="Tag name"
                     name="new_tag"></div>
             <div class="col-4"><button id="add_tag_button" class="btn btn-success" type="button">
                     Add
@@ -158,8 +158,8 @@
         </div>
         <!------------Add / Edit Ingredients input------------->
         <div class="container-flex">
-            <div class="row justyfi-content-center mb-3">
-                <div class="col-5">
+            <div class="row d-flex justify-content-center justify-content-md-start ml-md-1 mb-3">
+                <div class="col-5 p-0">
                     <label class="font-weight-bolder" for="search_ingredient">Add ingredient</label>
                     <select class="form-control" id="search_ingredient" name="category">
                         {% for ing in ingredients %}
@@ -167,7 +167,7 @@
                         {% endfor %}
                     </select>
                 </div>
-                <div class="form-group col-3">
+                <div class="form-group col-3 px-1">
                     <label class="font-weight-bolder" for="search_unit">Unit</label>
                     <select class="form-control" id="search_unit" name="category">
                         {% for unit in units %}
@@ -175,8 +175,8 @@
                         {% endfor %}
                     </select>
                 </div>
-                <div class="form-group col-2">
-                    <label for="add_ingredient_amount">Amount</label>
+                <div class="form-group col-2 p-0">
+                    <label class="font-weight-bolder" for="add_ingredient_amount">Amount</label>
                     <input type="text" class="form-control" id="add_ingredient_amount" placeholder="Amount">
                 </div>
                 <i id="add_ingredient" class="b_plus fa fa-plus text-success"></i>
@@ -188,7 +188,7 @@
         <!------------Add / Edit Steps input------------->
         <div class="form-group mb-2" id="steps_list">
             <div class="row">
-                <label class="font-weight-bolder col-2" for="steps_label">Steps: </label>
+                <label class="font-weight-bolder col-3" for="steps_label">Steps: </label>
                 <button id="add_step" class="btn btn-success col-4 col-md-2 mb-3" type="button">Add step <i
                         class="fa fa-plus"></i></button>
             </div>
@@ -274,7 +274,7 @@
         $("#steps_list").append(`
                     <div class="row">
                         <p class="col-1">${$("#steps_list").children().length}.</p>
-                        <textarea class="form-control col-6" id="steps_label" name="new_recipe" rows="3">${step}</textarea>
+                        <textarea class="form-control col-9 col-md-6" id="steps_label" name="new_recipe" rows="3">${step}</textarea>
                         <i class="remove_step fa fa-minus b_minus text-danger col-1"></i>
                     </div>`)
 

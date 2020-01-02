@@ -1,37 +1,37 @@
 {% extends 'base.html'%} {% block content %}
-<div class="container col-md-10 col-lg-8">
+<div class="container col-md-12 col-lg-10">
 
     <!--------------------view recipe card------------------>
     <div class="card view_recipe_card mb-3 row justify-content-md-center">
-       <!-------------recipe image--------->
+        <!-------------recipe image--------->
         <img id="view_recipe_image" src="{{recipe.image}}" class="card-img-top img-fluid" alt="...">
         <!----------------------recipe card body---------->
         <div class="card-body">
             <!---------title------->
-            <h3 class="card-title text-center">{{recipe.title}}</h3>
+            <h3 class="card-title card-title-view-recipe text-center">{{recipe.title}}</h3>
             <hr>
 
             <div class='container nopadding'>
                 <div class="container-fluid col-12 px-0">
                     <div class="container text-center">
-                        
+
                         <!----------------icons------------>
                         <div class="row color-view-recipe">
                             <div class="col-4"><i class="fa fa-align-center"></i></div>
                             <div class="col-4"><i class="fa fa-clock"></i></div>
                             <div class="col-4"><i class="fas fa-utensils"></i></div>
                         </div>
-                       
+
                         <!---------------icon title--------->
                         <div class="row color-view-recipe">
-                            <div class="col-4">
-                                <p class="font-weight-bold">Category:</p>
+                            <div class="col-4 info-text">
+                                <p class="font-weight-bold ">Category:</p>
                             </div>
-                            <div class="col-4">
-                                <p class="font-weight-bold">Time:</p>
+                            <div class="col-4 info-text">
+                                <p class="font-weight-bold ">Time:</p>
                             </div>
-                            <div class="col-4">
-                                <p class="font-weight-bold">Servings:</p>
+                            <div class="col-4 info-text">
+                                <p class="font-weight-bold ">Servings:</p>
                             </div>
                         </div>
 
@@ -45,20 +45,23 @@
                     <hr>
 
                     <!-----------------------------------Tags------------------------------------>
-                    <div class="row justify-content-left pl-3 color-view-recipe"><i class="fas fa-tags pt-1 pr-1"></i><h6 class="font-weight-bold">Tags:</h6></div>
+                    <div class="row justify-content-left pl-3 color-view-recipe"><i class="fas fa-tags pt-1 pr-1"></i>
+                        <h6 class="font-weight-bold">Tags:</h6>
+                    </div>
                     <div class="row p-2">
                         {% for tag in recipe.tags %}
-                        <h5><span class="badge badge-warning align-middle mr-1">{{tag}}</span></h5>
+                        <h5><span class="tag badge badge-warning align-middle mr-1">{{tag}}</span></h5>
                         {% endfor %}
                     </div>
                     <hr>
-                   <!------------------Ingredients list------------>
+                    <!------------------Ingredients list------------>
                     <div class='col-12 px-0 pt-4'>
-                        <h4 class="color-ingredients"><i class="fas fa-apple-alt text-success pb-3"></i> Ingredients: </h4>
+                        <h4 class="color-ingredients"><i class="fas fa-apple-alt text-success pb-3"></i> Ingredients:
+                        </h4>
                         <ul>
                             {% if recipe.ingredients %}
                             {% for ingredient in recipe.ingredients %}
-                            
+
                             <li>
                                 <div class="row nopadding">
                                     <div class="mx-1">{{ingredient.name}}</div>
@@ -73,7 +76,8 @@
                         </ul>
 
                         <!--------------------recipe steps----------------->
-                        <h4 class="color-ingredients pl-2 pt-4"><i class=" text-success fas fa-book-open"></i> Steps: </h4>
+                        <h4 class="color-ingredients pl-2 pt-4"><i class=" text-success fas fa-book-open"></i> Steps:
+                        </h4>
                         {% for step in recipe.recipe %}
                         <div class="pl-4">{{loop.index}}. {{step}}</div>
                         <hr>
@@ -83,18 +87,20 @@
             </div>
 
             <!---------------------buttons--------------------->
-            
-            <!---------------Go back to view all recipes button---------->
-            <a href="{{url_for('get_recipes')}}" class="btn btn-info bottom-buttons">Go back to all recipes
-            </a>
-            
-            <!---------------Edit recipe button ---------->
-            <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn btn-primary bottom-buttons"
-                role="button" aria-pressed="true">Edit</a>
-            
-            <!---------------Delete recipe button---------->
-            <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="btn btn-danger bottom-buttons"
-                role="button" aria-pressed="true">Delete</a>
+            <div class="row d-flex justify-content-center">
+                <!---------------Go back to view all recipes button---------->
+                <a href="{{url_for('get_recipes')}}" class="btn btn-info bottom-buttons go-back-btn col-8 col-md-4 mx-md-2">Go back
+                    to all recipes
+                </a>
+
+                <!---------------Edit recipe button ---------->
+                <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn btn-primary bottom-buttons col-4 col-md-2 mr-2"
+                    role="button" aria-pressed="true">Edit</a>
+
+                <!---------------Delete recipe button---------->
+                <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="btn btn-danger bottom-buttons col-4 col-md-2"
+                    role="button" aria-pressed="true">Delete</a>
+            </div>
         </div>
     </div>
 

@@ -350,6 +350,19 @@ footer {
 /*------------------------------------ media query -----------------*/
 
 @media only screen and (max-width: 767px) {
+  .carousel-control-next-icon,
+  .carousel-control-prev-icon {
+    display:none;
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next {
+    display:none;
+  }
+  
+
+
+
   #view_recipe_image {
     height: 16rem;
     width: 100%;

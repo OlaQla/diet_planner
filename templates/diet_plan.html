@@ -1,4 +1,6 @@
-{% extends 'base.html'%} {% block uber_content %}
+{% extends 'base.html'%} 
+
+{% block content_no_container %}
 
 <div class="main_container px-lg-0 text-center pt-4">
     
@@ -76,7 +78,7 @@
 
     </div>
 
-    <div class="row main_content">
+    <div class="row d-flex justify-content-center main_content">
         <!-----------------------------Carousel diet plan-------------------------->
         <div class="p-0">
             <div id="Indicators" class="carousel row row_carousel slide mt-4" data-ride="carousel" data-interval=false>
@@ -98,7 +100,7 @@
                             <div class="modal-header">
                                 <h4 class="modal-title text-success" id="myLargeModalLabel">Select meal from list
                                 </h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <button id="close_modal_meals_list" type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">×</span>
                                 </button>
                             </div>
@@ -253,12 +255,37 @@
             $(this).parents("tr").remove()
         })
 
+      
+        // clear search function
+        function clear_search(){
+           const modal_meal_list = $("#modal_meals_list")
+           modal_meal_list.find("#all_tags .active").removeClass("active")
+           modal_meal_list.find("#myInput").val("")
+           modal_meal_list.find(".recipe-sidebar").show();
+        }
 
+        function print_modal() {
+            var printwindow = window.open('', 'PRINT', 'height=400,width=600');
+
+            printwindow.document.write('<html><head><link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" media="print"/></head><body onload="window.print(); window.close();">')
+            printwindow.document.write($(".modal.show .modal-dialog").html());
+            printwindow.document.write('</body></html>');
+
+            printwindow.document.close(); // necessary for IE >= 10
+            printwindow.focus(); // necessary for IE >= 10*/
+
+            return true;
+        }
+
+        $("#close_modal_meals_list").click(function(){
+            clear_search()
+            
+        })
+        
         //print diet plan and shopping list
         $(".print_btn").click(function(){
-            $(".main_content").hide()
-            window.print()
-            $(".main_content").show()
+            
+            print_modal()
         });
         // Fill in list with all recipes
 
@@ -277,11 +304,12 @@
                         </div>`)
 
             $newElem.click(function () {
-                $slideShowRecipe = $(".meal_carousel.chosen_meal")
-                $slideShowRecipe.find(".slideShowRecipeTitle").text($(this).find(".rec-title").text())
-                $slideShowRecipe.find(".slideShowRecipeImage").attr("src", $(this).find(".rec-image").attr("src"))
-                $("#modal_meals_list").modal('hide')
-                $slideShowRecipe.removeClass("chosen_meal")
+                $slideShowRecipe = $(".meal_carousel.chosen_meal");
+                $slideShowRecipe.find(".slideShowRecipeTitle").text($(this).find(".rec-title").text());
+                $slideShowRecipe.find(".slideShowRecipeImage").attr("src", $(this).find(".rec-image").attr("src"));
+                $("#modal_meals_list").modal('hide');
+                clear_search();
+                $slideShowRecipe.removeClass("chosen_meal");
             });
 
             $recipesList.append($newElem)

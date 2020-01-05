@@ -42,7 +42,7 @@ h5 {
   width: 100%;
 }
 #view_recipe_image {
-  height: 23rem;
+  height: 30rem;
   width: 100%;
 }
 
@@ -354,15 +354,11 @@ footer {
   .carousel-control-prev-icon {
     display:none;
   }
-  
   .carousel-control-prev,
   .carousel-control-next {
     display:none;
   }
   
-
-
-
   #view_recipe_image {
     height: 16rem;
     width: 100%;
@@ -395,5 +391,14 @@ footer {
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1050px) {
+  .container_view_recipe{
+    width: 40em !important;
+  }
+
+  #view_recipe_image {
+    width: 80%;
+    height:18em;
+    margin: auto;
+  }
 }

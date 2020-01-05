@@ -75,7 +75,6 @@ def delete_ingredient(ingredient_id):
 
 @app.route('/edit_ingredient/<ingredient_id>')
 def edit_ingredient(ingredient_id):
-    
     return render_template('edit_ingredient.html',
         ingredient=mongo.db.ingredients.find_one({'_id': ObjectId(ingredient_id)}))
 

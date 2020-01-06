@@ -68,14 +68,14 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
-        // Get recipe view after clicking on card
+        
+        // Navigate to recipe details view after clicking on card
         $(".card-group").click(function () {
             window.location.href = $(this).data("target");
         })
 
 
-        // search input
-
+        // Handle search input
         $("#myInput").keyup(function () {
             var currentValue = $(this).val().toLowerCase().trim();
 
@@ -91,11 +91,10 @@
                 return titleText.indexOf(currentValue) === -1;
             });
 
-
             // Set display none to all filtered cards
             nonMatchingCards.hide();
             
-             // if there are no search results show info 
+             // If there are no search results show relevant information
              if (nonMatchingCards.length === allCards.length) {
                  $(".nothingFound").show();
                 

@@ -1,9 +1,10 @@
+/*jshint esversion: 6 */
 $(document).ready(function () {
         
     // Navigate to recipe details view after clicking on card
     $(".card-group").click(function () {
         window.location.href = $(this).data("target");
-    })
+    });
 
 
     // Handle search input
@@ -34,4 +35,4 @@ $(document).ready(function () {
             
          }
     });
-})
+});

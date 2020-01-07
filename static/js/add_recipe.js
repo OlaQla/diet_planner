@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 $(document).ready(function () {
 
     // Load images URL with Ajax and populate images list
@@ -5,22 +6,21 @@ $(document).ready(function () {
         data.forEach(function (image) {
             $("#image_list").append(`<div class="col-4 p-0">
                                         <img src="${image}" alt="" class="card-img-top img-thumbnail rounded img-fluid max-width: 100%">
-                                   </div>`)
-        })
-    })
+                                   </div>`);
+        });
+    });
 
     // Handle tag removal 
-    $(document).on("click", ".close", function () {
-        $(this).parents("h5").remove()
-    })
+    $(document).on("click", ".close", function () { $(this).parents("h5").remove();
+    });
 
     // Handle adding tag
     $("#add_tag_button").click(function () {
-        $tagInput = $("#tag_input")
-        tagName = String($tagInput.val())[0].toUpperCase() + String($tagInput.val()).slice(1).toLowerCase()
-        tagsList = $("#tag_list h5 > span > span").map(function (idx, item) {
-            return item.textContent.trim()
-        })
+        const $tagInput = $("#tag_input");
+        const tagName = String($tagInput.val())[0].toUpperCase() + String($tagInput.val()).slice(1).toLowerCase();
+        const tagsList = $("#tag_list h5 > span > span").map(function (idx, item) {
+            return item.textContent.trim();
+        });
 
         // add tag only if currently doesn't exist
         if ($.inArray(tagName, tagsList) === -1) {
@@ -29,10 +29,10 @@ $(document).ready(function () {
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </span>
-            </h5>`)
+            </h5>`);
         }
-        $tagInput.val("")
-    })
+        $tagInput.val("");
+    });
 
     // Initially hide the image list
     $("#image_list").hide();
@@ -43,21 +43,21 @@ $(document).ready(function () {
 
     // Handle picking image from list and hide modal and putting to image preview
     $(document).on("click", "#image_list img", function () {
-        src = $(this).attr('src');
+        const src = $(this).attr('src');
         $("#input_img_url").val(src);
         $('#modal_image_select').modal('hide');
         $("#image_preview").attr('src', src);
-    })
+    });
 
     // Show image list when image preview is clicked
     $("#image_preview").click(function () {
         $('#modal_image_select').modal('show');
-    })
+    });
 
     // Handle deleting ingredient
     $(document).on("click", ".delete_ingredient", function () {
-        $(this).parents("li").eq(0).remove()
-    })
+        $(this).parents("li").eq(0).remove();
+    });
 
     // Populate new ingredient data
     $("#add_ingredient").click(function () {
@@ -72,8 +72,8 @@ $(document).ready(function () {
                 <div class="col-3 col-md-2">${ingredient_amount}</div>
                 <div class="col-1 col-md-2"><i class="delete_ingredient fa fa-minus b_minus text-danger"></i></div>
             </div>
-                </li>`)
-    })
+                </li>`);
+    });
 
     // Handling populating new step data
     $("#add_step").click(function () {
@@ -82,26 +82,26 @@ $(document).ready(function () {
                     <p class="col-1">${$("#steps_list").children().length}.</p>
                     <textarea class="form-control col-6" id="steps_label" name="new_recipe" rows="3"></textarea>
                     <i class="remove_step fa fa-minus b_minus text-danger col-1"></i>
-                </div>`)
-    })
+                </div>`);
+    });
 
     // Handle removing step
     $(document).on("click", ".remove_step", function () {
-        $(this).parents(".row").remove()
+        $(this).parents(".row").remove();
         $("#steps_list .row:gt(0)").each(function (index) {
-            $(this).find("p").text(`${index + 1}.`)
-        })
-    })
+            $(this).find("p").text(`${index + 1}.`);
+        });
+    });
 
 
     // Handle uploading new image
     $("#upload_img").click(function () {
-        formdata = new FormData();
-        formfiles = $(this).siblings().eq(0).find("input[type=file]").prop('files')
+        let formdata = new FormData();
+        const formfiles = $(this).siblings().eq(0).find("input[type=file]").prop('files');
 
         // check if any files were picked
         if (formfiles.length > 0) {
-            file = formfiles[0];
+            const file = formfiles[0];
 
             // set image data in form
             formdata.append('image', file);
@@ -113,20 +113,20 @@ $(document).ready(function () {
                 processData: false,
                 contentType: false,
                 enctype: 'multipart/form-data'
-            })
+            });
         }
-    })
+    });
 
 
     // aggregate data into single structure to be sent to backend to persist in database
     $("#submit_button").click(function () {
-        const ingredients = $("#ingredients_list").find("li").map(function () { return { name: $(this).children().eq(0).children().eq(0).text(), unit: $(this).children().eq(0).children().eq(1).text(), amount: $(this).children().eq(0).children().eq(2).text() } });
+        const ingredients = $("#ingredients_list").find("li").map(function () { return { name: $(this).children().eq(0).children().eq(0).text(), unit: $(this).children().eq(0).children().eq(1).text(), amount: $(this).children().eq(0).children().eq(2).text() }; });
         const steps = $("#steps_list").find(".row").map(function () {
-            return $(this).find("textarea").val()
-        })
+            return $(this).find("textarea").val();
+        });
         const tags = $("#tag_list h5 > span > span").map(function (idx, item) {
-            return item.textContent.trim()
-        })
+            return item.textContent.trim();
+        });
 
         // object being sent to database
         const data = {
@@ -139,7 +139,7 @@ $(document).ready(function () {
             prepare_time_hours: $("form").find("select[name=new_hours]").val(),
             ingredients: ingredients.toArray(),
             tags: tags.toArray()
-        }
+        };
 
         // post data to backend and on success redirect to recipes list
         $.ajax({
@@ -148,7 +148,7 @@ $(document).ready(function () {
             contentType: "application/json",
             data: JSON.stringify(data),
             success: function () {
-                window.location.href = recipesPageUrl
+                window.location.href = recipesPageUrl;
             }
         });
     });

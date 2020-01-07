@@ -13,17 +13,20 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: "asap condensed", sans-serif !important;
+  font-family: "asap condensed", sans-serif;
   font-weight: 700;
 }
 
 .close {
-  font-size: 1rem !important;
+  font-size: 1rem;
+}
+
+.close:focus {
   outline: none;
 }
 
 .close_diet {
-  font-size: 0.7rem !important;
+  font-size: 0.7rem;
 }
 
 /* ----------------- recipe images -------------------*/
@@ -63,28 +66,54 @@ form {
 }
 
 .bigger {
-  font-family: "asap condensed", sans-serif !important;
+  font-family: "asap condensed", sans-serif;
   font-size: 20px;
 }
 /*------------------------------buttons --------------*/
 
 /*add infredient, steps */
 .b_plus {
-  outline: none;
   margin-top: 2.5em;
   margin-left: 2em;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
+  -moz-transform: scale(1);
+  -o-transform: scale(1);
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
   transform: scale(1);
 }
+.b_plus:focus {
+  outline:none;
+}
 .b_plus:hover {
+  -moz-transform: scale(1.3);
+  -o-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  -webkit-transform: scale(1.3);
   transform: scale(1.3);
 }
 /*remove infredient, steps */
 .b_minus {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
+  -moz-transform: scale(1);
+  -o-transform: scale(1);
+  -ms-transform: scale(1); 
+  -webkit-transform: scale(1);
   transform: scale(1);
 }
 .b_minus:hover {
+  -moz-transform: scale(1.03);
+  -o-transform: scale(1.03);
+  -ms-transform: scale(1.03);
+  -webkit-transform: scale(1.03);
   transform: scale(1.03);
 }
 
@@ -95,10 +124,22 @@ form {
 
 .card-group {
   display: flex;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
+  -moz-transform: scale(1);
+  -o-transform: scale(1);
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
   transform: scale(1);
 }
 .card-group:hover {
+  -moz-transform: scale(1.03);
+  -o-transform: scale(1.03);
+  -ms-transform: scale(1.03);
+  -webkit-transform: scale(1.03);
   transform: scale(1.03);
 }
 .card {
@@ -178,12 +219,8 @@ form {
 }
 
 .nopadding {
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-.nomargin {
-  margin: 0 !important;
+  padding: 0;
+  margin: 0;
 }
 
 /*-------------------------------------------- navbar ---------------------*/
@@ -213,11 +250,14 @@ form {
 /* -------------buttons navbar----------------------*/
 .link_nav {
   margin: 0;
-  transition: all 0.3s;
   position: relative;
 }
 .link_nav {
-  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition:all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s; 
 }
 .link_nav:hover {
   letter-spacing: 1.5px;
@@ -228,7 +268,11 @@ form {
   width: 0;
   height: 1px;
   background: rgba(255, 255, 255, 0.7);
-  transition: width 0.3s;
+  -webkit-transition: width 0.3s;
+  -moz-transition:width 0.3s;
+  -ms-transition: width 0.3s;
+  -o-transition: width 0.3s;
+  transition: width 0.3s; 
 }
 
 .link_nav :hover::after {
@@ -256,6 +300,9 @@ footer {
   background-color: transparent;
   border: none;
   -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
 
@@ -266,6 +313,9 @@ footer {
 }
 
 .social_icon:hover {
+  -moz-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  -ms-transform: scale(1.2);
   -webkit-transform: scale(1.2);
   transform: scale(1.2);
 }
@@ -393,7 +443,7 @@ footer {
 
 @media (min-width: 1050px) {
   .container_view_recipe{
-    width: 40em !important;
+    width: 40em;
   }
 
   #view_recipe_image {

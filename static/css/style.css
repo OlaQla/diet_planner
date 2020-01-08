@@ -58,10 +58,12 @@ h5 {
 
 /* -----------------------forms styling ----------------*/
 form {
+  background-color: white;
   background-color: rgba(255, 255, 255, 0.9);
 }
 
 #ingredients_list {
+  background-color: white;
   background-color: rgba(255, 255, 255, 0.9);
 }
 
@@ -144,6 +146,7 @@ form {
 }
 .card {
   border-radius: 8px;
+  background-color: white;
   background-color: rgb(253, 252, 250);
 }
 
@@ -244,6 +247,7 @@ form {
 .navbar-light .navbar-nav .nav-link.active,
 .navbar-light .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .show > .nav-link {
+  color: white;
   color: rgba(255, 255, 255, 0.9);
 }
 
@@ -267,6 +271,7 @@ form {
   display: block;
   width: 0;
   height: 1px;
+  background: white;
   background: rgba(255, 255, 255, 0.7);
   -webkit-transition: width 0.3s;
   -moz-transition:width 0.3s;
@@ -335,6 +340,7 @@ footer {
 
 .days-of-the-week {
   font-size: 1.5em;
+  background-color: #1593a7;
   background-color: rgb(21, 147, 167);
   color: #fafafa;
 }
@@ -356,6 +362,7 @@ footer {
 .carousel-control-prev,
 .carousel-control-next {
   width: 4%;
+  background-color: #e0e0e0 ;
   background-color: rgba(0, 0, 0, 0.1);
 }
 

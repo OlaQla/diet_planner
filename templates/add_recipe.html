@@ -40,15 +40,17 @@
                 <!------------------------------- modal footer----------->
                 <!---------------Upload img----------------->
                 <div class="modal-footer">
-                    <div class="input-group mb-3 pt-3">
+                    <div class="input-group">
                         <div id="upload_img" class="input-group-prepend">
-                            <span class="input-group-text">Upload</span>
+                          <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
                         </div>
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="inputGroupFile01">
-                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                          <input type="file" class="custom-file-input" id="inputGroupFile01"
+                            aria-describedby="inputGroupFileAddon01">
+                          <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                         </div>
-                    </div>
+                      </div>
+                
                     <!------------------Close modal button --------------->
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>

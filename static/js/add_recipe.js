@@ -1,14 +1,22 @@
 /*jshint esversion: 6 */
 $(document).ready(function () {
 
-    // Load images URL with Ajax and populate images list
-    $.get("/images", function (data) {
-        data.forEach(function (image) {
-            $("#image_list").append(`<div class="col-4 p-0">
-                                        <img src="${image}" alt="" class="card-img-top img-thumbnail rounded img-fluid max-width: 100%">
-                                   </div>`);
+    function loadImages() {
+        $("#image_list").hide().delay(5000).fadeIn(500);
+        $(".spinner-border").show().delay(5000).fadeOut();
+        $("#image_list").html("");
+
+        // Load images URL with Ajax and populate images list
+        $.get("/images", function (data) {
+            data.forEach(function (image) {
+                $("#image_list").append(`<div class="col-4 p-0">
+                                            <img src="${image}" alt="" class="card-img-top img-thumbnail rounded img-fluid max-width: 100%">
+                                    </div>`);
+            });
         });
-    });
+    }
+
+    loadImages()
 
     // Handle tag removal 
     $(document).on("click", ".close", function () { $(this).parents("h5").remove();
@@ -112,7 +120,13 @@ $(document).ready(function () {
                 data: formdata,
                 processData: false,
                 contentType: false,
-                enctype: 'multipart/form-data', 
+                enctype: 'multipart/form-data',
+                success: function () {
+                    loadImages();
+                }, 
+                error: function () {
+                    loadImages();
+                } 
             });
         }
     });

@@ -112,7 +112,7 @@ $(document).ready(function () {
                 data: formdata,
                 processData: false,
                 contentType: false,
-                enctype: 'multipart/form-data'
+                enctype: 'multipart/form-data', 
             });
         }
     });

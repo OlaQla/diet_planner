@@ -16,7 +16,7 @@ $(document).ready(function () {
         });
     }
 
-    loadImages()
+    loadImages();
 
     // Handle tag removal 
     $(document).on("click", ".close", function () { $(this).parents("h5").remove();

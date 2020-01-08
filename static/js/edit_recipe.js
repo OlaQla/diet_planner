@@ -27,7 +27,7 @@ $(document).ready(function () {
         $("#steps_list").append(`
                     <div class="row">
                         <p class="col-1">${$("#steps_list").children().length}.</p>
-                        <textarea class="form-control col-9 col-md-6" id="steps_label" name="new_recipe" rows="3">${step}</textarea>
+                        <textarea class="steps_label form-control col-9 col-md-6" name="new_recipe" rows="3">${step}</textarea>
                         <i class="remove_step fa fa-minus b_minus text-danger col-1"></i>
                     </div>`);
     });

@@ -97,7 +97,7 @@ $(document).ready(function () {
     // Handle uploading new image
     $("#upload_img").click(function () {
         let formdata = new FormData();
-        const formfiles = $(this).siblings("input[type=file]").eq(0).prop('files');
+        const formfiles = $(this).siblings("input[type=file]").prop('files');
 
         // check if any files were picked
         if (formfiles.length > 0) {

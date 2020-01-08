@@ -40,7 +40,17 @@
                 <!------------------------------- modal footer----------->
                 <!---------------Upload img----------------->
                 <div class="modal-footer">
-                    <div class="input-group">
+
+                    <form>
+                        <div class="row">
+                            <input class="col-7" type="file" name="fileToUpload">
+                            <input class="col-4 btn btn-primary" id="upload_img" type="submit" value="Upload" name="submit">
+                        </div>
+                    </form>
+
+
+
+                    <!--<div class="input-group">
                         <div id="upload_img" class="input-group-prepend">
                           <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
                         </div>
@@ -49,8 +59,8 @@
                             aria-describedby="inputGroupFileAddon01">
                           <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                         </div>
-                      </div>
-                
+                      </div>-->
+
                     <!------------------Close modal button --------------->
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
@@ -249,12 +259,12 @@
 
 <script type="text/javascript">
     const recipesPageUrl = "{{url_for('get_recipes')}}";
-    
+
     // Generate posting url if it is update or create 
     {% if existing_recipe %}
-        const postRecipeUrl = "{{ url_for('update_recipe', recipe_id = existing_recipe._id)}}";
+    const postRecipeUrl = "{{ url_for('update_recipe', recipe_id = existing_recipe._id)}}";
     {% else %}
-        const postRecipeUrl = "{{ url_for('insert_recipe')}}";
+    const postRecipeUrl = "{{ url_for('insert_recipe')}}";
     {% endif %}
 
     const postImageUrl = "{{url_for('add_image')}}";

@@ -1,5 +1,5 @@
 Flask==1.1.1
-Werkzeug==0.16.0
+Werkzeug==2.2.3
 Gunicorn==20.0.0
 Flask-PyMongo==2.3.0
 dnspython==1.16.0

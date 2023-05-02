@@ -1,4 +1,4 @@
-Flask==1.1.1
+Flask==2.2.5
 Werkzeug==0.16.0
 Gunicorn==20.0.0
 Flask-PyMongo==2.3.0
